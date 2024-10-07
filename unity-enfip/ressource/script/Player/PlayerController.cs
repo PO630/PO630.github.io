@@ -66,61 +66,50 @@ public class PlayerController : MonoBehaviour
 
     /*=====================================================================================================================================================*/
 
-    private float timerBefLandingAnim = 1.8f;
-    // Méthode pour mettre à jour le timer
-    private float SetTimerBefLandingAnim()
-    {
-        // Soustraire le temps écoulé
-        timerBefLandingAnim = timerBefLandingAnim - Time.deltaTime ;
-        if( timerBefLandingAnim <= 0f )
-        {
-            timerBefLandingAnim = 0f ;
-        }
-        // Retourner la valeur actuelle du timer
-        return timerBefLandingAnim;
-    }
-
     void Jump()
     {
         // Vérifie si le joueur est au sol avant de sauter
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-        SetTimerBefLandingAnim();
 
-        if( isGrounded && isJumping && timerBefLandingAnim <= 0f )
+        // Si le joueur appuie sur le bouton de saut et est au sol
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            isJumping = false ;
-            StartCoroutine(EnableMovementAfterDelay(0.75f));
-            // Animation super hero landing
+            // Appliquer une force vers le haut pour faire sauter le joueur
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+            // Si un Animator est attaché, lancer l'animation de saut
             if (animator != null)
             {
-                animator.SetTrigger("JumpEnd") ;
+                animator.SetTrigger("Jump");
             }
-            
-        }
-
-        if (Input.GetButtonDown("Jump") && isGrounded )
-        {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                isJumping = true ;
-                timerBefLandingAnim = 1.8f ;
-                // Animation de saut si nécessaire
-                if (animator != null)
-                {
-                    animator.SetTrigger("Jump");
-                }
         }
     }
 
+    /*=====================================================================================================================================================*/
+
     // Coroutine pour activer canMove après un délai donné
-    private IEnumerator EnableMovementAfterDelay(float delay)
+    public IEnumerator EnableMovementAfterDelay(float delay)
     {
         canMove = false ;
+        rb.velocity = new Vector2(0,0);
 
         // Attend le délai spécifié (ici 1 seconde)
         yield return new WaitForSeconds(delay);
 
         // Place canMove à true après le délai
         canMove = true;
+    }
+
+    void OnDrawGizmos()
+    {
+        if (groundCheck != null)
+        {
+        // Définir la couleur des Gizmos à rouge
+        Gizmos.color = Color.red;
+
+        // Dessiner un cercle au point de vérification du sol
+        Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
+        }
     }
 
     /*=====================================================================================================================================================*/

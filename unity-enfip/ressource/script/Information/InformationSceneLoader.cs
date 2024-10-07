@@ -42,3 +42,27 @@ public class InformationSceneLoader : MonoBehaviour
         // LoadSceneByName("NomDeLaScene"); // Décommentez pour charger une scène par son nom
     }
 }
+
+/*
+
+Les scènes dans Unity sont des environnements distincts ou des niveaux de jeu dans lesquels les GameObjects et les éléments de gameplay sont placés. 
+Chaque scène peut contenir des éléments comme des personnages, des objets interactifs, des lumières, des caméras et des scripts, permettant ainsi de 
+créer des expériences variées et complexes.
+
+                                                            Caractéristiques des scènes 
+
+    Organisation 
+
+Les scènes permettent de diviser un projet en différentes sections, facilitant ainsi la gestion et la navigation dans le contenu. 
+Par exemple, tu peux avoir une scène pour le menu principal, une pour le niveau 1, et une autre pour le niveau 2.
+
+    Chargement et Déchargement
+
+Les scènes peuvent être chargées et déchargées dynamiquement pendant le jeu. Cela permet de passer d'un niveau à un autre sans avoir à tout recharger.
+
+    Éditeur de scènes
+
+Unity offre un éditeur visuel pour créer et modifier des scènes. Tu peux glisser et déposer des GameObjects, ajuster leurs propriétés 
+et voir les changements en temps réel.
+
+*/

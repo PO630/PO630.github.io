@@ -13,7 +13,7 @@ public class InformationUnity : MonoBehaviour
         informationUnity = GameObject.Find("InformationUnity"); // Trouve un GameObject nommé "Player"
         
         // Vérification de la présence du GameObject
-        if (player != null)
+        if (informationUnity != null)
         {
             Debug.Log("Le informationUnity a été trouvé !");
         }
