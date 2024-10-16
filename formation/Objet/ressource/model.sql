@@ -4,13 +4,13 @@
 CREATE TABLE Entreprise (
     id SERIAL PRIMARY KEY,                      -- Identifiant unique pour chaque entreprise
     nom VARCHAR(100) NOT NULL,                  -- Nom de l'entreprise
-    typeEntreprise VARCHAR(50) NOT NULL,        -- Type de l'entreprise (ex : 'Menuiserie', 'Plomberie', etc.)
+    type_entreprise VARCHAR(50) NOT NULL,        -- Type de l'entreprise (ex : 'Menuiserie', 'Plomberie', etc.)
     siret VARCHAR(14) NOT NULL UNIQUE           -- SIRET de l'entreprise (format 14 caractères)
 );
 
 -- Table Manager
 CREATE TABLE Manager (
-    id SERIAL PRIMARY KEY AUTO_INCREMENT,               -- Identifiant unique pour chaque manager
+    id SERIAL PRIMARY KEY,               				 -- Identifiant unique pour chaque manager (auto-incrémentation)
     nom VARCHAR(50) NOT NULL,                           -- Nom du manager
     prenom VARCHAR(50) NOT NULL,                        -- Prénom du manager
     mail VARCHAR(100) NOT NULL UNIQUE,                  -- Mail unique du manager
@@ -23,7 +23,7 @@ CREATE TABLE Manager (
 
 -- Table Artisan
 CREATE TABLE Artisan (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY ,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     mail VARCHAR(100) NOT NULL UNIQUE,
@@ -50,7 +50,7 @@ CREATE TABLE Qualifier (
 
 -- Table Ouvrier
 CREATE TABLE Ouvrier (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY ,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     mail VARCHAR(100) NOT NULL UNIQUE,
@@ -86,7 +86,7 @@ INSERT INTO Manager (nom, prenom, mail, titre, id_entreprise) VALUES
 ('Chloé', 'Bernard', 'chloe.bernard@example.com', 'Directrice Adjointe', 2), 
 ('Luc', 'Leroy', 'luc.leroy@example.com', 'Chef de Projet', 3),
 ('Émile', 'Fabre', 'emile.fabre@example.com', 'Directeur Technique', 3),  
-('Sophie', 'Robert', 'sophie.robert@example.com', 'Directrice Technique', 4);
+('Sophie', 'Robert', 'sophie.robert@example.com', 'Directrice Technique', 4),
 ('Léon', 'David', 'leon.david@example.com', 'Directeur', 4); 
 
 -- 3. Ajouter des artisans
