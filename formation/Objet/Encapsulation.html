@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>L'objet - comprendre l'objet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" lang="en" content="open source x/html and css templates">
+<meta name="author" content="mlp design">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+<style>
+	table 
+	{
+	  width: 100%;
+	  border-collapse: collapse;
+	}
+	th, td 
+	{
+	  border: 1px solid black;
+	  padding: 0.8em;
+	  text-align: left;
+	}
+	th 
+	{
+	  background-color: #79ccc1;
+	}
+
+	pre 
+	{
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+	
+</style>
+</head>
+<body>
+<!--start wrapper-->
+<div id="wrapper">
+
+<!--start body-->
+<div id="body">
+
+<!--start header-->
+<div id="banner">
+<h1>L'objet <em>- comprendre l'objet</em></h1>
+<p>Programmation orientée objet : comprendre à travers des exemples d'utilisation en entreprise.</p>
+<!-- menu -->
+<label for="show-menu" class="responsive">&#9776;</label>
+<input type="checkbox" id="show-menu" role="button">
+<ul id="topnav">
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="Définir un Objet.html">Définir un Objet</a></li>
+	<li><a href="Encapsulation.html">Encapsulation</a></li>
+	<li><a href="Héritage.html">Héritage</a></li>
+	<li><a href="Exercices.html">Exercices</a></li>
+</ul>
+<!-- end menu -->
+</div>
+<!--end of header-->
+
+	<!--start containter-->
+	<div id="container">
+			
+		<!--start content-->
+		<div id="content">
+			<!--post item-->
+			<div class="item">
+				<h2>L'Encapsulation</h2>
+
+				<p>
+					L'encapsulation est un concept fondamental de la programmation orientée 
+					objet qui permet de restreindre l'accès direct à certains composants 
+					d'un objet. Ce principe vise à protéger les données internes d'une 
+					classe contre des modifications non autorisées, tout en fournissant 
+					une interface claire et contrôlée pour interagir avec ces données.
+				</p>
+
+				<h3>Interface : La boite noir</h3>
+
+				<p>
+					L'idée principale de l'encapsulation est de cacher l'état interne d'un 
+					objet et de ne permettre son accès qu'à travers des méthodes spécifiques, 
+					souvent appelées méthodes d'accès ou getters et setters. Ces méthodes 
+					permettent de contrôler comment les attributs d'un objet sont modifiés 
+					ou récupérés. Par exemple, un setter peut inclure des vérifications 
+					pour s'assurer que les valeurs assignées à un attribut sont valides.
+				</p>
+
+				<p>
+					Une interface d’objet agit comme un ensemble de commandes qu’on peut utiliser 
+					pour interagir avec l’objet, un peu comme les boutons d’une boîte noire. 
+					L’utilisateur sait quelles commandes sont disponibles, mais pas comment 
+					elles fonctionnent en interne. Cela permet de se concentrer sur l’utilisation 
+					de l’objet sans avoir besoin de comprendre son fonctionnement interne, ce 
+					qui simplifie l’interaction et protège les données internes.
+				</p>
+
+				<img src="ressource/BoiteNoir.png" alt="Boite Noir" width="500" height="400">
+
+				<p>
+					L'interface d'un objet ne vise pas seulement à restreindre l'accès aux données, 
+					mais surtout à assurer la stabilité et l'intégrité du code. Cela permet que 
+					même si la logique interne de l’objet change (comme une amélioration de calcul 
+					ou un changement dans la manière dont les données sont stockées), 
+					l'interface elle-même reste inchangée.
+				</p>
+
+				<p>
+					Ainsi, les autres parties du programme qui utilisent cet objet peuvent 
+					continuer à fonctionner sans être impactées par les modifications internes.
+				</p>
+
+
+
+				<p>
+					<h3>Mise en place</h3>
+
+				<p>
+					Dans la programmation orientée objet, les mots-clés public et privé (private) 
+					définissent la visibilité ou le niveau d'accès des attributs et des méthodes 
+					d'une classe.
+					<ul>
+						<li style="margin: 1%;">
+						<strong>Public</strong> : Un attribut ou une méthode déclarée comme public est 
+							accessible depuis n'importe quelle autre classe. Cela signifie 
+							que toute partie du programme peut interagir directement avec 
+							cet attribut ou cette méthode.
+						</li>
+						<li style="margin: 1%;">
+						<strong>Privé</strong> : Un attribut ou une méthode déclarée comme private est 
+							uniquement accessible depuis la classe elle-même. Cela permet de 
+							contrôler l'accès aux données sensibles ou de les protéger contre 
+							des modifications non souhaitées. Avec private, nous pouvons 
+							garantir que certaines valeurs ne changent que par des 
+							moyens sûrs et contrôlés, comme par un setter.
+						</li>
+						<li style="margin: 1%;">
+						<strong>Protected</strong> : permet à une variable ou une méthode d’être 
+							accessible dans sa propre classe, ses sous-classes (dans le même package 
+							ou un autre) et les autres classes du même package. Cela offre un 
+							niveau d'accès entre private et public, utile pour créer des objets 
+							qui exposent certains aspects à leurs sous-classes sans tout rendre 
+							accessible publiquement.
+						</li>
+					</ul>
+				</p>
+
+
+<pre>
+<code>
+/** Exemple JAVA */
+public class Horloge 
+{
+	public String nom; // Attribut public, accessible directement
+    private int heure; // Attribut privé
+
+	// Getters et setters
+    public int getHeure() {
+        return heure;
+    }
+
+	public void setHeure(int heure) {
+        this.heure = heure % 24; // Limite l'heure à une valeur valide (0-23)
+    }
+}
+</code>
+<code>
+# Exemple PYTHON
+class Horloge:
+	def __init__(self, nom, heure=0, minute=0, seconde=0):
+			self.nom = nom  # Attribut public
+			self._heure = heure % 24  # Attribut privé
+			self._minute = minute % 60  # Attribut privé
+			self._seconde = seconde % 60  # Attribut privé
+
+		# Getters et setters
+		def get_heure(self):
+			return self._heure
+		
+		def set_heure(self, heure):
+			self._heure = heure % 24
+
+</code>
+</pre>
+					<p>
+						En Python, il n’y a pas de mot-clé strictement équivalent pour les 
+						niveaux de visibilité comme en Java, mais par convention, les attributs 
+						privés sont préfixés d’un underscore _.
+					</p>
+				</p>
+
+
+				<p>
+					<h3>Exemple</h3>
+
+					<p>
+						Maintenant, nous allons changer le fonctionnement interne de notre 
+						objet Horloge sans en modifier l'interface. Pour optimiser notre 
+						code, nous n'utiliserons plus qu'un seul attribut, secondes, au lieu 
+						des trois attributs heure, minute et seconde.
+					</p>
+
+					<p>
+						Cette approche simplifie la gestion du temps tout en conservant les 
+						mêmes méthodes setHeure, setMinute, et setSeconde. L’utilisateur 
+						de l’objet pourra continuer à utiliser l’horloge de la même manière, 
+						sans se soucier des changements internes, qui demeurent invisibles.
+					</p>
+					
+				</p>
+
+<pre>
+<code>
+/** Exemple JAVA */
+public class Horloge {
+    private int secondes; // On stocke tout en secondes maintenant
+    public String nom;
+
+    public Horloge(int heure, int minute, int seconde, String nom) {
+        this.nom = nom;
+        setHeure(heure);
+        setMinute(minute);
+        setSeconde(seconde);
+    }
+
+    // Ajuste les heures en secondes
+    public void setHeure(int heure) {
+        this.secondes += heure * 3600;
+    }
+
+    // Ajuste les minutes en secondes
+    public void setMinute(int minute) {
+        this.secondes += minute * 60;
+    }
+
+    // Ajuste les secondes directement
+    public void setSeconde(int seconde) {
+        this.secondes += seconde;
+    }
+
+    // Récupère l'heure au format HH:MM:SS
+    public String getFormattedTime() {
+        int heures = secondes / 3600;
+        int minutes = (secondes % 3600) / 60;
+        int sec = secondes % 60;
+        return String.format("%02d:%02d:%02d", heures, minutes, sec);
+    }
+}
+</code>
+</pre>
+
+			</div>
+			<!--end of another post item-->			
+		</div>
+		<!--end of content-->
+
+	</div>
+	<!--end of container-->
+
+</div>
+<!--end of body-->
+
+	<!--start footer-->
+	<div id="footer">
+		<span class="left">2024 <a href="mailto:francois-xavier63@hotmail.fr">Marcheix François-Xavier</a>.</span>
+		<span class="right"><a href="mailto:francois-xavier63@hotmail.fr">Contact</a> | <a href="../index.html">Formation</a></span>
+	</div>
+	<!--end of footer-->	
+
+</div>
+<!--end of wrapper-->
+
+	
+</body>
+
+</html>
+
+

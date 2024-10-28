@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>L'objet - comprendre l'objet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" lang="en" content="open source x/html and css templates">
+<meta name="author" content="mlp design">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+<style>
+	table 
+	{
+	  width: 100%;
+	  border-collapse: collapse;
+	}
+	th, td 
+	{
+	  border: 1px solid black;
+	  padding: 0.8em;
+	  text-align: left;
+	}
+	th 
+	{
+	  background-color: #79ccc1;
+	}
+
+	pre 
+	{
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+	
+</style>
+</head>
+<body>
+<!--start wrapper-->
+<div id="wrapper">
+
+<!--start body-->
+<div id="body">
+
+<!--start header-->
+<div id="banner">
+<h1>L'objet <em>- comprendre l'objet</em></h1>
+<p>Programmation orientée objet : comprendre à travers des exemples d'utilisation en entreprise.</p>
+<!-- menu -->
+<label for="show-menu" class="responsive">&#9776;</label>
+<input type="checkbox" id="show-menu" role="button">
+<ul id="topnav">
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="Définir un Objet.html">Définir un Objet</a></li>
+	<li><a href="Encapsulation.html">Encapsulation</a></li>
+	<li><a href="Héritage.html">Héritage</a></li>
+	<li><a href="Exercices.html">Exercices</a></li>
+</ul>
+<!-- end menu -->
+</div>
+<!--end of header-->
+
+	<!--start containter-->
+	<div id="container">
+			
+		<!--start content-->
+		<div id="content">
+			<!--post item-->
+			<div class="item">
+				<h2>Exercices</h2>
+
+                <h3>Schéma de Données</h3>
+
+				<p>
+					Maintenant, nous allons explorer la transformation d'un schéma de base de données 
+					en classes Java. Notre schéma de base de données est composé de plusieurs tables 
+					interconnectées, représentant une structure qui gère les entreprises, les managers, 
+					les artisans, les ouvriers, et les outils.
+				</p>
+
+				<p>
+					Cependant, pour rendre cette formation encore plus captivante, imaginons que notre 
+					base de données est générée par un administrateur un peu excentrique. Ce personnage fou fait 
+					des demandes parfois absurdes, qui nous permettront de découvrir les capacités et la 
+					puissance de la programmation orientée objet. À chaque étape, nous répondrons à ces 
+					demandes improbables en créant des classes Java adaptées à notre modèle de données.
+				</p>
+
+				<p></p>
+				<a href="ressource/model.sql" download>model.sql</a>
+				<p></p>
+
+				<p style="margin-left: 0%;">
+					<img src="ressource/model.png" alt="model" width="100%" height="100%">
+				</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Aspect</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Entreprise</td>
+							<td>Contient les informations sur les entreprises</td>
+						</tr>
+						<tr>
+							<td>Manager</td>
+							<td>Gère les informations des managers liés aux entreprises</td>
+						</tr>
+						<tr>
+							<td>Artisan</td>
+							<td>Détails sur les artisans, avec une clé étrangère reliant chaque artisan à un manager</td>
+						</tr>
+						<tr>
+							<td>Qualification</td>
+							<td>Répertorie les qualifications disponibles</td>
+						</tr>
+						<tr>
+							<td>Qualifier</td>
+							<td>Lien entre artisans et leurs qualifications</td>
+						</tr>
+						<tr>
+							<td>Ouvrier</td>
+							<td>Détails sur les ouvriers, également liés aux managers</td>
+						</tr>
+						<tr>
+							<td>Outil</td>
+							<td>Informations sur les outils associés aux ouvriers</td>
+						</tr>
+					</tbody>
+				</table>
+
+                <p></p>
+
+                <p>
+                    <h3>Exercice 1</h3>
+
+                    <p>
+                        Conception du model.
+                    </p>
+
+                </p>
+
+                <p>
+                    <h3>Exercice 2</h3>
+
+                    <p>
+                        Changement du model par le dba fou.
+                    </p>
+                    
+                </p>
+
+                <p>
+                    <h3>Exercice 3</h3>
+
+                    <p>
+                        Polymorphisme a la sauvegarde un mail sera envoie au manager.
+                    </p>
+                    
+                </p>
+
+                <p>
+                    <h3>Exercice 4</h3>
+
+                    <p>
+                        Suppréssion de la table Outil, dépréssiation
+                    </p>
+                    
+                </p>
+
+			</div>
+			<!--end of another post item-->			
+		</div>
+		<!--end of content-->
+
+	</div>
+	<!--end of container-->
+
+</div>
+<!--end of body-->
+
+	<!--start footer-->
+	<div id="footer">
+		<span class="left">2024 <a href="mailto:francois-xavier63@hotmail.fr">Marcheix François-Xavier</a>.</span>
+		<span class="right"><a href="mailto:francois-xavier63@hotmail.fr">Contact</a> | <a href="../index.html">Formation</a></span>
+	</div>
+	<!--end of footer-->	
+
+</div>
+<!--end of wrapper-->
+
+	
+</body>
+
+</html>
+
+

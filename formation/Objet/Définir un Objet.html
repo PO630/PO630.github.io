@@ -25,6 +25,15 @@
 	{
 	  background-color: #79ccc1;
 	}
+
+	pre 
+	{
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+	
 </style>
 </head>
 <body>
@@ -42,11 +51,11 @@
 <label for="show-menu" class="responsive">&#9776;</label>
 <input type="checkbox" id="show-menu" role="button">
 <ul id="topnav">
-<li><a href="index.html">Introduction</a></li>
-<li><a href="Définir un Objet.html">Définir un Objet</a></li>
-<li><a href="#">Page 3</a></li>
-<li><a href="#">Page 4</a></li>
-<li><a href="#">Page 5</a></li>
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="Définir un Objet.html">Définir un Objet</a></li>
+	<li><a href="Encapsulation.html">Encapsulation</a></li>
+	<li><a href="Héritage.html">Héritage</a></li>
+	<li><a href="Exercices.html">Exercices</a></li>
 </ul>
 <!-- end menu -->
 </div>
@@ -59,7 +68,7 @@
 		<div id="content">
 			<!--post item-->
 			<div class="item">
-				<h1>Définir un Objet</h1>
+				<h2>Définir un Objet</h2>
 				<p></p>
 				<h3>Qu'est-ce qu'un objet en programmation ?</h3>
 
@@ -71,7 +80,271 @@
 					objets similaires.
 				</p>
 
+				<p>
+					<h3>Nommer un Objet</h3>
+
+					<p>
+						Un objet est une instance d'une classe, qui est un modèle ou un plan définissant les 
+						caractéristiques et les comportements que l'objet peut avoir. Lorsque nous créons un 
+						objet, nous devons lui donner un nom qui est généralement en rapport avec ce 
+						que représente l'objet. Par exemple, si nous créons un objet qui représente une 
+						horloge, nous pouvons le nommer Horloge, Time ou encore Montre.
+
+						Le nom doit être significatif et décrire clairement ce que l'objet représente pour 
+						faciliter sa compréhension et son utilisation.
+					</p>
+
+<pre>
+<code>
+/** Exemple JAVA */
+public class Horloge 
+{
+
+}
+</code>
+<code>
+# Exemple PYTHON
+class Horloge:
+</code>
+</pre>
+					</p>
+
+					<p>
+						<h3>Attributs</h3>
+						
+						<p>
+							Les attributs sont des caractéristiques ou des propriétés qui décrivent l'état 
+							d'un objet. Ils sont définis dans la classe et sont généralement représentés par 
+							des variables. Par exemple, dans notre classe Horloge, 
+							nous avons plusieurs attributs :
+
+							<ul>
+								<li>heure (de type int): représente l'heure actuelle.</li>
+								<li>minute (de type int): représente les minutes actuelles.</li>
+								<li>seconde (de type int): représente les secondes actuelles.</li>
+								<li>nom (de type String): représente le nom de l'horloge.</li>
+							</ul>
+
+<pre>
+<code>
+/** Exemple JAVA */
+public class Horloge 
+{
+	public String nom = "Default" ;
+	private int heure = 0 ;
+	private int minute = 0 ;
+	private int seconde = 0 ;
+}
+</code>
+<code>
+# Exemple PYTHON
+class Horloge:
+
+	nom = "Default" 
+	heure = 0
+	minute = 0
+	seconde = 0
+
+</code>
+</pre>
+						</p>
+					</p>
+
 				
+				<p>
+					<h3>Méthodes</h3>
+
+					<p>
+						Les méthodes sont des fonctions définies au sein d'une classe qui décrivent les 
+						comportements ou les actions que l'objet peut effectuer. Elles permettent de 
+						manipuler les attributs de l'objet et d'interagir avec celui-ci. Par exemple, 
+						dans notre classe Horloge, nous avons des méthodes comme :
+
+						<ul>
+							<li>setHeure: permet de définir l'heure de l'horloge.</li>
+							<li>setMinute: permet de définir les minutes de l'horloge, 
+								en prenant en compte la conversion des minutes excédentaires en heures.</li>
+							<li>setSeconde: permet de définir les secondes de l'horloge, avec la 
+								conversion des secondes excédentaires en minutes.</li>
+							<li>afficherHeure: permet d'afficher l'heure au format hh:mm:ss</li>
+						</ul>
+					</p>
+<pre>
+<code>
+/** Exemple JAVA */
+public class Horloge 
+{
+	public String nom = "Default" ;
+	private int heure = 0 ;
+	private int minute = 0 ;
+	private int seconde = 0 ;
+
+	public void setHeure(int heure) {
+        if (heure >= 0) {
+            this.heure = heure;
+        } else {
+            System.out.println("Heure invalide.");
+        }
+    }
+
+    public void setMinute(int minute) {
+        if (minute >= 0) {
+            this.heure += minute / 60;          // Ajoute les heures supplémentaires si minute >= 60
+            this.minute = minute % 60;           // Garde les minutes restantes (0-59)
+            setHeure(this.heure);                // Mets à jour l'heure au cas où elle dépasserait 24
+        } else {
+            System.out.println("Minute invalide.");
+        }
+    }
+
+    public void setSeconde(int seconde) {
+        if (seconde >= 0) {
+            this.minute += seconde / 60;         // Ajoute les minutes supplémentaires si seconde >= 60
+            this.seconde = seconde % 60;         // Garde les secondes restantes (0-59)
+            setMinute(this.minute);              // Mets à jour les minutes et potentiellement l'heure
+        } else {
+            System.out.println("Seconde invalide.");
+        }
+    }
+
+    public void setTime(int heure, int minute, int seconde) {
+        setHeure(heure);
+        setMinute(minute);
+        setSeconde(seconde);
+    }
+
+    public String afficherHeure() {
+        return String.format("%02d:%02d:%02d", heure, minute, seconde);
+    }
+
+}
+</code>
+<code>
+# Exemple PYTHON
+class Horloge:
+
+	nom = "Default" 
+	heure = 0
+	minute = 0
+	seconde = 0
+
+	def set_heure(self, heure):
+	if heure >= 0:
+		self.heure = heure
+	else:
+		print("Heure invalide.")
+
+	def set_minute(self, minute):
+		if minute >= 0:
+			self.heure += minute // 60          # Ajoute les heures supplémentaires si minute >= 60
+			self.minute = minute % 60           # Garde les minutes restantes (0-59)
+			self.set_heure(self.heure)          # Mets à jour l'heure si nécessaire
+		else:
+			print("Minute invalide.")
+
+	def set_seconde(self, seconde):
+		if seconde >= 0:
+			self.minute += seconde // 60        # Ajoute les minutes supplémentaires si seconde >= 60
+			self.seconde = seconde % 60         # Garde les secondes restantes (0-59)
+			self.set_minute(self.minute)        # Mets à jour les minutes et potentiellement l'heure
+		else:
+			print("Seconde invalide.")
+
+	def set_time(self, heure, minute, seconde):
+		self.set_heure(heure)
+		self.set_minute(minute)
+		self.set_seconde(seconde)
+
+	def afficher_heure(self):
+		return f"{self.heure:02d}:{self.minute:02d}:{self.seconde:02d}"
+
+</code>
+</pre>
+				</p>
+
+			<p>
+				<h3>Constructeur</h3>
+
+				<p>
+					Un constructeur est une méthode spéciale qui est appelée lors de la création 
+					d'un nouvel objet. Il a le même nom que la classe et est utilisé pour initialiser 
+					les attributs de l'objet. Dans notre classe Horloge, nous avons un constructeur 
+					qui prend les valeurs d'heure, de minute et de seconde comme paramètres et les 
+					utilise pour initialiser l'état de l'objet. Par exemple :
+				</p>
+
+<pre>
+<code>
+/** Exemple JAVA */
+public class Horloge 
+{
+	public Horloge() {}
+
+	public Horloge(String nom) {
+        this.nom = nom;
+    }
+
+    public Horloge(String nom, int heure, int minute, int seconde) {
+        this.nom = nom;
+        setTime(heure, minute, seconde);
+    }
+
+}
+</code>
+<code>
+# Exemple PYTHON
+class Horloge:
+
+	def __init__(self, nom, heure=0, minute=0, seconde=0):
+	self.nom = nom
+	self.set_time(heure, minute, seconde)
+
+</code>
+</pre>
+
+			</p>
+
+
+			<p>
+				<h3>Exemple d'utilisation</h3>
+
+				<p> Voici un exemple d'utilisation de l'objet Horloge, incluant la création 
+					d'une instance avec le constructeur, l'utilisation de la méthode setMinute et 
+					l'affichage de l'état de l'horloge :
+				</p>
+
+				<pre>
+<code>
+/** Exemple JAVA */
+public class Main {
+    public static void main(String[] args) {
+        // Création de l'objet Horloge avec le constructeur
+        Horloge maHorloge = new Horloge("Ma Horloge", 10, 45, 30);
+
+        // Utilisation de la méthode setMinute pour modifier les minutes
+        maHorloge.setMinute(75);  // Cela ajoutera 1 heure et mettra les minutes à 15
+
+        // Affichage de l'état de l'horloge
+        System.out.println(horloge.nom + " : " + horloge.afficherHeure());
+    }
+}
+</code>
+<code>
+# Exemple PYTHON
+
+# Création de l'objet Horloge avec le constructeur
+ma_horloge = Horloge("Ma Horloge", 10, 45, 30)
+
+# Utilisation de la méthode setMinute pour modifier les minutes
+ma_horloge.setMinute(75)  # Cela ajoutera 1 heure et mettra les minutes à 15
+
+# Affichage de l'état de l'horloge
+print(f"{ma_horloge.nom} affiche : {ma_horloge.heure}h {ma_horloge.minute}m {ma_horloge.seconde}s")
+
+# Ma Horloge affiche : 11h 15m 30s
+</code>
+</pre>
+			</p>
 
 			</div>
 			<!--end of another post item-->			
@@ -98,4 +371,5 @@
 </body>
 
 </html>
+
 
