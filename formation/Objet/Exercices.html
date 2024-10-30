@@ -34,6 +34,31 @@
         overflow-x: auto;
     }
 	
+
+	.accordion-button {
+        background-color: #1cb5a8;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: background-color 0.3s ease;
+    }
+    .accordion-button:hover {
+        background-color: #1cb5a8;
+    }
+    .accordion-content {
+        display: none;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-top: none;
+    }
+    .accordion .accordion-button.active + .accordion-content {
+        display: block;
+    }
+
 </style>
 </head>
 <body>
@@ -136,41 +161,186 @@
 
                 <p></p>
 
-                <p>
-                    <h3>Exercice 1</h3>
+				<p>
+					Dans notre équipe de développement, nous sommes responsables d'une bibliothèque 
+					appelée <strong>Entreprise-commun</strong>, qui regroupe l'ensemble des 
+					objets nécessaires au bon fonctionnement des applications interagissant avec 
+					la base de données mentionnée ci-dessus. Cette bibliothèque assure la 
+					centralisation des ressources et garantit une organisation cohérente du 
+					code partagé par les différents composants de l'application.
+				</p>
+				<p></p>
+				<ul>
+					<li style="margin: 1%;">
+						Il est essentiel de préserver l'encapsulation de vos objets. Imaginez que vos 
+						collègues utilisent ces objets et leurs méthodes régulièrement. Par exemple, 
+						la méthode <strong>getNom()</strong> de l'objet <strong>Ouvrier</strong> pourrait être 
+						utilisée dans plus de 1 000 lignes de code à travers l'application 😱. 
+						Si cette méthode est modifiée sans précaution, cela pourrait causer 
+						de nombreuses erreurs et interruptions dans les systèmes qui en dépendent.
+					</li>
+					<li style="margin: 1%;">
+						Nous gérons également les services qui facilitent l'interaction entre 
+						l'application et la base de données. Ces services offrent des fonctionnalités 
+						avancées, telles que l'envoi d'e-mails ou d'autres actions impossibles à 
+						réaliser directement au niveau de la base de données.
+					</li>
+				</ul>
+				
 
-                    <p>
-                        Conception du model.
-                    </p>
+				<p>
+					<h3>Exercice 1</h3>
+					<p>
+						Avec le modèle ci-dessus, vous devez concevoir des objets correspondant à cette structure. 
+						<p></p>Comment allez-vous procéder ? 
+						<p></p>Quelles méthodes vous semblent essentielles pour assurer la 
+						bonne utilisation de chaque objet et la cohérence avec la base de données ?
+					</p>
 
-                </p>
+					<button class="accordion-button">Réponse - Exercice 1</button>
+					<div class="accordion-content">
+						<p>
+							Pour concevoir les objets en fonction du modèle de données, commencez par créer des classes 
+							qui représentent chaque table du modèle. Par exemple, pour la table <strong>Entreprise</strong>, 
+							créez une classe <strong>Entreprise</strong> avec des attributs tels que le nom et des méthodes 
+							pour manipuler ces données. Il est essentiel d'inclure des méthodes permettant de récupérer et de modifier les informations stockées.
+						</p>
+						<p>
+							Identifiez également les classes partageant des attributs ou des caractéristiques similaires, 
+							comme les classes <strong>Manager</strong>, <strong>Ouvrier</strong> et <strong>Artisan</strong>. 
+							Dans ce cas, il peut être pertinent de créer une classe abstraite <strong>Personne</strong> 
+							qui servira de super-classe pour ces trois classes. 
+						</p>
+						<p>
+							En plus des méthodes d'accès aux attributs, des méthodes avancées sont attendues, comme une 
+							méthode permettant de retourner directement l’entreprise associée à un ouvrier.
+						</p>
+						<p></p>
+						<a href="ressource/java.zip" download>java.zip</a>
+						<p></p>
+					</div>
+					
 
-                <p>
-                    <h3>Exercice 2</h3>
+				</p>				
 
-                    <p>
-                        Changement du model par le dba fou.
-                    </p>
-                    
-                </p>
+				<p>
+					<h3>Exercice 2</h3>
+					<p>
+						À la suite de la création de notre modèle, le DBA a opéré un changement dans 
+						la structure de la base de données. Désormais, les tables 
+						<strong>Manager</strong>, <strong>Ouvrier</strong>, et <strong>Artisan</strong> 
+						ne possèdent plus les colonnes <strong>nom</strong> et <strong>prenom</strong>, 
+						mais une seule colonne <strong>nom_prenom</strong>. 
+						<p></p>Comment adaptez-vous 
+						votre code pour répondre à cette nouvelle exigence ? 
+						<p></p>Quels ajustements 
+						pourriez-vous apporter aux classes et aux méthodes de votre modèle objet ?
+					</p>
 
-                <p>
-                    <h3>Exercice 3</h3>
 
-                    <p>
-                        Polymorphisme a la sauvegarde un mail sera envoie au manager.
-                    </p>
-                    
-                </p>
+					<button class="accordion-button">Réponse - Exercice 2</button>
+					<div class="accordion-content">
+						<p>
+							N'oubliez pas que vos objets sont encapsulés, il est donc essentiel de conserver la compatibilité des méthodes existantes 
+							comme <strong>GetNom()</strong> et <strong>GetPrenom()</strong>. Pour répondre à la nouvelle structure sans devoir modifier 
+							tous les appels à ces méthodes, vous pouvez ajouter un attribut <code>nomPrenom</code> et, si nécessaire, créer une méthode 
+							<strong>GetNomPrenom()</strong>. Ensuite, ajustez les méthodes <strong>GetNom()</strong> et <strong>GetPrenom()</strong> 
+							pour extraire les informations du nouvel attribut :
+						</p>
+<pre>
+<code>
+/** Exemple en Java */
+public class Personne {
+    private String nomPrenom;
 
-                <p>
-                    <h3>Exercice 4</h3>
+    public String GetNom() {
+        // Renvoie la partie avant le premier espace dans nomPrenom
+        return nomPrenom.split(" ")[0];
+    }
 
-                    <p>
-                        Suppréssion de la table Outil, dépréssiation
-                    </p>
-                    
-                </p>
+    public String GetPrenom() {
+        // Renvoie la partie après le premier espace dans nomPrenom
+        return nomPrenom.substring(nomPrenom.indexOf(" ") + 1);
+    }
+
+    // Vous pouvez aussi adapter les méthodes Set en fonction de nomPrenom
+}
+</code>
+</pre>
+						<p>
+							En suivant cette approche, vous assurez que les méthodes <strong>GetNom()</strong> et <strong>GetPrenom()</strong> restent fonctionnelles 
+							sans impact sur le code existant, tout en vous adaptant aux modifications du modèle de données.
+						</p>
+					</div>
+
+				
+					<p>
+						<h3>Exercice 3</h3>
+						<p>
+							Le DBA a décidé de simplifier la structure en remplaçant les trois tables 
+							existantes, <strong>Manager</strong>, <strong>Ouvrier</strong>, et <strong>Artisan</strong>, 
+							par une seule table <strong>Personne</strong>. Cette nouvelle table contient les 
+							colonnes <strong>id</strong>, <strong>nom_prenom</strong>, <strong>mail</strong>, 
+							<strong>titre</strong>, <strong>manager_id</strong>, <strong>type (Enumeration)</strong>, 
+							et <strong>entreprise_id</strong>.
+						</p>
+						<p>
+							Comment allez-vous adapter votre code pour répondre à cette nouvelle structure de données ? 
+							Faut-il modifier votre modèle objet pour gérer ce changement ?
+						</p>
+					
+						<button class="accordion-button">Réponse - Exercice 3</button>
+						<div class="accordion-content">
+							<p>
+								La transition vers une table unique <strong>Personne</strong> entraîne des ajustements dans la logique des services, 
+								mais elle ne nécessite pas nécessairement de modifier notre modèle objet. Nous pouvons conserver les classes 
+								<strong>Manager</strong>, <strong>Ouvrier</strong>, et <strong>Artisan</strong> pour représenter les différents types de 
+								personnes, ce qui nous permet de maintenir un code polymorphe. Le polymorphisme de méthode est ainsi préservé, 
+								chaque sous-classe pouvant avoir des méthodes spécifiques adaptées à son rôle.
+							</p>
+							<p>
+								Au niveau du service, nous adapterons les appels de requêtes pour interroger la nouvelle table <strong>Personne</strong> 
+								en utilisant la colonne <strong>type</strong> pour différencier les rôles et instancier la classe appropriée.
+							</p>
+						</div>
+					</p>
+					
+				
+					<p>
+						<h3>Exercice 4</h3>
+						<p>
+							Le stockage des outils n'est plus nécessaire. Le DBA vous informe qu’il procédera à un 
+							<strong>DROP TABLE Outil</strong> dans trois mois.
+						</p>
+						<p>
+							Comment allez-vous traiter cette demande ? Quelles actions pouvez-vous 
+							entreprendre pour préparer votre code et votre modèle objet à la suppression 
+							imminente de cette table ?
+						</p>
+					
+						<button class="accordion-button">Réponse - Exercice 4</button>
+						<div class="accordion-content">
+							<p>
+								Ce changement métier implique une modification importante du modèle. Pour se préparer 
+								à la suppression de la table <strong>Outil</strong>, nous allons commencer par marquer 
+								les classes et méthodes associées comme <strong>"dépréciées"</strong> en utilisant les annotations 
+								appropriées. Cette dépréciation sert d'avertissement aux autres développeurs en leur 
+								signalant que ces éléments seront bientôt obsolètes et ne doivent plus être utilisés 
+								dans de nouveaux développements.
+							</p>
+							<p>
+								En parallèle, il est important de vérifier l’ensemble des services qui utilisent la classe 
+								<strong>Outil</strong> et de mettre à jour la logique applicative pour éviter la dépendance 
+								à cette table. Par exemple, nous pourrions progressivement réorganiser le code pour qu’il ne 
+								dépende plus des données liées aux outils, tout en notifiant les équipes concernées du 
+								changement à venir.
+							</p>
+						</div>
+					</p>
+					
+
+				</p>
+				
 
 			</div>
 			<!--end of another post item-->			
@@ -192,7 +362,15 @@
 
 </div>
 <!--end of wrapper-->
-
+<script>
+    document.querySelectorAll(".accordion-button").forEach(button => {
+        button.addEventListener("click", () => {
+            button.classList.toggle("active");
+            let content = button.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
 	
 </body>
 
