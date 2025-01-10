@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Java - Niveau 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" lang="en" content="open source x/html and css templates">
+<meta name="author" content="mlp design">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+<style>
+	table 
+	{
+	  width: 100%;
+	  border-collapse: collapse;
+	}
+	th, td 
+	{
+	  border: 1px solid black;
+	  padding: 0.8em;
+	  text-align: left;
+	}
+	th 
+	{
+	  background-color: #79ccc1;
+	}
+	pre 
+	{
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+</style>
+</head>
+<body>
+<!--start wrapper-->
+<div id="wrapper">
+
+<!--start body-->
+<div id="body">
+
+<!--start header-->
+<div id="banner">
+<h1>Java <em>- Niveau 1</em></h1>
+<p>Bienvenue dans ce cours d'introduction au langage Java ! Ce cours est conçu pour les débutants qui n'ont aucune expérience en programmation. 
+	Nous allons découvrir les bases du langage Java pas à pas.</p>
+<!-- menu -->
+<label for="show-menu" class="responsive">&#9776;</label>
+<input type="checkbox" id="show-menu" role="button">
+<ul id="topnav">
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="variables.html">Variables</a></li>
+	<li><a href="fonctions.html">Fonctions</a></li>
+	<li><a href="boucles.html">Boucles</a></li>
+	<li><a href="conditions.html">Conditions</a></li>
+	<li><a href="exercices.html">Exercices</a></li>
+</ul>
+<!-- end menu -->
+</div>
+<!--end of header-->
+
+	<!--start containter-->
+	<div id="container">
+			
+		<!--start content-->
+		<div id="content">
+			<!--post item-->
+			<div class="item">
+				<h2>Déclarez des Variables</h2>
+
+				<p>Les variables permettent de stocker des données.</p>
+
+                <ul>Une variable est définie par :
+                    <li>Un type : Le type de données qu'elle peut contenir (ex. int, String).</li>
+                    <li>Un nom : Un identifiant unique.</li>
+                    <li>Une valeur : Optionnel, mais elle peut être initialisée au moment de la déclaration.</li>
+                </ul>
+
+<pre>
+<code>
+/** Syntaxe générale : */
+type nomVariable = valeurInitiale;
+
+/** Exemple : */
+int age = 25;  // Variable de type entier initialisée à 25
+String nom = "Alice";  // Variable de type chaîne de caractères
+</code>
+</pre>
+
+                <h4>Types primitifs</h4>
+
+                <p>
+                    Les types primitifs sont les blocs de base de données en Java. 
+                    Ce sont des types simples intégrés au langage, utilisés pour stocker 
+                    des valeurs directes (comme des nombres ou des caractères).
+                </p>
+
+                <ul>
+                    <li>Ils sont définis directement dans le langage.</li>
+                    <li>Ils ne peuvent pas être null (sauf s'ils sont utilisés comme objets dans un type enveloppe, comme Integer pour int).</li>
+                    <li>Ils ont une taille et une structure fixes.</li>
+                    <li>Ils ne possèdent pas de méthodes associées.</li>
+                </ul>
+
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th><th>Taille</th><th>Description</th><th>Exemple</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>byte</td><td>1 octet</td>
+                                <td>Entier de petite taille (-128 à 127)</td>
+                                <td>byte b = 100;</td>
+                            </tr>
+                            <tr>
+                                <td>short</td><td>2 octets</td>
+                                <td>Entier (-32,768 à 32,767)</td>
+                                <td>short s = 20000;</td>
+                            </tr>
+
+                            <tr>
+                                <td>int</td><td>4 octets</td>
+                                <td>Entier (-2^31 à 2^31-1)</td>
+                                <td>int i = 123456;</td>
+                            </tr>
+
+                            <tr>
+                                <td>long</td><td>8 octets</td>
+                                <td>Entier de grande taille (-2^63 à 2^63-1)</td>
+                                <td>long l = 123456789L;</td>
+                            </tr>
+
+                            <tr>
+                                <td>float</td><td>4 octets</td>
+                                <td>Nombre décimal simple précision</td>
+                                <td>float f = 3.14f;</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>double</td><td>8 octets</td>
+                                <td>Nombre décimal double précision</td>
+                                <td>double d = 3.141592;</td>
+                            </tr>
+
+                            <tr>
+                                <td>char</td><td>2 octets</td>
+                                <td>Caractère Unicode</td>
+                                <td>char c = 'A';</td>
+                            </tr>
+
+                            <tr>
+                                <td>boolean</td><td>1 bit</td>
+                                <td>Valeur booléenne (true ou false)</td>
+                                <td>boolean b = true;</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Types Non Primitifs</h4>
+
+                <p>
+                    Les types non primitifs sont des types complexes, également appelés référencés, 
+                    car ils stockent une référence à l'objet dans la mémoire, et non une valeur directe.
+                </p>
+
+                <ul>
+                    <li>Ils peuvent être créés par le programmeur (exemple : classes, tableaux).</li>
+                    <li>Ils peuvent être null.</li>
+                    <li>Ils possèdent des méthodes associées.</li>
+                    <li>Ils sont souvent plus lourds que les types primitifs.</li>
+                </ul>
+
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th><th>Exemple</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>String (Chaîne de caractères)</td>
+                                <td>String nom = "Java";</td>
+                            </tr>
+                            <tr>
+                                <td>Tableaux</td>
+                                <td>int[] nombres = {1, 2, 3, 4};</td>
+                            </tr>
+                            <tr>
+                                <td>Classes et Objets</td>
+                                <td>Personne p = new Personne();</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Exemple</h4>
+
+<pre>
+<code>
+    public class Variables {
+        public static void main(String[] args) {
+            int age = 26;
+            float taille = 1.75f;
+            boolean estMajeur = true;
+            char initiale = 'F';
+            String nom = "François-Xavier";
+    
+            System.out.println("Nom : " + nom);
+            System.out.println("Age : " + age);
+            System.out.println("Taille : " + taille);
+            System.out.println("Est majeur : " + estMajeur);
+            System.out.println("Initiale : " + initiale);
+        }
+    }
+</code>
+</pre>
+
+                <p></p>
+
+
+
+			</div>
+			<!--end of another post item-->			
+		</div>
+		<!--end of content-->
+
+	</div>
+	<!--end of container-->
+
+</div>
+<!--end of body-->
+
+	<!--start footer-->
+	<div id="footer">
+		<span class="left">2025 <a href="mailto:francois-xavier63@hotmail.fr">Marcheix François-Xavier</a>.</span>
+		<span class="right"><a href="mailto:francois-xavier63@hotmail.fr">Contact</a> | <a href="../../index.html">Formation</a></span>
+	</div>
+	<!--end of footer-->	
+
+</div>
+<!--end of wrapper-->
+
+	
+</body>
+
+</html>
+

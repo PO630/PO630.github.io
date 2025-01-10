@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Java - Niveau 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" lang="en" content="open source x/html and css templates">
+<meta name="author" content="mlp design">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+<style>
+	table 
+	{
+	  width: 100%;
+	  border-collapse: collapse;
+	}
+	th, td 
+	{
+	  border: 1px solid black;
+	  padding: 0.8em;
+	  text-align: left;
+	}
+	th 
+	{
+	  background-color: #79ccc1;
+	}
+	pre 
+	{
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+</style>
+</head>
+<body>
+<!--start wrapper-->
+<div id="wrapper">
+
+<!--start body-->
+<div id="body">
+
+<!--start header-->
+<div id="banner">
+<h1>Java <em>- Niveau 1</em></h1>
+<p>Bienvenue dans ce cours d'introduction au langage Java ! Ce cours est conçu pour les débutants qui n'ont aucune expérience en programmation. 
+	Nous allons découvrir les bases du langage Java pas à pas.</p>
+<!-- menu -->
+<label for="show-menu" class="responsive">&#9776;</label>
+<input type="checkbox" id="show-menu" role="button">
+<ul id="topnav">
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="variables.html">Variables</a></li>
+	<li><a href="fonctions.html">Fonctions</a></li>
+	<li><a href="boucles.html">Boucles</a></li>
+	<li><a href="conditions.html">Conditions</a></li>
+	<li><a href="exercices.html">Exercices</a></li>
+</ul>
+<!-- end menu -->
+</div>
+<!--end of header-->
+
+	<!--start containter-->
+	<div id="container">
+			
+		<!--start content-->
+		<div id="content">
+			<!--post item-->
+			<div class="item">
+				<h2>Écrivez une Fonction</h2>
+
+				<p>
+                    En programmation, une fonction (ou méthode en Java) est un bloc de code 
+                    qui exécute une tâche spécifique. Elle peut prendre des paramètres 
+                    en entrée, effectuer des opérations, et retourner une valeur ou 
+                    simplement exécuter un traitement. 
+                </p>
+
+<pre>
+<code>
+    public class Fonctions {
+        public static void main(String[] args) {
+            saluer("François-Xavier");
+            int somme = addition(5, 3);
+            System.out.println("Somme : " + somme);
+        }
+    
+        public static void saluer(String nom) {
+            System.out.println("Bonjour, " + nom + " !");
+        }
+    
+        public static int addition(int a, int b) {
+            return a + b;
+        }
+    }
+</code>
+</pre>
+
+                <h4>Rôle des fonctions</h4>
+
+                <ul>
+                    <li>Réutiliser du code : Éviter la duplication de code en définissant une tâche commune.</li>
+                    <li>Organiser le programme : Diviser un programme en unités logiques plus simples à comprendre.</li>
+                    <li>Faciliter la maintenance : Modifier une fonction modifie son comportement partout où elle est utilisée.</li>
+                </ul>
+
+                <h4>Déclaration d'une fonction</h4>
+
+                <p>En Java, une fonction (appelée méthode) est déclarée dans une classe.</p>
+<pre>
+<code>
+    modificateurDeVisibilité typeRetour nomFonction(paramètres) {
+        // Corps de la fonction
+        return valeur; // (optionnel, si le typeRetour n'est pas void)
+    }
+    
+</code>
+</pre>
+
+            <ul>
+                <li>Modificateur de visibilité : Définit où la fonction peut être utilisée (public, private, etc.).</li>
+                <li>Type de retour : Type de la valeur retournée (ou void si aucune valeur n'est retournée).</li>
+                <li>Nom de la fonction : Identifiant descriptif pour appeler la fonction.</li>
+                <li>Paramètres : Valeurs passées à la fonction (optionnel).</li>
+            </ul>
+
+            <h4>Exemples</h4>
+
+<pre>
+<code>
+
+    // Une fonction qui retourne une valeur
+    public int addition(int a, int b) {
+        return a + b;  // Retourne la somme de a et b
+    }
+
+    //Une fonction qui ne retourne rien (void)
+    public void afficherMessage(String message) {
+        System.out.println(message);
+    }    
+
+    // Appel de la fonction 
+    int resultat = addition(5, 3); // resultat vaut 8
+    afficherMessage("Bonjour, monde !");
+
+</code>
+</pre>
+
+            <h4>Surcharge des fonctions</h4>
+
+            <p>
+                Java permet d'avoir plusieurs fonctions avec le même nom mais 
+                des paramètres différents. C'est ce qu'on appelle la surcharge.
+            </p>
+<pre>
+<code>
+
+    public int addition(int a, int b) {
+        return a + b;
+    }
+    
+    public double addition(double a, double b) {
+        return a + b;
+    }
+    
+    public int addition(int a, int b, int c) {
+        return a + b + c;
+    }
+    
+    int x = addition(5, 3);          // Appelle la première version
+    double y = addition(2.5, 3.8);   // Appelle la deuxième version
+    int z = addition(1, 2, 3);       // Appelle la troisième version
+
+</code>
+</pre>
+
+            <h4>Portée des fonctions</h4>
+
+            <ul>Une fonction peut être :
+                <li>Public : Accessible de n'importe où.</li>
+                <li>Private : Accessible uniquement dans la classe où elle est définie.</li>
+                <li>Protected : Accessible dans le même package ou par des classes héritées.</li>
+            </ul>
+
+            <p></p>
+
+            <h3>Saisissez la Portée des Variables</h3>
+
+
+
+
+			</div>
+			<!--end of another post item-->			
+		</div>
+		<!--end of content-->
+
+	</div>
+	<!--end of container-->
+
+</div>
+<!--end of body-->
+
+	<!--start footer-->
+	<div id="footer">
+		<span class="left">2025 <a href="mailto:francois-xavier63@hotmail.fr">Marcheix François-Xavier</a>.</span>
+		<span class="right"><a href="mailto:francois-xavier63@hotmail.fr">Contact</a> | <a href="../../index.html">Formation</a></span>
+	</div>
+	<!--end of footer-->	
+
+</div>
+<!--end of wrapper-->
+
+	
+</body>
+
+</html>
+

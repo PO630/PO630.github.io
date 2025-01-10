@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Java - Niveau 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" lang="en" content="open source x/html and css templates">
+<meta name="author" content="mlp design">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+<style>
+	table 
+	{
+	  width: 100%;
+	  border-collapse: collapse;
+	}
+	th, td 
+	{
+	  border: 1px solid black;
+	  padding: 0.8em;
+	  text-align: left;
+	}
+	th 
+	{
+	  background-color: #79ccc1;
+	}
+	pre 
+	{
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+</style>
+</head>
+<body>
+<!--start wrapper-->
+<div id="wrapper">
+
+<!--start body-->
+<div id="body">
+
+<!--start header-->
+<div id="banner">
+<h1>Java <em>- Niveau 1</em></h1>
+<p>Bienvenue dans ce cours d'introduction au langage Java ! Ce cours est conçu pour les débutants qui n'ont aucune expérience en programmation. 
+	Nous allons découvrir les bases du langage Java pas à pas.</p>
+<!-- menu -->
+<label for="show-menu" class="responsive">&#9776;</label>
+<input type="checkbox" id="show-menu" role="button">
+<ul id="topnav">
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="variables.html">Variables</a></li>
+	<li><a href="fonctions.html">Fonctions</a></li>
+	<li><a href="boucles.html">Boucles</a></li>
+	<li><a href="conditions.html">Conditions</a></li>
+	<li><a href="exercices.html">Exercices</a></li>
+</ul>
+<!-- end menu -->
+</div>
+<!--end of header-->
+	<!--start sidebar-->
+	<div id="sidebar">
+		<h2>Histoire</h2>
+		<p>Java est un langage de programmation de haut niveau orienté objet créé par 
+			James Gosling et Patrick Naughton, employés de Sun Microsystems, avec le 
+			soutien de Bill Joy (cofondateur de Sun Microsystems en 1982), présenté 
+			officiellement le 23 mai 1995 au SunWorld.
+		</p><p>
+			La société Sun est rachetée en 2009 par la société Oracle qui détient et maintient désormais Java.
+		</p><p>
+			Un logiciel écrit en langage Java a pour particularité d'être compilé vers un code intermédiaire 
+			formé de bytecodes qui peut être exécuté dans une machine virtuelle Java (JVM) 
+			en faisant abstraction du système d'exploitation.
+		</p>
+		<p>
+			Java 23 est officiellement disponible depuis le 17 septembre 2024. Cette version fait suite à la LTS Java 21, 
+			et précède la prochaine LTS attendue, Java 25, prévue pour septembre 20254.
+		</p>
+
+		<h2>Liens</h2>
+		<ul>
+			<li><a href="https://fr.wikipedia.org/wiki/Java_(langage)">Wikipedia</a></li>
+			<li><a href="https://jmdoudoux.developpez.com/cours/developpons/java/">Developpez.com</a></li>
+			<li><a href="ressource/Initiation à la programmation orientée-objet.pdf">Initiation à la programmation orientée-objet.pdf</a></li>
+		</ul>		
+	</div>
+	<div class="clear"></div>
+	<!--end of sidebar-->
+
+	<!--start containter-->
+	<div id="container">
+			
+		<!--start content-->
+		<div id="content">
+			<!--post item-->
+			<div class="item">
+				<h2>Introduction</h2>
+
+				<p>Java est un langage de programmation polyvalent, orienté objet et largement utilisé dans l'industrie. Il permet de créer des applications web, mobiles et des logiciels.</p>
+				
+				<h3>Java : Quelques faits clés</h3>
+
+				<p>
+					<ul>
+						<li>Possédé par Oracle : Oracle maintient et développe Java depuis 2010. </li>
+						<li>Utilisé pour la création d'applications : Que ce soit pour des outils, des jeux ou des logiciels complexes. </li>
+						<li>Utilisé pour le web : Avec des frameworks comme Spring et Hibernate. </li>
+						<li>Beaucoup de ressources en ligne : Une communauté active et des tutoriels abondants pour apprendre. </li>
+					</ul>
+				</p>
+
+				<p>
+					Le langage Java est un langage généraliste de programmation synthétisant les principaux langages existants lors de sa création en 1995 par Sun Microsystems. Il permet une programmation
+					orientée-objet (à l’instar de SmallTalk et, dans une moindre mesure, C++), modulaire (langage
+					ADA) et reprend une syntaxe très proche de celle du langage C
+				</p>
+
+				<p>
+					Outre son orientation objet, le langage Java a l’avantage d’être modulaire (on peut écrire des
+					portions de code génériques, c-à-d utilisables par plusieurs applications), rigoureux (la plupart
+					des erreurs se produisent à la compilation et non à l’exécution) et portable (un même programme
+					compilé peut s’exécuter sur différents environnements). En contre-partie, les applications Java ont
+					le défaut d’être plus lentes à l’exécution que des applications programmées en C par exemple.
+				</p>
+
+				<h3>Java : Le Fonctionnement</h3>
+
+				<p>
+					<ul>
+						<li>La JVM (Java Virtual Machine) : Java s'exécute sur une Machine Virtuelle Java (JVM), qui permet au code Java d'être exécuté sur différents systèmes d'exploitation sans modification. </li>
+						<li>Objet : Java est un langage orienté objet, ce qui signifie que la programmation repose sur la création et la manipulation d'objets. </li>
+					</ul>
+				</p>
+
+				<p>
+					Java est un langage interprété, ce qui signifie qu’un programme compilé n’est pas directement
+					exécutable par le système d’exploitation mais il doit être interprété par un autre programme, qu’on
+					appelle interpréteur.
+				</p>
+
+				<a href="https://imgix.ranker.com/user_node_img/50146/1002914588/original/1002914588-photo-u-1069285880?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=355" ><img src="ressource/Figure 1.1.png" alt="Figure 1.1"  > </a>
+
+				<p>
+					Un programmeur Java écrit son code source, sous la forme de classes, dans des fichiers dont
+					l’extension est .java. Ce code source est alors compilé par le compilateur javac en un langage
+					appelé bytecode et enregistre le résultat dans un fichier dont l’extension est .class.
+				</p>
+
+				<p>
+					Le bytecode ainsi obtenu n’est pas directement utilisable. Il doit être interprété par la machine virtuelle de Java
+					qui transforme alors le code compilé en code machine compréhensible par le système d’exploitation. C’est la raison pour laquelle Java est un langage portable : le bytecode reste le même quelque
+					soit l’environnement d’exécution
+				</p>
+
+				<h3>Niveau de Programmation</h3>
+
+				<p>
+					<ul>
+						<li>Langages bas niveau : Comme l'assembleur, proches du matériel mais complexes à lire et à écrire.</li>
+						<li>Langages haut niveau : Comme Java, plus proches du langage humain et plus abstraits par rapport au matériel.</li>
+					</ul>
+				</p>
+
+				<p>
+					<img src="ressource/BadHautNiveau.png" alt="Bad et Haut Niveau">
+				</p>
+
+				<h3>Commencez avec la méthode main</h3>
+
+				<p>
+					Un programme Java commence toujours par une méthode main. Pour pratiquer, 
+					vous pouvez utiliser l'outil en ligne W3Schools.
+				</p>
+
+				<a href="https://www.w3schools.com/java/tryjava.asp?filename=demo_compiler">https://www.w3schools.com/java/tryjava.asp?filename=demo_compiler</a>
+
+				<p>
+					<ul>
+						<li>En Java, la classe Main et la méthode main jouent un rôle central dans le fonctionnement d'un programme.</li>
+						<li>public class Main : Définit une classe nommée Main. </li>
+						<li>public static void main(String[] args) : Point d'entrée obligatoire de tout programme Java. </li>
+						<li>System.out.println(...) : Affiche du texte dans la console. </li>
+					</ul>
+				</p>
+
+<pre>
+<code>
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Bonjour !");
+    }
+}
+</code>
+</pre>
+
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Mot-clé	</th>
+					<th>Signification</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>public</td>
+					<td>La méthode doit être accessible depuis n'importe où pour permettre à la JVM (Java Virtual Machine) de l'exécuter.</td>
+				</tr>
+				<tr>
+					<td>static</td>
+					<td>Elle peut être appelée sans avoir besoin de créer un objet de la classe.</td>
+				</tr>
+				<tr>
+					<td>void</td>
+					<td>La méthode ne renvoie aucune valeur.</td>
+				</tr>
+				<tr>
+					<td>String[] args</td>
+					<td>Tableau de chaînes de caractères, utilisé pour transmettre des arguments depuis la ligne de commande.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+			</div>
+			<!--end of another post item-->			
+		</div>
+		<!--end of content-->
+
+	</div>
+	<!--end of container-->
+
+</div>
+<!--end of body-->
+
+	<!--start footer-->
+	<div id="footer">
+		<span class="left">2025 <a href="mailto:francois-xavier63@hotmail.fr">Marcheix François-Xavier</a>.</span>
+		<span class="right"><a href="mailto:francois-xavier63@hotmail.fr">Contact</a> | <a href="../../index.html">Formation</a></span>
+	</div>
+	<!--end of footer-->	
+
+</div>
+<!--end of wrapper-->
+
+	
+</body>
+
+</html>
+

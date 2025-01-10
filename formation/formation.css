@@ -110,7 +110,7 @@ tr:hover {
 
 /* Style des images dans le tableau */
 .formation-image {
-  width: 100px;
-  height: auto;
+  width: 9em;
+  height: 9em;
   border-radius: 5px;
 }
