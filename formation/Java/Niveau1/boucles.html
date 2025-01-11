@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Java - Niveau 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" lang="en" content="open source x/html and css templates">
+<meta name="author" content="mlp design">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--start wrapper-->
+<div id="wrapper">
+
+<!--start body-->
+<div id="body">
+
+<!--start header-->
+<div id="banner">
+<h1>Java <em>- Niveau 1</em></h1>
+<p>Bienvenue dans ce cours d'introduction au langage Java ! Ce cours est conçu pour les débutants qui n'ont aucune expérience en programmation. 
+	Nous allons découvrir les bases du langage Java pas à pas.</p>
+<!-- menu -->
+<label for="show-menu" class="responsive">&#9776;</label>
+<input type="checkbox" id="show-menu" role="button">
+<ul id="topnav">
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="variables.html">Variables</a></li>
+	<li><a href="fonctions.html">Fonctions</a></li>
+	<li><a href="boucles.html">Boucles</a></li>
+	<li><a href="conditions.html">Conditions</a></li>
+	<li><a href="exercices.html">Exercices</a></li>
+</ul>
+<!-- end menu -->
+</div>
+<!--end of header-->
+
+	<!--start containter-->
+	<div id="container">
+			
+		<!--start content-->
+		<div id="content">
+			<!--post item-->
+			<div class="item">
+				<h2>Écrivez une Boucle dans vos Fonctions</h2>
+
+                <p>
+                    En programmation, il est courant de devoir exécuter plusieurs fois un 
+                    ensemble d'instructions, que ce soit pour parcourir une collection, 
+                    traiter des données ou résoudre des problèmes mathématiques. 
+                    Pour répondre à ce besoin, les langages de programmation proposent 
+                    des structures permettant d'effectuer des itérations : les boucles et 
+                    la récursion.
+                </p>
+
+                <ul>
+                    <li>Les boucles permettent d'exécuter un bloc de code plusieurs fois en fonction d'une condition.</li>
+                    <li>La récursion, quant à elle, repose sur une méthode qui s'appelle elle-même pour résoudre un problème en le divisant en sous-problèmes.</li>
+                </ul>
+
+                <h3>La boucle for</h3>
+
+                <p>
+                    La boucle for est une structure itérative utilisée lorsque le nombre 
+                    d'itérations est connu à l'avance. Elle est particulièrement adaptée 
+                    pour parcourir des collections (comme des tableaux ou des listes) ou 
+                    pour effectuer des tâches répétées sur une plage de valeurs.
+                </p>
+<pre>
+<code>
+    // Afficher les nombres de 1 à 5 :
+    for (int i = 1; i <= 5; i++) {
+        System.out.println(i);
+    }
+</code>
+</pre>
+
+            <ul>
+                <li>Initialisation "(int i = 1;)" : Exécutée une seule fois avant le début de la boucle, elle initialise une variable.</li>
+                <li>Condition "(i <= 5;)" : Testée avant chaque itération, elle détermine si la boucle doit continuer.</li>
+                <li>Mise à jour "(i++)" : Exécutée après chaque itération, elle modifie la variable pour préparer la prochaine exécution.</li>
+            </ul>
+
+            <h3>La boucle while</h3>
+
+            <p>
+                La boucle while est utilisée lorsque le nombre d'itérations est inconnu à l'avance. 
+                Elle exécute un bloc de code tant qu'une condition donnée reste vraie. 
+                Si la condition est initialement fausse, la boucle ne s'exécute jamais.
+            </p>
+
+<pre>
+<code>
+    // Afficher les nombres de 1 à 5 :
+    int i = 1;
+    while (i <= 5) {
+        System.out.println(i);
+        i++; // Mise à jour
+    }    
+</code>
+</pre>
+
+            <ul>
+                <li>Condition "(i <= 5)" : Testée avant chaque itération, elle détermine si la boucle doit continuer ou s'arrêter.</li>
+            </ul>
+
+            <p>
+                Le do-while est une structure de boucle en Java qui permet d'exécuter un bloc de code au moins une fois, puis de le répéter tant qu'une condition est vraie.
+            </p>
+
+<pre>
+<code>
+    do {
+        // Instructions à exécuter
+    } while (condition);       
+</code>
+</pre>
+
+            <ul>
+                <li>do : C'est le début de la boucle. Le code à l'intérieur du bloc do sera exécuté au moins une fois, même si la condition est fausse dès le départ.</li>
+                <li>while (condition) : Après avoir exécuté les instructions du bloc do, la condition est vérifiée. Si la condition est vraie, la boucle recommence, sinon elle s'arrête.</li>
+            </ul>
+
+            <h4>La récursion</h4>
+
+            <p>
+                La récursion est une approche dans laquelle une méthode s'appelle elle-même pour 
+                résoudre un problème en le décomposant en sous-problèmes plus simples. 
+                La récursion repose sur deux éléments essentiels :
+                <ul>
+                    <li>Une condition d'arrêt qui termine la chaîne d'appels.</li>
+                    <li>Un appel récursif qui rapproche le problème de la condition d'arrêt.</li>
+                </ul>
+                Bien que puissante, la récursion peut consommer davantage de mémoire en raison de l'empilement des appels sur la pile d'exécution.
+            </p>
+
+<pre>
+<code>
+    // Calcul du facteuriel d'un nombre :
+    public static int factoriel(int n) {
+        if (n == 0) { // Condition d'arrêt
+            return 1;
+        }
+        return n * factoriel(n - 1); // Appel récursif
+    }
+</code>
+</pre>
+
+            <p>
+                En résumé, les boucles et la récursion sont des outils essentiels pour résoudre 
+                des problèmes répétitifs. Le choix de l'une ou l'autre dépend du problème à 
+                résoudre et des contraintes de performance ou de lisibilité du code. 
+                Passons maintenant à des exemples pratiques pour comprendre leur 
+                fonctionnement en détail.
+            </p>
+
+            <h4>Exercice</h4>
+
+
+
+            <p>
+                Écrivez un programme qui utilise une boucle pour afficher les 10 premiers 
+                nombres pairs, c'est-à-dire 2, 4, 6, ..., 20.
+            </p>
+
+            <button class="accordion-button">Réponse - Exercice 1</button>
+            <div class="accordion-content">
+<pre>
+<code>
+    for (int i = 2; i <= 20; i += 2) 
+    { // Incrémentation de 2 pour les nombres pairs
+        System.out.println(i);
+    }
+</code>
+</pre>
+            </div>
+
+            <p>
+                Écrivez une fonction récursive qui calcule la somme des nombres 
+                entiers de 1 à n. Par exemple, pour n = 5, la somme est 1 + 2 + 3 + 4 + 5 = 15.
+            </p>
+
+            <button class="accordion-button">Réponse - Exercice 2</button>
+            <div class="accordion-content">
+<pre>
+<code>
+    public static int sommeRecursive(int n) {
+        if (n == 1) { // Condition d'arrêt
+            return 1;
+        }
+        return n + sommeRecursive(n - 1); // Appel récursif
+    }
+</code>
+</pre>
+            </div>
+
+            <p>
+                Écrivez un programme qui génère un nombre aléatoire entre 5 et 15. 
+                Utilisez ensuite une boucle while pour afficher le carré de tous les 
+                nombres de 1 jusqu'à ce nombre aléatoire inclus.
+            </p>
+
+<pre>
+<code>
+    Exemple de résultat attendu (nombre aléatoire : 10) :
+    1 x 1 = 1  
+    2 x 2 = 4  
+    3 x 3 = 9  
+    4 x 4 = 16  
+    ...  
+    10 x 10 = 100    
+</code>
+</pre>
+<pre>
+<code>
+    import java.util.Random; // Pour générer des nombres aléatoires
+
+    public class Main 
+    {
+        public static void main(String[] args)
+        {
+            Random random = new Random(); // Création d'un générateur aléatoire
+            int nombreAleatoire = random.nextInt(11) + 5; // Génère un nombre entre 5 et 15
+
+            // BOUCLE WHILE ?
+        }
+    }
+
+</code>
+</pre>
+
+
+            <button class="accordion-button">Réponse - Exercice 3</button>
+            <div class="accordion-content">
+<pre>
+<code>
+import java.util.Random; // Pour générer des nombres aléatoires
+
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Random random = new Random(); // Création d'un générateur aléatoire
+        int nombreAleatoire = random.nextInt(11) + 5; // Génère un nombre entre 5 et 15
+        System.out.println("Nombre aléatoire généré : " + nombreAleatoire);
+
+        int nombre = 1; // Initialisation de la variable
+
+        while (nombre <= nombreAleatoire) { // Condition pour continuer la boucle
+            int carre = nombre * nombre; // Calcul du carré
+            System.out.println(nombre + " x " + nombre + " = " + carre); // Affichage du résultat
+            nombre++; // Incrémentation de la variable
+        }
+    }
+}
+</code>
+</pre>
+            </div>
+
+			</div>
+			<!--end of another post item-->			
+		</div>
+		<!--end of content-->
+
+	</div>
+	<!--end of container-->
+
+</div>
+<!--end of body-->
+
+	<!--start footer-->
+	<div id="footer">
+		<span class="left">2025 <a href="mailto:francois-xavier63@hotmail.fr">Marcheix François-Xavier</a>.</span>
+		<span class="right"><a href="mailto:francois-xavier63@hotmail.fr">Contact</a> | <a href="../../index.html">Formation</a></span>
+	</div>
+	<!--end of footer-->	
+
+</div>
+<!--end of wrapper-->
+<script>
+    document.querySelectorAll(".accordion-button").forEach(button => {
+        button.addEventListener("click", () => {
+            button.classList.toggle("active");
+            let content = button.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
+	
+</body>
+
+</html>
+

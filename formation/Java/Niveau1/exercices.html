@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Java - Niveau 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" lang="en" content="open source x/html and css templates">
+<meta name="author" content="mlp design">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--start wrapper-->
+<div id="wrapper">
+
+<!--start body-->
+<div id="body">
+
+<!--start header-->
+<div id="banner">
+<h1>Java <em>- Niveau 1</em></h1>
+<p>Bienvenue dans ce cours d'introduction au langage Java ! Ce cours est conçu pour les débutants qui n'ont aucune expérience en programmation. 
+	Nous allons découvrir les bases du langage Java pas à pas.</p>
+<!-- menu -->
+<label for="show-menu" class="responsive">&#9776;</label>
+<input type="checkbox" id="show-menu" role="button">
+<ul id="topnav">
+	<li><a href="index.html">Introduction</a></li>
+	<li><a href="variables.html">Variables</a></li>
+	<li><a href="fonctions.html">Fonctions</a></li>
+	<li><a href="boucles.html">Boucles</a></li>
+	<li><a href="conditions.html">Conditions</a></li>
+	<li><a href="exercices.html">Exercices</a></li>
+</ul>
+<!-- end menu -->
+</div>
+<!--end of header-->
+
+	<!--start containter-->
+	<div id="container">
+			
+		<!--start content-->
+		<div id="content">
+			<!--post item-->
+			<div class="item">
+				<h2>Le Juste Prix</h2>
+
+                <p>
+                    Dans cet exercice, vous allez créer un jeu de "Juste Prix". 
+                    <ul>
+                        <li>L'application choisira un nombre aléatoire entre 0 et 100.</li>
+                        <li>Le joueur devra deviner ce nombre en un maximum de 5 tentatives. </li>
+                        <li>Après chaque essai, l'application indiquera si le nombre donné est plus grand ou plus petit que le nombre mystère.</li>
+                        <li>À la fin du jeu, le joueur pourra décider de rejouer ou de quitter l'application.</li>
+                    </ul>
+                </p>
+
+                <h3>Générer un Nombre Mystère</h3>
+
+                <p>Écrire un programme qui génère un nombre aléatoire entre 0 et 100.</p>
+
+                <button class="accordion-button">Réponse - Exercice </button>
+                <div class="accordion-content">
+<pre>
+<code>
+    import java.util.Random;
+
+    public class JustePrix {
+        public static void main(String[] args) {
+            Random random = new Random();
+            int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
+            System.out.println("Le nombre mystère est : " + nombreMystere);
+        }
+    }    
+</code>
+</pre>
+            </div>
+
+            <h3>Permettre au Joueur de Proposer un Nombre</h3>
+
+            <p>Ajoutez un mécanisme permettant au joueur de saisir un nombre et affichez ce qu'il a entré.</p>
+
+            <button class="accordion-button">Réponse - Exercice </button>
+            <div class="accordion-content">
+<pre>
+<code>
+    import java.util.Scanner;
+
+    public class JustePrix {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Proposez un nombre : ");
+            int proposition = scanner.nextInt();
+            System.out.println("Vous avez proposé : " + proposition);
+        }
+    }
+</code>
+</pre>
+            </div>
+
+            <h3>Comparer la Proposition avec le Nombre Mystère</h3>
+
+            <p>Comparez le nombre proposé avec le nombre mystère et indiquez si c'est plus grand, plus petit ou correct.</p>
+            
+            <button class="accordion-button">Réponse - Exercice </button>
+            <div class="accordion-content">
+<pre>
+<code>
+    import java.util.Random;
+    import java.util.Scanner;
+    
+    public class JustePrix {
+        public static void main(String[] args) {
+            Random random = new Random();
+            int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
+    
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Proposez un nombre : ");
+            int proposition = scanner.nextInt();
+    
+            if (proposition == nombreMystere) {
+                System.out.println("Bravo, vous avez trouvé le nombre mystère !");
+            } else if (proposition < nombreMystere) {
+                System.out.println("C'est plus !");
+            } else {
+                System.out.println("C'est moins !");
+            }
+        }
+    }    
+</code>
+</pre>
+            </div>
+
+            <h3>Ajouter un Nombre Limité de Tentatives</h3>
+
+            <p>Limitez le joueur à 5 tentatives et affichez un message s’il échoue.</p>
+
+            <button class="accordion-button">Réponse - Exercice </button>
+            <div class="accordion-content">
+<pre>
+<code>
+    import java.util.Random;
+    import java.util.Scanner;
+    
+    public class JustePrix {
+        public static void main(String[] args) {
+            Random random = new Random();
+            int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
+            Scanner scanner = new Scanner(System.in);
+    
+            int tentatives = 5;
+            boolean gagne = false;
+    
+            while (tentatives > 0) {
+                System.out.print("Proposez un nombre (Tentatives restantes : " + tentatives + ") : ");
+                int proposition = scanner.nextInt();
+                tentatives--;
+    
+                if (proposition == nombreMystere) {
+                    System.out.println("Bravo, vous avez trouvé le nombre mystère !");
+                    gagne = true;
+                    break;
+                } else if (proposition < nombreMystere) {
+                    System.out.println("C'est plus !");
+                } else {
+                    System.out.println("C'est moins !");
+                }
+            }
+    
+            if (!gagne) {
+                System.out.println("Dommage, vous avez perdu. Le nombre mystère était : " + nombreMystere);
+            }
+        }
+    }       
+</code>
+</pre>
+            </div>
+
+            <h3>Ajouter la Possibilité de Rejouer</h3>
+
+            <p>Permettez au joueur de rejouer ou de quitter après chaque partie.</p>
+            <button class="accordion-button">Réponse - Exercice </button>
+            <div class="accordion-content">
+<pre>
+<code>
+    import java.util.Random;
+    import java.util.Scanner;
+    
+    public class JustePrix {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+    
+            boolean rejouer;
+            do {
+                Random random = new Random();
+                int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
+    
+                int tentatives = 5;
+                boolean gagne = false;
+    
+                while (tentatives > 0) {
+                    System.out.print("Proposez un nombre (Tentatives restantes : " + tentatives + ") : ");
+                    int proposition = scanner.nextInt();
+                    tentatives--;
+    
+                    if (proposition == nombreMystere) {
+                        System.out.println("Bravo, vous avez trouvé le nombre mystère !");
+                        gagne = true;
+                        break;
+                    } else if (proposition < nombreMystere) {
+                        System.out.println("C'est plus !");
+                    } else {
+                        System.out.println("C'est moins !");
+                    }
+                }
+    
+                if (!gagne) {
+                    System.out.println("Dommage, vous avez perdu. Le nombre mystère était : " + nombreMystere);
+                }
+    
+                System.out.print("Voulez-vous rejouer ? (oui/non) : ");
+                String reponse = scanner.next();
+                rejouer = reponse.equalsIgnoreCase("oui");
+    
+            } while (rejouer);
+    
+            System.out.println("Merci d'avoir joué. À bientôt !");
+        }
+    }      
+</code>
+</pre>
+            </div>
+
+
+			</div>
+			<!--end of another post item-->			
+		</div>
+		<!--end of content-->
+
+	</div>
+	<!--end of container-->
+
+</div>
+<!--end of body-->
+
+	<!--start footer-->
+	<div id="footer">
+		<span class="left">2025 <a href="mailto:francois-xavier63@hotmail.fr">Marcheix François-Xavier</a>.</span>
+		<span class="right"><a href="mailto:francois-xavier63@hotmail.fr">Contact</a> | <a href="../../index.html">Formation</a></span>
+	</div>
+	<!--end of footer-->	
+
+</div>
+<!--end of wrapper-->
+<script>
+    document.querySelectorAll(".accordion-button").forEach(button => {
+        button.addEventListener("click", () => {
+            button.classList.toggle("active");
+            let content = button.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
+	
+</body>
+
+</html>
+

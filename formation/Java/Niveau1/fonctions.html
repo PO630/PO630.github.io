@@ -9,30 +9,6 @@
 <meta name="author" content="mlp design">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="styles.css">
-<style>
-	table 
-	{
-	  width: 100%;
-	  border-collapse: collapse;
-	}
-	th, td 
-	{
-	  border: 1px solid black;
-	  padding: 0.8em;
-	  text-align: left;
-	}
-	th 
-	{
-	  background-color: #79ccc1;
-	}
-	pre 
-	{
-        background-color: #f4f4f4;
-        padding: 15px;
-        border-radius: 5px;
-        overflow-x: auto;
-    }
-</style>
 </head>
 <body>
 <!--start wrapper-->
@@ -184,10 +160,133 @@
             </ul>
 
             <p></p>
+            <br>
 
             <h3>Saisissez la Portée des Variables</h3>
 
+            <p>
+                La portée des variables (ou scope) désigne la zone d’un programme où une 
+                variable est accessible. En Java, les variables ont une portée définie par 
+                leur emplacement dans le code. Cette portée détermine si une variable est 
+                visible ou utilisable dans une certaine partie du programme.
+            </p>
 
+            <ul>
+                <li>Portée des variables locales</li>
+                <li>Portée des variables d'instance</li>
+                <li>Portée des variables statiques (de classe)</li>
+                <li>Portée des variables de bloc</li>
+            </ul>
+
+            <h4>Variables locales</h4>
+
+            <p>
+                Une variable locale est déclarée à l'intérieur d'une méthode, 
+                d'un constructeur ou d'un bloc et n'est accessible que dans ce contexte.
+            </p>
+
+            <ul>
+                <li>La variable existe uniquement pendant l'exécution de la méthode/bloc.</li>
+                <li>Elle est détruite une fois la méthode terminée.</li>
+                <li>Elle doit être initialisée avant utilisation.</li>
+            </ul>
+
+<pre>
+<code>
+    public void afficher() {
+        int x = 10; // Variable locale
+        System.out.println(x); // Accessible ici
+    }
+    // x n'est plus accessible en dehors de la méthode    
+</code>
+</pre>
+
+            <h4>Variables d'instance</h4>
+
+            <p>
+                Une variable d'instance est déclarée dans une classe mais en dehors 
+                de toute méthode, et chaque objet de cette classe a sa propre copie 
+                de cette variable.
+            </p>
+
+            <ul>
+                <li>Elle est liée à une instance spécifique de la classe.</li>
+                <li>Elle peut avoir des modificateurs d'accès (public, private, etc.).</li>
+                <li>Elle est initialisée automatiquement avec une valeur par défaut (par exemple, 0 pour les nombres, null pour les objets).</li>
+            </ul>
+
+<pre>
+<code>
+    public class Personne {
+        private String nom; // Variable d'instance
+    
+        public void setNom(String nom) {
+            this.nom = nom;
+        }
+    
+        public String getNom() {
+            return nom; // Accessible dans toutes les méthodes de l'instance
+        }
+    }     
+</code>
+</pre>
+
+            <h4>Variables statiques (de classe)</h4>
+
+            <p>
+                Une variable statique (ou de classe) est déclarée à l'intérieur d'une classe 
+                avec le mot-clé static. Elle appartient à la classe et non à une instance 
+                spécifique.
+            </p>
+
+            <ul>
+                <li>Partagée entre toutes les instances de la classe.</li>
+                <li>Accessible sans créer une instance (via NomClasse.nomVariable).</li>
+                <li>Une seule copie existe en mémoire.</li>
+            </ul>
+
+<pre>
+<code>
+    public class Compteur {
+        public static int total = 0; // Variable statique
+    
+        public Compteur() {
+            total++; // Incrémente le compteur pour chaque objet créé
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            Compteur c1 = new Compteur();
+            Compteur c2 = new Compteur();
+            System.out.println(Compteur.total); // Affiche : 2
+        }
+    }      
+</code>
+</pre>
+
+            <h4>Variables de bloc</h4>
+
+            <p>
+                Les variables de bloc sont déclarées à l'intérieur de blocs spécifiques, 
+                comme une boucle for ou un bloc if.
+            </p>
+
+            <ul>
+                <li>Elles sont accessibles uniquement dans le bloc où elles sont définies.</li>
+                <li>Leur durée de vie est limitée à l'exécution du bloc.</li>
+            </ul>
+
+<pre>
+<code>
+    public void boucle() {
+        for (int i = 0; i < 5; i++) { // Variable de bloc
+            System.out.println(i); // Accessible ici
+        }
+        // System.out.println(i); // Erreur : i n'est pas accessible ici
+    }       
+</code>
+</pre>
 
 
 			</div>
@@ -210,6 +309,15 @@
 
 </div>
 <!--end of wrapper-->
+<script>
+    document.querySelectorAll(".accordion-button").forEach(button => {
+        button.addEventListener("click", () => {
+            button.classList.toggle("active");
+            let content = button.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
 
 	
 </body>

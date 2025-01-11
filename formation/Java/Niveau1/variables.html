@@ -9,30 +9,6 @@
 <meta name="author" content="mlp design">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="styles.css">
-<style>
-	table 
-	{
-	  width: 100%;
-	  border-collapse: collapse;
-	}
-	th, td 
-	{
-	  border: 1px solid black;
-	  padding: 0.8em;
-	  text-align: left;
-	}
-	th 
-	{
-	  background-color: #79ccc1;
-	}
-	pre 
-	{
-        background-color: #f4f4f4;
-        padding: 15px;
-        border-radius: 5px;
-        overflow-x: auto;
-    }
-</style>
 </head>
 <body>
 <!--start wrapper-->
@@ -247,6 +223,15 @@ String nom = "Alice";  // Variable de type chaîne de caractères
 
 </div>
 <!--end of wrapper-->
+<script>
+    document.querySelectorAll(".accordion-button").forEach(button => {
+        button.addEventListener("click", () => {
+            button.classList.toggle("active");
+            let content = button.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
 
 	
 </body>
