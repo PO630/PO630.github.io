@@ -28,10 +28,11 @@
 <ul id="topnav">
 	<li><a href="index.html">Introduction</a></li>
 	<li><a href="variables.html">Variables</a></li>
-	<li><a href="fonctions.html">Fonctions</a></li>
-	<li><a href="boucles.html">Boucles</a></li>
 	<li><a href="conditions.html">Conditions</a></li>
-	<li><a href="exercices.html">Exercices</a></li>
+	<li><a href="boucles.html">Boucles</a></li>
+    <li><a href="fonctions.html">Fonctions</a></li>
+    <li><a href="exercices.html">Exercices</a></li>
+	<li><a href="projet.html">Projet</a></li>
 </ul>
 <!-- end menu -->
 </div>
@@ -44,195 +45,252 @@
 		<div id="content">
 			<!--post item-->
 			<div class="item">
-				<h2>Le Juste Prix</h2>
+				<h2>Exercices</h2>
 
+				
                 <p>
-                    Dans cet exercice, vous allez créer un jeu de "Juste Prix". 
                     <ul>
-                        <li>L'application choisira un nombre aléatoire entre 0 et 100.</li>
-                        <li>Le joueur devra deviner ce nombre en un maximum de 5 tentatives. </li>
-                        <li>Après chaque essai, l'application indiquera si le nombre donné est plus grand ou plus petit que le nombre mystère.</li>
-                        <li>À la fin du jeu, le joueur pourra décider de rejouer ou de quitter l'application.</li>
+                        <li><a href="ressource/JavaNiveau1.java">JavaNiveau1.java</a></li>
+                        <li><a href="ressource/JavaNiveau1Test.java">JavaNiveau1Test.java</a></li>
+                        <li><a href="ressource/JavaNiveau1Correction.java">JavaNiveau1Correction.java</a></li>
                     </ul>
                 </p>
-
-                <h3>Générer un Nombre Mystère</h3>
-
-                <p>Écrire un programme qui génère un nombre aléatoire entre 0 et 100.</p>
-
-                <button class="accordion-button">Réponse - Exercice </button>
-                <div class="accordion-content">
 <pre>
 <code>
-    import java.util.Random;
+    package fr.gouv.finances.enfip;
 
-    public class JustePrix {
-        public static void main(String[] args) {
-            Random random = new Random();
-            int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
-            System.out.println("Le nombre mystère est : " + nombreMystere);
+    public class JavaNiveau1 {
+    
+        /*
+         * Écrivez une méthode estPair(int n) qui retourne true si le nombre est pair et
+         * false sinon.
+         */
+        public boolean estPair(int n) {
+            // TODO : Implémentez la logique ici
+            return false; // Valeur temporaire
         }
-    }    
-</code>
-</pre>
-            </div>
-
-            <h3>Permettre au Joueur de Proposer un Nombre</h3>
-
-            <p>Ajoutez un mécanisme permettant au joueur de saisir un nombre et affichez ce qu'il a entré.</p>
-
-            <button class="accordion-button">Réponse - Exercice </button>
-            <div class="accordion-content">
-<pre>
-<code>
-    import java.util.Scanner;
-
-    public class JustePrix {
-        public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Proposez un nombre : ");
-            int proposition = scanner.nextInt();
-            System.out.println("Vous avez proposé : " + proposition);
+    
+        /*
+         * Écrivez une méthode pourcentages(double prix, int pourcentages) qui retourne
+         * le prix soldé après application d'une réduction en pourcentage.
+         */
+        public double pourcentages(double prix, int pourcentages) {
+            // TODO : Implémentez la logique ici
+            return 0.0; // Valeur temporaire
         }
+    
+        /*
+         * Netflix propose un programme d'abonnement avec des réductions en fonction de
+         * l'âge et du statut professionnel :
+         * 
+         * Les salariés bénéficient d'une réduction de 50% sur le prix de l'abonnement.
+         * Les jeunes de moins de 25 ans et les personnes de plus de 60 ans bénéficient
+         * d'une réduction de 20%. (non salariés)
+         * Le prix de base de l'abonnement est de 20 euros.
+         * Écrivez une méthode qui prend en entrée l'âge de l'utilisateur et un booléen
+         * indiquant s'il est salarié. Elle doit retourner le prix de l'abonnement après
+         * réduction.
+         */
+        public double tarif(int age, boolean salarier) {
+            // Implémentez la logique de réduction ici
+            return 0.0; // Valeur à remplacer
+        }
+    
+        /*
+         * Un nombre premier est un entier naturel supérieur à 1 qui n'a que deux
+         * diviseurs : 1 et lui-même.
+         * Par exemple :
+         * 
+         * 2, 3, 5, 7, 11 sont des nombres premiers. ( attention 1 n'est pas premier )
+         * 4, 6, 8, 9, 10 ne sont pas premiers car ils ont d'autres diviseurs que 1 et
+         * eux-mêmes.
+         * 
+         * L'objectif de cet exercice est d'écrire une méthode qui vérifie si un nombre
+         * donné est premier, en utilisant une boucle for.
+         */
+        public boolean estPremier(int nombre) {
+            // Implémentez la logique ici avec une boucle for
+            return false; // Valeur à remplacer
+        }
+    
+        /*
+         * Dans cet exercice, nous allons créer une méthode pour générer un identifiant
+         * unique pour les abonnés de notre site.
+         * Cet identifiant est composé du nom de l'utilisateur en majuscule, suivi de
+         * son prénom en minuscule, puis du numéro de département suivi d'un underscore
+         * (_) et enfin d'un nombre donné.
+         * 
+         * La méthode devra prendre en entrée les paramètres suivants :
+         * 
+         * nom (String) : le nom de l'utilisateur.
+         * prenom (String) : le prénom de l'utilisateur.
+         * departement (int) : le numéro de département.
+         * nombre (int) : un nombre donné.
+         */
+        public String identifiant(String nom, String prenom, int departement, int nombre) {
+            // Compléter ici la logique pour générer l'identifiant
+            return ""; // À remplacer par le code pour générer l'identifiant
+        }
+    
+        /*
+         * Votre site web possède un validateur de mot de passe. Ce validateur retourne
+         * la force d'un mot de passe en nombre de points en fonction de certains
+         * paramètres.
+         * 
+         * Critères de validation :
+         * 
+         * Si le mot de passe contient une lettre majuscule, ajouter 1 point.
+         * Si le mot de passe contient une lettre minuscule, ajouter 1 point.
+         * Si le mot de passe contient un chiffre, ajouter 1 point.
+         * Si le mot de passe contient un caractère spécial (comme ., ,, !, ?), ajouter
+         * 1 point.
+         * Si le mot de passe a une longueur supérieure à 14 caractères, ajouter 20
+         * points.
+         * Ajouter 1 point par caractère dans la chaîne.
+         */
+        public int scoreMotDePasse(String motDePasse) {
+            // Complétez cette méthode pour calculer le score
+            return 0;
+        }
+    
+        /*
+         * Le site jetski-super-fan possède une page d'inscription. Un mail est
+         * nécessaire pour l'inscription. Écrivez une méthode qui permet de savoir si un
+         * mail est valide pour l'inscription.
+         * 
+         * Un mail est valide si :
+         * 
+         * Il possède exactement un "@".
+         * La longueur de la partie avant le "@" et la partie après le "@" est
+         * supérieure à 4.
+         */
+        public boolean mailValide(String mail) {
+            // Complétez cette méthode
+            return true;
+        }
+    
     }
+    
 </code>
 </pre>
-            </div>
 
-            <h3>Comparer la Proposition avec le Nombre Mystère</h3>
 
-            <p>Comparez le nombre proposé avec le nombre mystère et indiquez si c'est plus grand, plus petit ou correct.</p>
+<pre>
+<code>
+    package fr.gouv.finances.enfip;
+
+    import static org.junit.jupiter.api.Assertions.assertEquals;
+    import static org.junit.jupiter.api.Assertions.assertTrue;
+    import static org.junit.jupiter.api.Assertions.assertFalse;
+    
+    import org.junit.jupiter.api.Test;
+    
+    public class JavaNiveau1Test {
+    
+        private JavaNiveau1 javaNiveau1 = new JavaNiveau1();
+    
+        @Test
+        void testEstPair() {
+            assertEquals(javaNiveau1.estPair(2), true); // Nombre pair positif
+            assertEquals(javaNiveau1.estPair(7), false); // Nombre impair positif
+            assertEquals(javaNiveau1.estPair(-4), true); // Nombre pair négatif
+            assertEquals(javaNiveau1.estPair(-3), false);// Nombre impair négatif
+        }
+    
+        @Test
+        void testPourcentages() {
+            assertEquals(javaNiveau1.pourcentages(100.0, 50), 50.0); // 50% de réduction sur 100€
+            assertEquals(javaNiveau1.pourcentages(200.0, 25), 150.0); // 25% de réduction sur 200€
+            assertEquals(javaNiveau1.pourcentages(50.0, 10), 45.0); // 10% de réduction sur 50€
+            assertEquals(javaNiveau1.pourcentages(80.0, 0), 80.0); // Pas de réduction
+            assertEquals(javaNiveau1.pourcentages(60.0, 100), 0.0); // Réduction totale
+        }
+    
+        @Test
+        void testTarif() {
+            assertEquals(10.0, javaNiveau1.tarif(30, true));
+            assertEquals(16.0, javaNiveau1.tarif(24, false));
+            assertEquals(16.0, javaNiveau1.tarif(61, false));
+            assertEquals(20.0, javaNiveau1.tarif(30, false));
+            assertEquals(10.0, javaNiveau1.tarif(20, true));
+            assertEquals(10.0, javaNiveau1.tarif(70, true));
+        }
+    
+        @Test
+        void testEstPremier() {
+            assertTrue(javaNiveau1.estPremier(2));
+            assertTrue(javaNiveau1.estPremier(3));
+            assertTrue(javaNiveau1.estPremier(7));
+            assertTrue(javaNiveau1.estPremier(11));
+    
+            assertFalse(javaNiveau1.estPremier(1));
+            assertFalse(javaNiveau1.estPremier(4));
+            assertFalse(javaNiveau1.estPremier(9));
+            assertFalse(javaNiveau1.estPremier(10));
+        }
+    
+        @Test
+        public void testIdentifiant() {
+            // Test 1 : Identifiant avec des valeurs standards
+            String identifiant1 = javaNiveau1.identifiant("Dupont", "Jean", 75, 1234);
+            assertEquals("DUPONTjean75_1234", identifiant1);
+    
+            // Test 2 : Identifiant avec des noms et prénoms plus courts
+            String identifiant2 = javaNiveau1.identifiant("Liu", "Mei", 13, 5678);
+            assertEquals("LIUmei13_5678", identifiant2);
+    
+            // Test 3 : Identifiant avec des nombres différents
+            String identifiant3 = javaNiveau1.identifiant("Martin", "Paul", 92, 8765);
+            assertEquals("MARTINpaul92_8765", identifiant3);
+        }
+    
+        public void testScoreMotDePasse() {
+            // Test 1 : Mot de passe sans critères particuliers
+            assertEquals(5, javaNiveau1.scoreMotDePasse("abcde"));
+    
+            // Test 2 : Mot de passe avec une majuscule
+            assertEquals(6, javaNiveau1.scoreMotDePasse("Abcde"));
+    
+            // Test 3 : Mot de passe avec une minuscule et un chiffre
+            assertEquals(7, javaNiveau1.scoreMotDePasse("abc1e"));
+    
+            // Test 4 : Mot de passe avec une minuscule, un chiffre et un caractère spécial
+            assertEquals(8, javaNiveau1.scoreMotDePasse("abc!1e"));
+    
+            // Test 5 : Mot de passe avec plus de 14 caractères
+            assertEquals(26, javaNiveau1.scoreMotDePasse("abcdefghijklmno"));
+    
+            // Test 6 : Mot de passe avec plus de 14 caractères et un caractère spécial
+            assertEquals(27, javaNiveau1.scoreMotDePasse("abcdefghijklmno!"));
+    
+            // Test 7 : Mot de passe avec tous les critères
+            assertEquals(34, javaNiveau1.scoreMotDePasse("Abc1!Defghijklmno"));
+        }
+    
+        @Test
+        public void testMailValide() {
+            // Test 1: Mail valide avec un "@" et des parties de taille supérieure à 4
+            assertTrue(javaNiveau1.mailValide("toto.titi@example.com"));
+    
+            // Test 2: Mail invalide avec une partie avant "@" trop courte
+            assertFalse(javaNiveau1.mailValide("a@b.co"));
+    
+            // Test 3: Mail invalide avec une partie après "@" trop courte
+            assertFalse(javaNiveau1.mailValide("test@a.fr"));
+    
+            // Test 4: Mail invalide avec plus d'un "@"
+            assertFalse(javaNiveau1.mailValide("test@example@example.com"));
+    
+            // Test 5: Mail valide avec une partie avant "@" de taille 5 et partie après "@"
+            // de taille 5
+            assertTrue(javaNiveau1.mailValide("hello@hello"));
+        }
+    
+    }
+    
+</code>
+</pre>
             
-            <button class="accordion-button">Réponse - Exercice </button>
-            <div class="accordion-content">
-<pre>
-<code>
-    import java.util.Random;
-    import java.util.Scanner;
-    
-    public class JustePrix {
-        public static void main(String[] args) {
-            Random random = new Random();
-            int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
-    
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Proposez un nombre : ");
-            int proposition = scanner.nextInt();
-    
-            if (proposition == nombreMystere) {
-                System.out.println("Bravo, vous avez trouvé le nombre mystère !");
-            } else if (proposition < nombreMystere) {
-                System.out.println("C'est plus !");
-            } else {
-                System.out.println("C'est moins !");
-            }
-        }
-    }    
-</code>
-</pre>
-            </div>
-
-            <h3>Ajouter un Nombre Limité de Tentatives</h3>
-
-            <p>Limitez le joueur à 5 tentatives et affichez un message s’il échoue.</p>
-
-            <button class="accordion-button">Réponse - Exercice </button>
-            <div class="accordion-content">
-<pre>
-<code>
-    import java.util.Random;
-    import java.util.Scanner;
-    
-    public class JustePrix {
-        public static void main(String[] args) {
-            Random random = new Random();
-            int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
-            Scanner scanner = new Scanner(System.in);
-    
-            int tentatives = 5;
-            boolean gagne = false;
-    
-            while (tentatives > 0) {
-                System.out.print("Proposez un nombre (Tentatives restantes : " + tentatives + ") : ");
-                int proposition = scanner.nextInt();
-                tentatives--;
-    
-                if (proposition == nombreMystere) {
-                    System.out.println("Bravo, vous avez trouvé le nombre mystère !");
-                    gagne = true;
-                    break;
-                } else if (proposition < nombreMystere) {
-                    System.out.println("C'est plus !");
-                } else {
-                    System.out.println("C'est moins !");
-                }
-            }
-    
-            if (!gagne) {
-                System.out.println("Dommage, vous avez perdu. Le nombre mystère était : " + nombreMystere);
-            }
-        }
-    }       
-</code>
-</pre>
-            </div>
-
-            <h3>Ajouter la Possibilité de Rejouer</h3>
-
-            <p>Permettez au joueur de rejouer ou de quitter après chaque partie.</p>
-            <button class="accordion-button">Réponse - Exercice </button>
-            <div class="accordion-content">
-<pre>
-<code>
-    import java.util.Random;
-    import java.util.Scanner;
-    
-    public class JustePrix {
-        public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-    
-            boolean rejouer;
-            do {
-                Random random = new Random();
-                int nombreMystere = random.nextInt(101); // Nombre entre 0 et 100
-    
-                int tentatives = 5;
-                boolean gagne = false;
-    
-                while (tentatives > 0) {
-                    System.out.print("Proposez un nombre (Tentatives restantes : " + tentatives + ") : ");
-                    int proposition = scanner.nextInt();
-                    tentatives--;
-    
-                    if (proposition == nombreMystere) {
-                        System.out.println("Bravo, vous avez trouvé le nombre mystère !");
-                        gagne = true;
-                        break;
-                    } else if (proposition < nombreMystere) {
-                        System.out.println("C'est plus !");
-                    } else {
-                        System.out.println("C'est moins !");
-                    }
-                }
-    
-                if (!gagne) {
-                    System.out.println("Dommage, vous avez perdu. Le nombre mystère était : " + nombreMystere);
-                }
-    
-                System.out.print("Voulez-vous rejouer ? (oui/non) : ");
-                String reponse = scanner.next();
-                rejouer = reponse.equalsIgnoreCase("oui");
-    
-            } while (rejouer);
-    
-            System.out.println("Merci d'avoir joué. À bientôt !");
-        }
-    }      
-</code>
-</pre>
-            </div>
-
-
 			</div>
 			<!--end of another post item-->			
 		</div>
@@ -262,6 +320,7 @@
         });
     });
 </script>
+
 	
 </body>
 
