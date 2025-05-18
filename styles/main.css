@@ -1,0 +1,72 @@
+/*=============================================================================================*/
+
+/* Style global */
+body {
+    font-family: 'Cinzel', serif; /* Police médiévale principale */
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Fond noir */
+    color: #f4d03f; /* Texte doré */
+}
+
+/* Barre de navigation */
+nav {
+    display: flex;
+    justify-content: space-between; /* Sépare les éléments à gauche et à droite */
+    align-items: center; /* Centre verticalement */
+    background-color: #333;
+    border-bottom: 3px solid #f4d03f; /* Bordure dorée */
+}
+
+/* Titre à gauche */
+.logo {
+    display: flex;
+    justify-content: space-between; /* Sépare les éléments à gauche et à droite */
+    align-items: center; /* Centre verticalement */
+    
+    font-family: 'Cinzel', serif;
+    font-size: 1.4em; /* Taille plus grande */
+    color: #f4d03f;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Espacement entre les lettres pour un effet médiéval */
+}
+
+.logo-image 
+{
+    height: 3em ;
+    width: 3em ;
+}
+
+
+/* Liens de navigation à droite */
+nav a {
+    color: #f4d03f; /* Liens en or */
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1em;
+    text-transform: uppercase; /* Majuscules pour un style médiéval */
+}
+
+nav a:hover {
+    color: #b9832f; /* Or plus clair au survol */
+}
+
+/* Responsive */
+@media (max-width: 768px) 
+{
+    /* Barre de navigation pour les petits écrans */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+}
+
+/*=============================================================================================*/

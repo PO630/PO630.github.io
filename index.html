@@ -1,391 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>SOLAHOR</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/font.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
-body, html {
-  height: 100%;
-  line-height: 1.8;
-}
+    <!-- Titre de la page -->
+    <title>Solahor</title>
+    <!-- Charset pour un encodage correct -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("image/background/Ascendelle.jpg");
-  min-height: 100%;
-  position: relative; /* Assurez-vous d'ajouter cette propriété */
-}
+    <!-- Auteur de la page -->
+    <meta name="author" content="François-Xavier Marcheix">
+    <!-- Type de contenu -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
 
-.bgimg-1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* Ajustez la couleur et l'opacité ici */
-}
+    <!-- Description du site pour le SEO -->
+    <meta name="description" content="Découvrez les personnages fascinants de l'univers Solahor, explorez leurs histoires et leurs relations.">
+    <!-- Mots-clés pour le SEO -->
+    <meta name="keywords" content="Solahor, Jeux, RPG, GitHub, François-Xavier, Marcheix">
 
-.w3-bar .w3-button {
-  padding: 16px;
-}
-</style>
+
+    <!-- Propriétés Open Graph pour l'intégration avec les réseaux sociaux -->
+    <meta property="og:title" content="Solahor">
+    <meta property="og:description" content="Découvrez les personnages fascinants de l'univers Solahor, explorez leurs histoires et leurs relations.">
+    <meta property="og:image" content=""> <!-- L'image partagée pour l'OG -->
+    <meta property="og:url" content="https://po630.github.io/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card (pour une meilleure présentation sur Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Solahor">
+    <meta name="twitter:description" content="Découvrez les personnages fascinants de l'univers Solahor, explorez leurs histoires et leurs relations.">
+    <meta name="twitter:image" content="">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css"> 
+    <link rel="stylesheet" href="styles/index.css"> 
+
 </head>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">SOLAHOR</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> Personnage</a>
-      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Galerie</a>
-      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-tachometer"></i> Version</a>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">Personnage</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">Galerie</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">Version</a>
-</nav>
-
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small">Solahor</span><br>
-    <span class="w3-large">Explorez les mystères de Solahor et forgez votre destinée.</span>
-    <p><a href="https://drive.google.com/file/d/1eKMu-EGlNSgJzOKxyOLXzB11Hfm4W9ha/view?usp=sharing" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"><i class="fa fa-download"></i> Télécharger le jeu</a></p>
-  </div> 
-</header>
-
-<!-- Promo Section - "We know design" -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>Aperçu du jeu</h3>
-      <p>
-        Plongez au cœur d'une aventure épique avec notre jeu de rôle captivant, offrant des combats au tour par tour inspirés par le légendaire Divinity 2. 
-        Explorez un vaste monde rempli de mystères et de dangers, où chaque recoin recèle des secrets à découvrir et des défis à relever.</p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="image/capture/openworld.png" alt="Buildings" width="700" height="394">
-    </div>
-  </div>
-</div>
-
-<div class="w3-container w3-light-grey" ></div>
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>Actualités</h3>
-      <p> 
-        Le problème d'optimisation causant les chutes de FPS a été résolu. Le jeu n'utilisait pas correctement le GPU pour l'affichage, ce qui provoquait les ralentissements. 
-        Après correction, les performances sont désormais fluides. 
-      </p> 
-        <p> 
-          Des modifications graphiques ont également été apportées aux arbres pour améliorer leur réalisme. 
-        </p> 
-        <p> Je continue de m'investir activement dans le développement du jeu afin de l'améliorer, mais je travaille principalement dessus pendant 
-          les week-ends en raison de mes autres engagements. Chaque nouvelle mise à jour bénéficiera d'ajustements réguliers et de nouvelles fonctionnalités 
-          pour offrir la meilleure expérience de jeu possible. 
-        </p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="image/background/bug.png" alt="Buildings" width="500" height="394">
-    </div>
-  </div>
-</div>
-
-<!-- Team Section -->
-<div class="w3-container" style="padding:128px 16px" id="team">
-  <h3 class="w3-center">Personnage</h3>
-  <p class="w3-center w3-large">
-    Rencontrez Lyanna, une templière du Sacraël, dotée de pouvoirs mystérieux.
-    Accompagnée de William, un loyal protecteur de la famille Silverstone, et de Blaid, un paria des badlands 
-    au passé obscur, elle se lance dans une quête épique pour découvrir la vérité sur la disparition de sa 
-    mère et les mystères qui entourent leur monde.</p>
-  <div class="w3-row-padding " style="margin-top:64px">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
+    <!-- Barre de navigation -->
+    <nav>
+        <div class="logo">
+            <img src="images/favicon/favicon.jfif" alt="Logo" class="logo-image">
+            <div style="margin-left: 1em;">Solahor</div>
+        </div>
         <div>
-            <img src="image/personnage/Lyanna_splashart_non_back.png" style="width:50%;margin-left: auto;margin-right: auto;display: block;" >
+            <a href="index.html">Accueil</a>
+            <a href="personnages.html">Personnages</a>
+            <a href="univers.html">Univers</a> <!-- Nouveau lien ajouté ici -->
+            <a href="galeries.html">Galerie</a>
+            <a href="versions.html">Version</a>
+            <a href="contact.html">Contact</a>
         </div>
-        <div class="w3-container">
-          <h3>Lyanna Silverstone</h3>
-          <p class="w3-opacity">Templière</p>
-          <p>
-            Lyanna est née à Ascendelle, fille d'Alaric Silverstone, élevée dans le but de devenir templier du Sacraël. 
-            Dotée de compétences exceptionnelles au combat et de pouvoirs surnaturels.<p></p>
-            Lyanna a toujours excellé dans son entraînement. Son père lui a raconté une histoire fascinante de son 
-            enfance, où le Sacraël lui-même l'aurait touchée, conférant ainsi ses pouvoirs extraordinaires.
-            À l'âge de 21 ans, Lyanna conserve peu de souvenirs de sa mère, Lyra, qui a quitté la famille lorsque Lyanna avait dix ans.
+    </nav>
+
+    <!-- Image de couverture avec titre -->
+    <div class="hero">
+        <h1>Solahor</h1>
+        <a href="https://drive.google.com/file/d/1XJ7t9bN7OwT262q81yh3oPWaYIKOh58G/view?usp=sharing" class="btn-download">Télécharger le Jeu</a>
+    </div>
+
+    <!-- Texte d'introduction -->
+    <section style="padding: 20px; text-align: center;">
+        <h2>Bienvenue sur le site officiel de Mon Jeu !</h2>
+        <p>
+            Solahor est un RPG tactique mêlant jeu de cartes et stratégie au tour par tour.
         </p>
-        </div>
-      </div>
-    </div>
+        <p>
+Incarnez Lyanna Silverstone, une guerrière marquée par la disparition de sa mère, et partez à la recherche de la vérité dans un monde déchiré entre foi, magie et trahison.
+            </p><p>
+Parcourez Solahor aux côtés de vos compagnons, explorez des terres oubliées, affrontez des créatures redoutables, et faites des choix cruciaux qui façonneront le destin de votre aventure.</p>
+</p>    </section>
 
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <div>
-            <img src="image/personnage/William_splashart_non_back.png" style="width:50%;margin-left: auto;margin-right: auto;display: block;" >
-        </div>
-        <div class="w3-container">
-          <h3>William</h3>
-          <p class="w3-opacity">Chasseur</p>
-          <p>
-            William est le plus proche ami de la famille Silverstone. Autrefois sauvé par Alaric, il a dédié sa vie au service de cette famille. 
-            Il exerçait autrefois le métier risqué mais extrêmement lucratif de baleinier, prouvant à plusieurs reprises son expertise en tant 
-            que combattant et tireur d'élite exceptionnel.<p></p>
-            À l'âge de 62 ans, la force dont il faisait preuve autrefois commence à faiblir. Malgré cela, sa loyauté envers les Silverstone reste 
-            inébranlable, et il continue de jouer un rôle crucial dans leur entourage.
-        </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <div>
-            <img src="image/personnage/Blaid_splashart_non_back.png" style="width:50%;margin-left: auto;margin-right: auto;display: block;" >
-        </div>
-        <div class="w3-container">
-          <h3>Blaid</h3>
-          <p class="w3-opacity">Déserteur</p>
-          <p>
-            Blaid est un ancien membre de l'armée, spécialisé dans l'exploration des Badlands. Seul survivant d'une expédition il y a dix ans, 
-            Blaid est depuis devenu un paria exerçant dans les bas-fonds de la cité. <p></p>
-            Sa technique de combat est particulièrement agressive, et Blaid prend un malin plaisir à mettre en scène ses 
-            assassinats pour effrayer ses ennemis. 
-            Il demeure la dernière personne à Ascendelle à avoir parlé à Lyra Silverstone, la mère de Lyanna.
-        </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Attention SPOIL ici =) 
-
-    <div class="w3-col l3 m6 w3-margin-bottom" >
-      <div class="w3-card">
-        <div>
-            <img src="image/personnage/Aurelia_splashart_back.png" style="width:50%;margin-left: auto;margin-right: auto;display: block;" >
-        </div>
-        <div class="w3-container">
-          <h3>Aurelia</h3>
-          <p class="w3-opacity">Prêtresse</p>
-          <p>
-            Aurelia est une "jeune" Celeste, servant fidèlement Dame Lyra. Ses parents, des membres influents de la société Celeste, ont veillé à 
-            ce qu'elle soit formée par Lyra pour monter dans la hiérarchie sociale. Aurelia est timide et préfère éviter les conflits directs, 
-            priorisant la fuite ou la discrétion en cas de danger.<p></p>
-            Dotée d'un talent naturel pour la magie, Aurelia se spécialise dans les sorts de soin et de conservation, offrant un soutien précieux 
-            à ceux qui en ont besoin. Sa nature douce et sa capacité à soigner font d'elle un atout inestimable dans toute aventure, 
-            même si elle doit souvent surmonter ses propres peurs pour aider ses compagnons.
-        </p>
-        </div>
-      </div>
-    </div>
-    -->
-
-  </div>
-</div>
-
-<!-- Promo Section "Statistics" -->
-<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
-
-</div>
-
-<!-- Work Section -->
-<div class="w3-container" style="padding:128px 16px" id="work">
-  <h3 class="w3-center">Galerie</h3>
-
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-col l3 m6">
-      <img src="image/capture/combat.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Combat">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="image/capture/monde.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Monde">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="image/capture/Competences.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Compétences">
-    </div>
-    <div class="w3-col l3 m6">
-        <img src="image/capture/combat2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Combat">
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-section">
-    <div class="w3-col l3 m6">
-      <img src="image/capture/menu.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Menu">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="image/capture/Dialogue.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Dialogue">
-    </div>
-    <div class="w3-col l3 m6">
-        <img src="image/capture/monde2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Monde">
-      </div>
-    <div class="w3-col l3 m6">
-      <img src="image/capture/openworld.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Monde">
-    </div>
-  </div>
-</div>
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
-
-<!-- Skills Section -->
-<div class="w3-container w3-light-grey w3-padding-64">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>Avancement</h3>
-    <p>
-        Bonjour ! Je suis François-Xavier Marcheix, le développeur de Solahor. Je suis seul sur ce projet passionnant, 
-        où chaque ligne de code et chaque idée me rapprochent un peu plus de créer un monde fantastique pour les joueurs à explorer.
-    </p>
-    <p>
-
-    </p>
-    </div>
-    <div class="w3-col m6">
-      <p class="w3-wide"><i class="fa fa-camera w3-margin-right"></i>gameplay</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:70%">70%</div>
-      </div>
-      <p class="w3-wide"><i class="fa fa-desktop w3-margin-right"></i>histoire</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:30%">30%</div>
-      </div>
-      <p class="w3-wide"><i class="fa fa-photo w3-margin-right"></i>graphisme</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:45%">45%</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Pricing Section -->
-<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
-  <h3>Version</h3>
-    <p class="w3-large">
-    Ici, vous trouverez un aperçu de l'évolution du jeu depuis ses débuts. 
-    </p>
-
-    <div class="w3-row-padding" style="margin-top:64px">
-      <div class="w3-quarter w3-section">
-        <ul class="w3-ul w3-white w3-hover-shadow">
-            <li class="w3-light-blue w3-xlarge w3-padding-32">Alpha 0.4 (actuel)</li>
-            <li class="w3-padding-16">Choix de dialogues</li>
-            <li class="w3-padding-16">Dialogue autour du feu de camp</li>
-            <li class="w3-padding-16">Ajout de l'affinité avec les partenaires</li>
-            <li class="w3-padding-16">Continuité de la quête principale</li>
-            <li class="w3-padding-16">Modification du prologue et de la zone de prologue</li>
-        </ul>
-      </div>
-
-  <div class="w3-quarter w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Alpha 0.3.5 </li>
-          <li class="w3-padding-16">Intégration des optimisations</li>
-          <li class="w3-padding-16">Test de voix artificielle pendant les dialogues</li>
-          <li class="w3-padding-16">Ajout de nouveaux ennemis et de nouvelles zones</li>
-          <li class="w3-padding-16">Ajout de nouvelles quêtes</li>
-      </ul>
-  </div>
-
-
-  <div class="w3-quarter w3-section">
-    <ul class="w3-ul w3-white w3-hover-shadow">
-      <li class="w3-black w3-xlarge w3-padding-32">Alpha 0.3</li>
-      <li class="w3-padding-16"> Intégration de quêtes secondaires</li>
-      <li class="w3-padding-16"> Expansion de l'histoire principale</li>
-      <li class="w3-padding-16"> Intégration de nouveaux personnages et ennemis</li>
-      <li class="w3-padding-16"> Ajoute du menu des options de jeu</li>
-      <li class="w3-padding-16"> Ajoute de vfx au compétences des personnages principaux</li>
-    </ul>
-  </div>
-
-  <div class="w3-quarter w3-section">
-    <ul class="w3-ul w3-white w3-hover-shadow">
-      <li class="w3-black w3-xlarge w3-padding-32">Alpha 0.2</li>
-      <li class="w3-padding-16"> Ajout de nouvelles zones à explorer</li>
-      <li class="w3-padding-16"> Correction de nombreux bugs</li>
-      <li class="w3-padding-16"> Amélioration du systéme de caméra</li>
-      <li class="w3-padding-16"> Création du systéme de monté de niveau et compétence</li>
-    </ul>
-  </div>
-
-</div>
-
-    <div class="w3-quarter w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Alpha 0.1</li>
-        <li class="w3-padding-16"> Création de l'univers de Solahor</li>
-        <li class="w3-padding-16"> Développement du système de combat au tour par tour</li>
-        <li class="w3-padding-16"> Mise en place des personnages principaux</li>
-        <li class="w3-padding-16"> Création du systéme de sauvegarde</li>
-        <li class="w3-padding-16"> Création du menu principale</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Télécharger</a>
-</footer>
- 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
-
+    <!-- Résumé du jeu -->
+    <section id="game-summary" class="game-summary">
+        <h2>À propos du jeu</h2>
+        <p>Il s’agit de mon tout premier jeu, une exclusivité PC. Je n’ai pas beaucoup de temps à y consacrer, mais j’avance petit à petit. J’espère sincèrement qu’il vous plaira.</p>
+    </section>
 </body>
 </html>
-<!--
-  ^ ^
-(=o o=) François-Xavier Marcheix
-  \_/
--->

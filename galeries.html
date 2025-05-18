@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+
+        <!-- Titre de la page -->
+        <title>Solahor</title>
+        <!-- Charset pour un encodage correct -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- Auteur de la page -->
+        <meta name="author" content="François-Xavier Marcheix">
+        <!-- Type de contenu -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Favicon -->
+        <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    
+        <!-- Description du site pour le SEO -->
+        <meta name="description" content="Découvrez les personnages fascinants de l'univers Solahor, explorez leurs histoires et leurs relations.">
+        <!-- Mots-clés pour le SEO -->
+        <meta name="keywords" content="Solahor, Jeux, RPG, GitHub, François-Xavier, Marcheix">
+    
+    
+        <!-- Propriétés Open Graph pour l'intégration avec les réseaux sociaux -->
+        <meta property="og:title" content="Solahor">
+        <meta property="og:description" content="Découvrez les personnages fascinants de l'univers Solahor, explorez leurs histoires et leurs relations.">
+        <meta property="og:image" content=""> <!-- L'image partagée pour l'OG -->
+        <meta property="og:url" content="https://po630.github.io/">
+        <meta property="og:type" content="website">
+    
+        <!-- Twitter Card (pour une meilleure présentation sur Twitter) -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Solahor">
+        <meta name="twitter:description" content="Découvrez les personnages fascinants de l'univers Solahor, explorez leurs histoires et leurs relations.">
+        <meta name="twitter:image" content="">
+    
+        <!-- CSS -->
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/main.css"> 
+        <link rel="stylesheet" href="styles/galeries.css"> 
+    
+    </head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav>
+        <div class="logo">
+            <img src="images/favicon/favicon.jfif" alt="Logo" class="logo-image">
+            <div style="margin-left: 1em;">Solahor</div>
+        </div>
+        <div>
+            <a href="index.html">Accueil</a>
+            <a href="personnages.html">Personnages</a>
+            <a href="univers.html">Univers</a> <!-- Nouveau lien ajouté ici -->
+            <a href="galeries.html">Galerie</a>
+            <a href="versions.html">Version</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Section Galerie -->
+    <section class="gallery">
+        <h1>Galerie d'Images</h1>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="images/galeries/Combat.png" alt="Image 1" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+                <img src="images/galeries/AdvPano.png" alt="Image 2" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+                <img src="images/galeries/AdvWalk.png" alt="Image 3" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+                <img src="images/galeries/Dialo.png" alt="Image 4" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+                <img src="images/galeries/MenuAdv.png" alt="Image 5" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+                <img src="images/galeries/MenuStats.png" alt="Image 6" class="gallery-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modale d'image -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Image agrandie">
+    </div>
+
+    <script>
+        // Ouverture de la modale
+        const galleryImages = document.querySelectorAll('.gallery-img');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.close-btn');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'block';
+                modalImage.src = img.src;
+            });
+        });
+
+        // Fermeture de la modale
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Fermer la modale si l'utilisateur clique en dehors de l'image
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/*=============================================================================================*/
+
+/* Image de couverture avec titre */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-image: url('../images/Ascendelle.jpg'); /* Remplacer par ton image */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cinzel', serif;
+    color: #f4d03f; /* Titre doré */
+    font-size: 4em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero .btn-download {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #1a1a1a; /* Fond noir initial */
+    color: #f4d03f; /* Texte doré */
+    text-decoration: none;
+    font-size: 1.2em;
+    border: 2px solid #f4d03f; /* Bordure dorée */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animation fluide */
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+}
+
+.hero .btn-download:hover {
+    background-color: #f4d03f; /* Change en or au survol */
+    color: #1a1a1a; /* Texte noir */
+}
+
+
+/* Section résumé du jeu */
+.game-summary {
+    background-color: #333; /* Fond sombre */
+    padding: 40px;
+    text-align: center;
+    color: #f4d03f; /* Texte doré */
+}
+
+.game-summary h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #f4d03f;
+    font-family: 'Georgia', serif;
+}
+
+.game-summary p {
+    font-size: 1.2em;
+    color: #f4d03f;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Georgia', serif;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero .btn-download {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .game-summary h2 {
+        font-size: 1.8em;
+    }
+
+    .game-summary p {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+
+}
+
+/*=============================================================================================*/
