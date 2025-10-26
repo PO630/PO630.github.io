@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>You can't park there! — Télécharger</title>
+  <meta name="description" content="You can't park there! — petit jeu 3D de parking (Unity). Téléchargez la build WebGL ou Windows." />
+
+  <!-- Styles simples intégrés -->
+  <style>
+    :root{
+      --bg:#f8fbff;
+      --card:#ffffff;
+      --accent:#4aa3ff;
+      --muted:#6b7280;
+      --success:#49c878;
+      --danger:#ff6b6b;
+      --glass: rgba(255,255,255,0.7);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#f3fbff 0%, #ffffff 100%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+    }
+    .container{max-width:980px;margin:0 auto;}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:18px;}
+    .logo{
+      width:72px;height:72px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#ffd36b);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
+      box-shadow:0 6px 20px rgba(74,163,255,0.15);
+    }
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .download-buttons{display:flex;flex-direction:column;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:10px;border:0;font-weight:600;
+      cursor:pointer;text-decoration:none;color:white;
+      box-shadow:0 6px 14px rgba(2,6,23,0.08)
+    }
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#6ecbff);}
+    .btn-secondary{background:#111827;}
+    .btn-zip{background:linear-gradient(90deg,#ffb86b,#ff8a6b);}
+    .meta{font-size:13px;color:var(--muted);margin-top:8px}
+    ul.features{padding-left:18px;margin:12px 0}
+    .screenshot{width:100%;height:180px;border-radius:8px;background:#eef6ff;border:1px dashed #d7eefe;display:flex;align-items:center;justify-content:center;color:#7daee8}
+    footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px}
+    .small{font-size:13px;color:var(--muted)}
+    .kbd{background:#f1f5f9;border-radius:6px;padding:4px 8px;font-weight:700; font-size:13px}
+    .panel{display:flex;flex-direction:column;gap:10px}
+    .level-list{display:flex;flex-direction:column;gap:8px}
+    .level-item{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:var(--glass)}
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr; }
+      header{flex-direction:row}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="Icon.png" height="100px" width="100px" />
+      <div>
+        <h1>You can't park there !</h1>
+        <p class="lead">Petit jeu 3D mignon et féerique développé avec Unity. Garer la voiture sans se planter — facile à dire !</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Colonne principale -->
+      <section class="card">
+        <img src="MenuTitle.png" width="500px" height="300px" /> 
+        <h3 style="margin-top:12px">Description</h3>
+        <p class="small">Dans <strong>You can't park there !</strong>, vous contrôlez une petite voiture dans des parkings farfelus. Obstacles, cônes, voitures... : garez-vous correctement pour gagner.</p>
+
+        <h3 style="margin-top:12px">Caractéristiques</h3>
+        <ul class="features">
+          <li>Contrôles simples : <span class="kbd">Z/S</span> pour avancer/reculer, <span class="kbd">Q/D</span> pour tourner.</li>
+          <li>Physique réaliste simplifiée (pas de rotation sur place).</li>
+          <li>Niveaux variés, ambiance mignonne et sonore féerique.</li>
+          <li>Modes WebGL et Build Windows (prévu).</li>
+        </ul>
+
+        <h3 style="margin-top:10px">Contrôles</h3>
+        <div class="small">
+          <div><span class="kbd">Z / S</span> Avancer / Reculer</div>
+          <div><span class="kbd">Q / D</span> Tourner</div>
+          <div><span class="kbd">Echap</span> Pause</div>
+        </div>
+
+        <h3 style="margin-top:14px">Niveaux disponibles</h3>
+        <div class="level-list">
+          <div class="level-item"><div>Level_1 — Parking de test</div><div class="small">ID: level_1</div></div>
+        </div>
+
+        <h3 style="margin-top:14px">Changelog (extraits)</h3>
+        <ul class="features">
+          <li>v0.2 — Ajout du ParkSpot avec validation de couverture 70%.</li>
+          <li>v0.1 — Prototype: déplacement, collisions, caméra smooth.</li>
+        </ul>
+      </section>
+
+      <!-- Colonne de droite: téléchargements & infos -->
+      <aside class="card">
+        <div class="panel">
+          <h3>Téléchargements</h3>
+
+          <!-- Remplacez les href par les liens réels de vos builds -->
+          <div class="download-buttons">
+
+            <a class="btn btn-zip" href="you_can_t_park_there.zip" download>
+              ⤓ Télécharger Windows (zip)
+            </a>
+
+            <a class="btn btn-secondary" href="https://github.com/PO630/You-can-t-park-there" target="_blank" rel="noopener">
+              ⭐ Voir le dépôt GitHub
+            </a>
+          </div>
+
+
+          <hr style="margin:12px 0;opacity:.7">
+
+          <h4>Instructions (Windows)</h4>
+          <p class="small">Décompressez et lancez `YouCantParkThere.exe`. Si Windows bloque l’exécution, faites un clic droit → Exécuter en tant qu’administrateur ou débloquez via Propriétés → Débloquer.</p>
+
+          <hr style="margin:12px 0;opacity:.7">
+
+          <h4>Support</h4>
+          <p class="small">Bugs / retours : <a href="marcheix.vigile@gmail.com">marcheix.vigile@gmail.com</a></p>
+
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="small">© <strong>François-Xavier Marcheix</strong> — You can't park there! — Build: v0.2</div>
+    </footer>
+  </div>
+
+  <!-- Script léger (optionnel) pour tracker les clicks de téléchargement -->
+  <script>
+    (function(){
+      function trackDownload(e){
+        // Exemple simple : logging dans la console.
+        // Remplace par analytics si besoin.
+        console.log('Téléchargement déclenché:', e.currentTarget.href);
+      }
+
+      var links = document.querySelectorAll('a[download]');
+      links.forEach(function(a){ a.addEventListener('click', trackDownload); });
+    })();
+  </script>
+</body>
+</html>
