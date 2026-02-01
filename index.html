@@ -43,29 +43,30 @@
 <body>
 
     <!-- Barre de navigation -->
-    <nav>
-        <div class="logo">
-            <img src="images/favicon/favicon.jfif" alt="Logo" class="logo-image">
-            <div style="margin-left: 1em;">Solahor</div>
-        </div>
-        <div>
-            <a href="index.html">Accueil</a>
-            <a href="personnages.html">Personnages</a>
-            <a href="univers.html">Univers</a> <!-- Nouveau lien ajouté ici -->
-            <a href="galeries.html">Galerie</a>
-            <a href="versions.html">Version</a>
-            <a href="contact.html">Contact</a>
-        </div>
+    <nav role="navigation" aria-label="Navigation principale">
+      <div class="logo">
+        <img src="images/favicon/favicon.jfif" alt="Logo" class="logo-image" />
+        <div style="margin-left: 1em">Solahor</div>
+      </div>
+      <div>
+        <a href="index.html">Accueil</a>
+        <a href="personnages.html">Personnages</a>
+        <a href="univers.html">Univers</a>
+        <!-- Nouveau lien ajouté ici -->
+        <a href="galeries.html">Galerie</a>
+        <a href="versions.html">Version</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </nav>
 
     <!-- Image de couverture avec titre -->
-    <div class="hero">
+    <div class="hero" role="banner">
         <h1>Solahor</h1>
         <a href="https://drive.google.com/file/d/1XJ7t9bN7OwT262q81yh3oPWaYIKOh58G/view?usp=sharing" class="btn-download">Télécharger le Jeu</a>
     </div>
 
     <!-- Texte d'introduction -->
-    <section style="padding: 20px; text-align: center;">
+    <section style="padding: 20px; text-align: center;" role="article" aria-label="Information sur le jeu">
         <h2>Bienvenue sur le site officiel de Mon Jeu !</h2>
         <p>
             Solahor est un RPG tactique mêlant jeu de cartes et stratégie au tour par tour.
@@ -77,9 +78,12 @@ Parcourez Solahor aux côtés de vos compagnons, explorez des terres oubliées, 
 </p>    </section>
 
     <!-- Résumé du jeu -->
-    <section id="game-summary" class="game-summary">
+    <section id="game-summary" class="game-summary" role="article" aria-label="Mon avancement sur le jeu">
         <h2>À propos du jeu</h2>
-        <p>Il s’agit de mon tout premier jeu, une exclusivité PC. Je n’ai pas beaucoup de temps à y consacrer, mais j’avance petit à petit. J’espère sincèrement qu’il vous plaira.</p>
+        <p>
+            Il s’agit de mon tout premier jeu, une exclusivité PC. Je n’ai pas beaucoup de temps à y consacrer, mais j’avance petit à petit. 
+            J’espère sincèrement qu’il vous plaira.
+        </p>
     </section>
 </body>
 </html>
