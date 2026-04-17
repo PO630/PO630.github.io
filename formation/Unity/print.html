@@ -1,0 +1,1974 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unity</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="src/template/book-style-e3b0c442.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-9a50ccde.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-87ce3622.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Unity</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unity"><a class="header" href="#unity">Unity</a></h1>
+<p><img src="img/unity.png" alt="unity"></p>
+<p>Unity est une plateforme de développement qui permet de créer des jeux vidéo et des applications interactives en 2D ou 3D. Utilisé par des professionnels comme par des amateurs, Unity combine une interface visuelle pour placer des objets, des personnages et des éléments du jeu, et un moteur puissant pour gérer la physique, les animations, et l’intelligence artificielle.</p>
+<p>Le tout est contrôlé par du code, principalement en C#. Unity est reconnu pour sa flexibilité, sa communauté active, et ses nombreuses ressources, ce qui en fait un outil idéal pour débuter ou perfectionner ses compétences en développement de jeux.</p>
+<p>Unity n’est pas seulement utilisé pour créer des jeux vidéo. Il est également employé pour des simulations complexes, comme des scénarios d’évacuation de bâtiments en cas d’incendie, grâce à la génération de scènes 3D. En outre, Unity permet de concevoir des applications interactives en utilisant son système d’interface utilisateur, le Canvas, qui facilite la création d’interfaces simples et efficaces.</p>
+<h2 id="pourquoi-utiliser-unity-"><a class="header" href="#pourquoi-utiliser-unity-">Pourquoi utiliser Unity ?</a></h2>
+<h3 id="accessibilité"><a class="header" href="#accessibilité">Accessibilité</a></h3>
+<p>Unity est aujourd’hui l’un des moteurs de jeu les plus accessibles. Pendant longtemps, il a été la plateforme préférée des développeurs indépendants, qui ont largement partagé leur code et leurs connaissances.</p>
+<p>Contrairement à d’autres moteurs comme Unreal Engine, Unity dispose d’une immense quantité de ressources et de documentation gratuites, ce qui facilite l’apprentissage et la résolution de problèmes pour les débutants comme pour les professionnels. Cela en fait un excellent choix pour quiconque souhaite se lancer dans le développement.</p>
+<h3 id="tarification"><a class="header" href="#tarification">Tarification</a></h3>
+<p>Malgré une récente controverse concernant sa tarification, Unity a historiquement maintenu des prix adaptés à la taille des structures qui l’utilisent.</p>
+<p>Le modèle de tarification reste flexible : les petites entreprises ou développeurs indépendants bénéficient souvent de versions gratuites ou à faible coût, tandis que les grandes entreprises payent en fonction de leurs revenus ou de leur utilisation. Cela garantit une accessibilité pour les créateurs de différents niveaux, tout en restant compétitif par rapport à d’autres moteurs comme Unreal Engine.</p>
+<p><img src="img/tarification.png" alt="tarification"></p>
+<h3 id="multi-plateformes"><a class="header" href="#multi-plateformes">Multi-plateformes</a></h3>
+<p>Unity offre un support multi-plateformes étendu, permettant de développer un projet et de le déployer sur une large gamme de dispositifs : PC, consoles (PlayStation, Xbox, Nintendo Switch), mobiles (iOS, Android), ainsi que les plateformes de réalité virtuelle (VR) et augmentée (AR).</p>
+<h3 id="dautre-moteurs"><a class="header" href="#dautre-moteurs">D’autre moteurs</a></h3>
+<p>Vous pouvez également explorer d’autres moteurs de jeu que Unity :</p>
+<p><img src="img/unreal-engine.png" alt=""></p>
+<h4 id="unreal-engine"><a class="header" href="#unreal-engine">Unreal Engine</a></h4>
+<ul>
+<li>
+<p>Avantages : Réputé pour son incroyable qualité graphique, notamment avec Unreal Engine 5, ce moteur est parfait pour les jeux AAA très réalistes. Il offre de puissants outils de rendu et une grande flexibilité pour les grands projets 3D.</p>
+</li>
+<li>
+<p>Inconvénients : La courbe d’apprentissage est plus difficile, et il est moins adapté aux petits projets ou aux jeux 2D, souvent préférés par les développeurs indépendants.</p>
+</li>
+</ul>
+<p><img src="img/godot.png" alt=""></p>
+<h4 id="godot"><a class="header" href="#godot">Godot</a></h4>
+<ul>
+<li>
+<p>Avantages : Entièrement open source et gratuit, Godot est léger et idéal pour les petits projets 2D. Il est apprécié pour sa simplicité et sa rapidité, ce qui le rend accessible aux débutants.</p>
+</li>
+<li>
+<p>Inconvénients : Moins de ressources et de documentation disponibles par rapport à Unity et Unreal. Ses capacités pour les grands projets 3D sont plus limitées.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="démarrage-dun-nouveau-projet"><a class="header" href="#démarrage-dun-nouveau-projet">Démarrage d’un nouveau projet</a></h1>
+<h2 id="unity-hub"><a class="header" href="#unity-hub">Unity Hub</a></h2>
+<p>Tout d’abord, lançons l’application Unity Hub pour débuter un nouveau projet. Si vous utilisez la machine virtuelle fournie pour ce cours, vous pouvez simplement cliquer sur l’application Unity Hub sur le bureau. Sinon, vous pouvez télécharger l’application sur le site de Unity à l’adresse suivante : <a href="https://unity.com/fr/download">unity.com/fr/download</a></p>
+<p>Il vous sera demandé de créer un compte pour utiliser l’application. Normalement, vous êtes déjà connecté à mon compte pour ce cours, mais sachez que la création d’un compte est gratuite. Cela peut être intéressant si vous souhaitez stocker des projets sur la plateforme Unity Repository ou si vous souhaitez acheter des assets</p>
+<p>Une fois Unity Hub lancé, assurez-vous que la dernière version de Unity est installée. Pour ce cours, nous utiliserons la version la plus récente, même si elle est en version bêta, la version 6.</p>
+<p><img src="Cours/img/Unity%20Hub.PNG" alt="Unity Hub"></p>
+<p>Dans la section “Nouveau projet”, vous pouvez voir qu’Unity vous propose plusieurs choix. Dans notre cas, nous allons créer un projet 2D pour le moment. Pas de panique, créer un projet 2D ou 3D ne présente pas de différence notable. Il n’est pas plus difficile de créer un projet 3D, et de nombreuses notions abordées en 2D s’appliquent également en 3D.</p>
+<p>Dans cette liste, vous remarquerez qu’Unity propose plusieurs modèles de démarrage pour des projets en 2D, en réalité virtuelle, ainsi que d’autres projets pédagogiques. Bien que nous ne les utiliserons pas, vous êtes libre d’explorer ce qu’ils proposent.</p>
+<p>Après avoir cliqué sur “2D (Built-In Render Pipeline)”, vous devrez donner un nom à votre projet, c’est-à-dire le nom de votre jeu. Vous pouvez également indiquer l’emplacement où le projet sera sauvegardé.</p>
+<h2 id="bienvenue-dans-votre-éditeur"><a class="header" href="#bienvenue-dans-votre-éditeur">Bienvenue dans votre éditeur</a></h2>
+<p><img src="Cours/img/Capture2.PNG" alt="éditeur"></p>
+<p>Votre éditeur est ouvert, et vous pouvez maintenant explorer son interface. L’éditeur est divisé en plusieurs fenêtres, et les quatre premières visibles sont : <strong>Hiérarchie, Scène, Inspector et Projet</strong>. Vous pouvez disposer autant de fenêtres que vous le souhaitez, tant que cela reste ergonomique pour votre utilisation.</p>
+<p>Tout d’abord, la section en <strong>bleu</strong> représente la <strong>Scène</strong>. Dans Unity, une scène est un espace où vous pouvez créer et arranger les éléments de votre jeu, tels que des objets, des lumières, des caméras et des terrains. Chaque scène peut contenir différents éléments qui contribuent à l’expérience de jeu.</p>
+<p>La partie en <strong>rouge</strong> représente la <strong>Hiérarchie</strong>. Elle affiche l’ensemble des <strong>GameObjects</strong> présents dans la scène. Dans Unity, un GameObject est une entité de base qui représente tout ce que vous pouvez placer dans une scène, comme une caméra, un personnage, ou un objet interactif. Chaque GameObject peut contenir un ou plusieurs scripts, qui définissent son comportement.</p>
+<p>La partie en <strong>vert</strong> est <strong>l’Inspector</strong>. Cette fenêtre affiche des informations sur le GameObject sélectionné. Vous pouvez y voir le nom, le tag, le layer et les scripts associés au GameObject. Le <strong>nom</strong> identifie le GameObject dans la hiérarchie, le <strong>tag</strong> permet de le catégoriser pour des interactions spécifiques, et le <strong>layer</strong> détermine comment il interagit avec d’autres objets. Les scripts ajoutés à un GameObject lui permettent de réagir et d’interagir avec le monde du jeu.</p>
+<p>La partie en <strong>violet</strong> représente le dossier <strong>Projet</strong>, situé dans l’onglet <strong>Assets</strong>. Cette section contient tous les éléments de votre jeu, y compris les modèles, les textures, les sons, et tout autre actif que vous utilisez dans votre projet. C’est ici que vous pouvez organiser vos ressources et les retrouver facilement.</p>
+<h3 id="ajout-de-nouveaux-onglets-ou-de-nouvelles-fenêtres"><a class="header" href="#ajout-de-nouveaux-onglets-ou-de-nouvelles-fenêtres">Ajout de nouveaux onglets ou de nouvelles fenêtres</a></h3>
+<p><img src="Cours/img/Capture3.PNG" alt=""></p>
+<p>Vous pouvez également noter qu’une fenêtre dans Unity peut contenir un ou plusieurs onglets. Pour ouvrir de nouveaux onglets, cliquez simplement sur Window dans la barre de menus en haut à gauche de l’écran.</p>
+<p>Par exemple, si vous souhaitez ajouter <strong>l’Animator</strong> à la fenêtre qui contient déjà les onglets <strong>Scène</strong> et <strong>Game</strong>, il vous suffit de sélectionner <strong>Window &gt; Animation &gt; Animator</strong>.</p>
+<h2 id="quest-ce-quun-gameobject-"><a class="header" href="#quest-ce-quun-gameobject-">Qu’est-ce qu’un GameObject ?</a></h2>
+<p>Dans Unity, un <strong>GameObject</strong> est la base de tout ce que vous voyez dans une scène. Que ce soit un personnage, un objet, une lumière ou même une caméra, tout est un GameObject. Chaque GameObject a un <strong>Transform</strong> qui détermine où il se trouve, son orientation et sa taille.</p>
+<p>Vous pouvez ajouter différents <strong>composants</strong> ou <strong>script</strong> à un GameObject pour lui donner des fonctionnalités. Par exemple, un GameObject peut avoir un composant <strong>Renderer</strong> pour l’afficher ou un composant Collider pour gérer les collisions.</p>
+<h3 id="comment-créer-un-gameobject"><a class="header" href="#comment-créer-un-gameobject">Comment créer un GameObject</a></h3>
+<p>Il y a deux façons principales de créer un GameObject dans Unity :</p>
+<ul>
+<li>
+<p>Créer un GameObject vide.</p>
+<ul>
+<li>Allez dans le menu en haut, cliquez sur GameObject.</li>
+<li>Choisissez Create Empty. Cela créera un GameObject vide que vous pourrez renommer et personnaliser.</li>
+</ul>
+</li>
+<li>
+<p>Créer un GameObject en glissant un asset.</p>
+<ul>
+<li>Ouvrez la fenêtre Project.</li>
+<li>Trouvez un modèle ou une image dans le dossier Assets.</li>
+<li>Faites glisser cet asset dans la fenêtre Scène ou Hiérarchie. Cela créera automatiquement un GameObject avec les composants nécessaires.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<div style="display:flex;">
+    
+<div style="width: 45%;margin-right:0.4em;">
+        
+<p>
+        Dans l'exemple, vous pouvez voir le GameObject nommé "Hero". Ce dernier contient six composants différents. <br>
+        Le composant Transform est présent par défaut sur tous les objets, mais vous remarquerez qu'il est 
+        également possible d'attribuer desvaleurs ou des paramètres à certains composants.
+        </p>
+
+        
+<p>
+        Par exemple, pour le composant Rigidbody, je peux choisir la masse ou la force de gravité appliquée à l'objet. <br>
+        De plus, dans le script PlayerController du joueur, je peux modifier des paramètres comme la vitesse de déplacement ou la force de saut.
+        </p>
+
+    </div>
+
+    
+<div style="width: 45%;">
+        <img src="Cours/img/Capture4.PNG" />
+    </div>
+
+</div>
+
+<hr><div style="break-before: page; page-break-before: always;"></div>
+<h1 id="notre-premier-script"><a class="header" href="#notre-premier-script">Notre premier script</a></h1>
+<p>Un script dans Unity est un fichier écrit en C# qui contient des instructions permettant de contrôler le comportement des GameObjects. Grâce à C#, un langage de programmation orienté objet, vous pouvez créer des logiques de jeu complexes, gérer des interactions et personnaliser les comportements de vos objets.</p>
+<p>Pour créer votre premier script dans Unity, suivez ces étapes :</p>
+<ol>
+    
+<li>Ouvrez la fenêtre Project.</li>
+
+    
+<li>Faites un clic droit dans le dossier Assets et sélectionnez Create &gt; Scripting &gt; MonoBehaviour.</li>
+
+    
+<li>Nommez le script MonScript.</li>
+
+</ol>
+
+<pre><code class="language-c#">using UnityEngine;
+public class MonScript : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
+    
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+}
+</code></pre>
+<h2 id="les-bases-de-monobehaviour"><a class="header" href="#les-bases-de-monobehaviour">Les bases de MonoBehaviour</a></h2>
+<h3 id="import--using"><a class="header" href="#import--using">Import / Using</a></h3>
+<p>Dans un script C# pour Unity, il est courant de commencer par une ligne d’importation, ici UnityEngine permet d’accéder aux classes et aux fonctionnalités de l’API Unity, telles que les GameObjects, les composants, et d’autres éléments essentiels pour le développement de jeux.</p>
+<pre><code class="language-c#">using UnityEngine;
+</code></pre>
+<h3 id="monobehaviour--héritage"><a class="header" href="#monobehaviour--héritage">MonoBehaviour / héritage</a></h3>
+<p>Ensuite, votre script hérite généralement de la classe MonoBehaviour. Cela signifie que votre script peut utiliser les fonctionnalités spécifiques de Unity, comme les méthodes de cycle de vie du script  telle que start ou update. En héritant de MonoBehaviour, votre script peut interagir avec le moteur Unity et répondre à des événements comme le démarrage du jeu ou le rendu d’une image.</p>
+<pre><code class="language-c#">public class MonScript : MonoBehaviour 
+{ 
+     // Contenu du script 
+}
+</code></pre>
+<h3 id="start"><a class="header" href="#start">Start</a></h3>
+<p>La méthode Start est une fonction spéciale qui est appelée une seule fois au début, lorsque le script est activé pour la première fois. C’est l’endroit idéal pour initialiser des variables ou configurer l’état de votre GameObject.</p>
+<pre><code class="language-c#">void Start()
+{
+    // Initialisation des variables
+    Debug.Log("Le jeu a commencé !");
+}
+</code></pre>
+<p>Dans cet exemple, un message sera affiché dans la console lorsque le jeu démarre, ce qui permet de vérifier que le script fonctionne correctement.</p>
+<h3 id="update"><a class="header" href="#update">Update</a></h3>
+<p>La méthode Update est également une fonction spéciale qui est appelée une fois par frame. Elle est utilisée pour mettre à jour la logique du jeu, comme les mouvements du joueur ou les contrôles d’entrée.</p>
+<pre><code class="language-c#">void Update()
+{
+    // Déplacement du personnage
+    float move = Input.GetAxis("Horizontal");
+    transform.Translate(move * Time.deltaTime, 0, 0);
+}
+</code></pre>
+<p>Dans cet exemple, la position du GameObject est mise à jour à chaque frame en fonction des entrées de l’utilisateur, permettant ainsi de déplacer le personnage à gauche ou à droite.</p>
+<p>Il est important de noter que la méthode Update est appelée à chaque frame, ce qui signifie qu’elle peut être exécutée de nombreuses fois par seconde. Par conséquent, il est essentiel d’optimiser le contenu de cette méthode pour éviter de ralentir les performances du jeu. Une méthode mal optimisée dans Update peut causer des problèmes de performance, surtout si elle effectue des calculs complexes ou des opérations lourdes.</p>
+<p><em>La méthode Update est appelée une fois par frame. Cela signifie que si votre jeu fonctionne à 60 images par seconde (FPS), la méthode Update sera exécutée 60 fois en une seconde.</em></p>
+<h3 id="fixedupdate"><a class="header" href="#fixedupdate">FixedUpdate</a></h3>
+<p>Pour les actions qui nécessitent un rythme régulier, comme la physique et les mouvements basés sur la physique, il est préférable d’utiliser la méthode FixedUpdate. Cette méthode est appelée à des intervalles fixes, indépendamment du nombre de frames par seconde, ce qui la rend idéale pour les calculs physiques.</p>
+<pre><code class="language-c#">void FixedUpdate()
+{
+    // Déplacement basé sur la physique
+    float move = Input.GetAxis("Horizontal");
+    Rigidbody rb = GetComponent&lt;Rigidbody&gt;();
+    rb.MovePosition(rb.position + new Vector3(move, 0, 0) * Time.fixedDeltaTime);
+}
+</code></pre>
+<p>Dans cet exemple, FixedUpdate est utilisé pour déplacer un GameObject à l’aide de son composant Rigidbody. En utilisant FixedUpdate, vous assurez que les mouvements physiques restent cohérents, même si le taux de frames du jeu varie. Cela est particulièrement important pour les jeux où la physique joue un rôle central, car cela garantit que le comportement des objets reste prévisible et fluide.</p>
+<h2 id="les-variables"><a class="header" href="#les-variables">Les variables</a></h2>
+<p>Maintenant, voyons comment déclarer des variables sous Unity. Comme C# est un langage orienté objet, il est important de respecter les principes d’encapsulation dans vos classes. Cependant, Unity propose des fonctionnalités supplémentaires. Par exemple, une variable déclarée comme public sera visible et modifiable directement depuis l’éditeur Unity, ce qui permet de l’ajuster facilement sans modifier le code. À l’inverse, une variable privée sera uniquement accessible à l’intérieur du script et ne pourra pas être modifiée dans l’éditeur.</p>
+<p><strong>Exemple :</strong></p>
+<p>Points de vie du personnage</p>
+<pre><code class="language-c#">public int healthPoints = 100;
+</code></pre>
+<p>Ce type de variable est utile lorsqu’on souhaite que les game designers puissent ajuster les points de vie du personnage dans l’éditeur Unity sans toucher au code.</p>
+<p>Savoir si le personnage est en l’air</p>
+<pre><code class="language-c#">private bool isJumping = false;
+</code></pre>
+<p>Cette variable reste inaccessible dans l’éditeur et n’est modifiable que par le script.</p>
+<h3 id="accéder-à-une-variable-privée-dans-léditeur"><a class="header" href="#accéder-à-une-variable-privée-dans-léditeur">Accéder à une variable privée dans l’éditeur</a></h3>
+<p>Il est toutefois possible de rendre une variable privée modifiable dans l’éditeur en utilisant l’attribut <code>[SerializeField]</code>. Cela permet à des variables privées d’être exposées dans l’éditeur sans qu’elles ne deviennent publiques dans le script.</p>
+<pre><code class="language-c#">[SerializeField]
+private int jumpForce = 10;
+</code></pre>
+<p>Cette approche est souvent utilisée lorsqu’un développeur veut permettre à d’autres membres de l’équipe (comme des game designers) de configurer certains paramètres dans l’éditeur sans donner accès direct au script, garantissant ainsi une encapsulation partielle.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="mise-en-place-du-niveau"><a class="header" href="#mise-en-place-du-niveau">Mise en place du niveau</a></h1>
+<p>Commençons par créer un petit niveau en 2D. Pour ce cours, vous pouvez télécharger les ressources nécessaires directement depuis mon site ici ou via ce lien direct vers l’archive : <a href="Cours/ressources/ressource.zip"> ressource.zip. </a></p>
+<p>Dans cette archive, vous trouverez plusieurs éléments essentiels pour notre projet, notamment des assets et sprites représentant notre héros, ainsi que différents décors que nous appellerons tiles (tuiles) pour le sol et props pour les objets de décor.</p>
+<p>Ces ressources graphiques proviennent du site OpenGameArt, une plateforme de partage de ressources libres de droits. Vous avez la possibilité de changer ces ressources si vous préférez utiliser un autre personnage ou style graphique, en fonction de vos goûts et du thème que vous souhaitez pour votre projet.</p>
+<p>Dans l’archive, vous trouverez également plusieurs scripts. Certains seront utilisés durant ce cours, tandis que d’autres, que j’ai intitulés “Information”, vous permettront d’explorer des fonctionnalités supplémentaires de Unity, comme la gestion des collisions ou le changement de niveau.</p>
+<p>N’hésitez pas à explorer les différents scripts fournis afin de découvrir des fonctionnalités spécifiques à Unity que nous aborderons plus tard dans le cours.</p>
+<h2 id="tilemap"><a class="header" href="#tilemap">Tilemap</a></h2>
+<p>Commençons par créer notre niveau en 2D. Il existe plusieurs méthodes pour cela, mais nous allons utiliser l’outil Tilemap, qui permet de créer une grille où chaque case peut être remplie par une tuile. C’est un moyen simple et efficace de construire des niveaux en 2D.</p>
+<p>Étapes pour créer un niveau avec Tilemap :</p>
+<ul>
+<li>
+<p>Création d’une Tilemap :</p>
+<ul>
+<li>Allez dans le menu GameObject (rappelez-vous, tout dans Unity est un GameObject).</li>
+<li>Sélectionnez 2D puis Tilemap.</li>
+<li>Vous remarquerez qu’il existe plusieurs types de Tilemap. Nous utiliserons ici une Tilemap Rectangulaire, mais sachez qu’il existe aussi des Tilemaps hexagonales, comme celles utilisées dans des jeux comme Civilization.</li>
+</ul>
+</li>
+<li>
+<p>Création d’une Palette de tuiles :</p>
+<ul>
+<li>Une fois la Tilemap créée, nous devons configurer une Palette. Une palette fonctionne comme en peinture : elle contiendra les blocs que vous utiliserez pour construire votre niveau. Nous allons donc en créer une avec quelques blocs simples.</li>
+<li>Utilisez les ressources du dossier Castle de votre projet. Vous y trouverez un ensemble de sprites, notamment ceux du tileset gothic-castle-tileset, déjà découpés en éléments utilisables.</li>
+<li>Cliquez sur ce tileset dans l’éditeur, et pour conserver le style pixel art, changez son Filter Mode en Point (no filter).</li>
+</ul>
+</li>
+<li>
+<p>Création d’un Dossier pour les Tuiles :</p>
+<ul>
+<li>Créez un dossier nommé Tiles dans votre projet (clic droit &gt; Create &gt; Folder).</li>
+<li>Ensuite, allez dans Window &gt; 2D &gt; Tile Palette pour ouvrir une nouvelle fenêtre.</li>
+<li>Cliquez sur Create New Tile Palette, puis nommez-la (par exemple, Castle).</li>
+<li>Changez la taille des cellules de Automatique à Manuel avec les valeurs x = 1, y = 1, z = 0. Cela permet de conserver des proportions correctes pour les tuiles.</li>
+</ul>
+</li>
+</ul>
+<p>Maintenant, la suite est plutôt simple. Il vous suffit de glisser-déposer un des cubes de votre sprite “Castle” dans la fenêtre Tile Palette. Cela vous permettra de peindre directement la scène avec ce cube.</p>
+<h3 id="ajuster-la-taille-du-cube"><a class="header" href="#ajuster-la-taille-du-cube">Ajuster la taille du cube</a></h3>
+<p>Si vous avez utilisé le même sprite que moi, vous remarquerez peut-être que le cube est assez petit. Pas de problème ! Voici comment ajuster sa taille :</p>
+<ul>
+<li>
+<p>Dans le dossier Tile que nous avons créé, vous verrez le cube que vous avez ajouté à la Tile Palette.</p>
+</li>
+<li>
+<p>Sélectionnez ce cube et regardez dans la fenêtre Inspector. Vous y verrez des options pour modifier les propriétés de la tuile.</p>
+</li>
+<li>
+<p>Cliquez sur Flags, puis choisissez Lock Transform pour bloquer les transformations par défaut.</p>
+</li>
+<li>
+<p>Changez les valeurs de Scale en x = 3.1, y = 3.1, z = 1. Cela devrait redimensionner le cube pour qu’il corresponde à la taille des cases de la grille.</p>
+</li>
+</ul>
+<p>Désormais, votre cube sera bien ajusté et prêt à être utilisé pour peindre votre scène. Vous pouvez commencer à créer votre niveau en dessinant des blocs sur la Tilemap à l’aide de votre Tile Palette.</p>
+<p><img src="Cours/img/cube.png" alt=""></p>
+<h3 id="tilemap-collider-2d"><a class="header" href="#tilemap-collider-2d">Tilemap Collider 2D</a></h3>
+<p>Maintenant que vous avez construit un petit parcours avec les blocs, nous allons ajouter un comportement physique à notre niveau en y appliquant des colliders. Ces colliders permettront à notre héros de ne pas passer à travers les éléments du décor, comme le sol.</p>
+<p>Étapes pour ajouter un Collider à la Tilemap :</p>
+<ul>
+<li>
+<p>Sélectionner la Tilemap :</p>
+<ul>
+<li>Dans la fenêtre Hiérarchie, cliquez sur l’objet Tilemap.</li>
+</ul>
+</li>
+<li>
+<p>Ajouter un composant Tilemap Collider :</p>
+<ul>
+<li>Dans la fenêtre Inspector, cliquez sur Add Component.</li>
+<li>Utilisez l’outil de recherche pour trouver et ajouter le composant TilemapCollider2D.</li>
+</ul>
+</li>
+</ul>
+<p>Maintenant, votre niveau est reconnu comme une surface solide, permettant ainsi à notre futur héros de marcher sur le sol sans traverser les blocs.</p>
+<h3 id="ajouter-un-matériau-physique"><a class="header" href="#ajouter-un-matériau-physique">Ajouter un matériau physique</a></h3>
+<p>Pour aller plus loin, nous allons personnaliser le comportement physique de notre sol, en ajoutant une friction ou un rebond. Par exemple, si vous souhaitez que le sol ait un effet particulier, comme une surface glissante ou un rebond (comme une trampoline), vous devez créer un Matériau Physique.</p>
+<ul>
+<li>
+<p>Créer un Matériau Physique 2D :</p>
+<ul>
+<li>Dans le dossier Tile, faites un clic droit et sélectionnez Create &gt; 2D &gt; Physics Material 2D.</li>
+<li>Nommez ce nouveau matériau, par exemple, SolEnPierre.</li>
+</ul>
+</li>
+<li>
+<p>Configurer le matériau :</p>
+<ul>
+<li>Dans l’inspecteur, vous verrez deux propriétés importantes : Friction et Bounciness.</li>
+<li>Pour un sol solide sans glissement, mettez la friction à 0 et la bounciness (rebond) à 0 également.</li>
+</ul>
+</li>
+<li>
+<p>Appliquer le Matériau :</p>
+<ul>
+<li>Glissez le matériau que vous venez de créer dans la section Material du TilemapCollider2D dans l’inspecteur.</li>
+</ul>
+</li>
+</ul>
+<p>Ainsi, vous avez appliqué une physique à votre niveau. Vous pouvez expérimenter avec des valeurs différentes pour la friction (par exemple, une valeur élevée simule la glace ou la neige) ou pour le rebond (par exemple, pour simuler une trampoline ou une surface élastique).</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="création-du-joueur"><a class="header" href="#création-du-joueur">Création du joueur</a></h1>
+<p>Il semble que nous avons oublié l’élément principal : notre héros ! Pour l’ajouter à la scène, commencez par faire un glisser-déposer du sprite hero-idle-1 (disponible dans le dossier Hero) directement dans la scène. Une fois ajouté, renommez le GameObject créé en Hero afin de bien l’identifier. Vous noterez que ce GameObject contient déjà un composant Sprite Renderer, qui permet d’afficher l’image de notre héros dans la scène.</p>
+<p>Cependant, vous remarquerez peut-être que votre héros est un peu petit. Pas de souci ! Vous pouvez facilement ajuster sa taille. Pour cela, sélectionnez l’objet Hero dans la hiérarchie, puis dans la section Transform de l’inspecteur, modifiez les valeurs de Scale pour agrandir votre héros. Par exemple, augmentez les valeurs x et y pour que votre personnage ait une taille adaptée à la scène, comme 3,1 pour chaque axe.</p>
+<p>Bien, continuons en ajoutant un Collider 2D en forme de capsule et un Rigidbody 2D à notre héros. Le Collider permettra de définir la zone de collision de notre personnage, tandis que le Rigidbody appliquera les règles de la physique à notre héros, comme la gravité ou la vitesse de déplacement.</p>
+<h2 id="ajout-du-capsule-collider-2d"><a class="header" href="#ajout-du-capsule-collider-2d">Ajout du Capsule Collider 2D</a></h2>
+<p>Tout d’abord, sélectionnez le GameObject Hero dans votre hiérarchie. Ensuite, dans l’inspecteur, cliquez sur Add Component, recherchez Capsule Collider 2D, et ajoutez-le. Ce collider délimitera la zone autour de notre personnage avec laquelle il interagit physiquement.</p>
+<p>Une fois ajouté, vous pouvez modifier la taille et la position de la boîte de collision. Cliquez sur Edit Collider, et vous verrez un cercle vert autour de votre personnage. Ajustez-le pour qu’il encadre bien la forme du héros. Si vous préférez des ajustements manuels, vous pouvez directement changer les valeurs dans les paramètres Size et Offset du collider, afin de correspondre précisément à la taille de votre sprite.</p>
+<h2 id="ajout-du-rigidbody-2d"><a class="header" href="#ajout-du-rigidbody-2d">Ajout du Rigidbody 2D</a></h2>
+<p>Toujours dans l’inspecteur, ajoutez maintenant un Rigidbody 2D à votre personnage. Ce composant lui permettra d’interagir avec la gravité et d’avoir une vitesse. Une fois le Rigidbody ajouté, activez l’option Freeze Rotation sur l’axe Z. Cela évitera que votre personnage ne bascule ou ne se retourne sur lui-même pendant le jeu. Sinon, vous risqueriez de voir votre héros tomber en avant ou se retourner, ce qui peut être amusant, mais pas très pratique pour la jouabilité.</p>
+<h2 id="script-playercontroller"><a class="header" href="#script-playercontroller">Script PlayerController</a></h2>
+<pre><code class="language-c#">using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    // Variables pour la gestion du mouvement
+    public float moveSpeed = 5f; // Vitesse de déplacement
+    private Rigidbody2D rb; // Référence au Rigidbody2D
+    private SpriteRenderer spriteRenderer; // Référence au SpriteRenderer
+
+    void Start()
+    {
+        // Récupère les composants Rigidbody2D et SpriteRenderer attachés au GameObject
+        rb = GetComponent&lt;Rigidbody2D&gt;();
+        spriteRenderer = GetComponent&lt;SpriteRenderer&gt;();
+    }
+
+    void Update()
+    {
+        Move(); // Appelle la méthode de mouvement
+    }
+
+    void Move()
+    {
+        // Déplacement horizontal
+        float moveInput = Input.GetAxis("Horizontal"); // Récupère l'entrée horizontale
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y); // Applique la vitesse de déplacement
+
+        // Flip du personnage (face à gauche/droite)
+        if (moveInput &gt; 0)
+        {
+            spriteRenderer.flipX = false; // Face à droite
+        }
+        else if (moveInput &lt; 0)
+        {
+            spriteRenderer.flipX = true; // Face à gauche
+        }
+    }
+}
+</code></pre>
+<p>Le script est un contrôleur basique pour déplacer un personnage dans Unity. Il utilise deux composants principaux du personnage : le Rigidbody2D pour la physique et le SpriteRenderer pour afficher et manipuler le sprite du personnage.
+Explication du script</p>
+<ul>
+<li>
+<p>Déplacement horizontal</p>
+<ul>
+<li>Le script récupère les entrées de l’utilisateur avec la fonction Input.GetAxis(“Horizontal”). Ici, Unity utilise des axes prédéfinis pour représenter les touches de direction : la flèche gauche et droite ou les touches “A” et “D” sur le clavier.</li>
+<li>La vitesse de déplacement est déterminée par la variable moveSpeed. Le résultat du mouvement est calculé en multipliant l’entrée de l’utilisateur par cette vitesse.</li>
+</ul>
+</li>
+<li>
+<p>Rigidbody2D</p>
+<ul>
+<li>Le Rigidbody2D est le composant utilisé pour gérer la physique du personnage, notamment sa position et sa vitesse.</li>
+<li>La ligne rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y); applique cette vitesse au personnage en modifiant sa vitesse horizontale. rb.velocity.y permet de conserver la vitesse verticale existante (utile si le personnage saute).</li>
+</ul>
+</li>
+<li>
+<p>SpriteRenderer et le “Flip”</p>
+<ul>
+<li>Le SpriteRenderer est ce qui permet d’afficher le sprite du personnage dans la scène. Dans ce script, il est utilisé pour “retourner” l’image du personnage lorsque celui-ci change de direction (vers la gauche ou la droite).</li>
+<li>Lorsque moveInput est positif (le joueur appuie vers la droite), spriteRenderer.flipX est mis à false pour orienter le personnage vers la droite. Quand le joueur appuie vers la gauche (moveInput négatif), spriteRenderer.flipX devient true, ce qui retourne le sprite pour qu’il regarde vers la gauche.</li>
+</ul>
+</li>
+</ul>
+<h2 id="les-inputs"><a class="header" href="#les-inputs">Les Inputs</a></h2>
+<p>Les inputs sont simplement les actions du joueur, comme appuyer sur les touches du clavier ou les boutons de la manette. Unity fournit un système intégré qui mappe automatiquement ces actions à des axes. L’axe “Horizontal” correspond aux mouvements gauche/droite et renvoie une valeur entre -1 et 1, où :</p>
+<ul>
+<li>-1 représente un mouvement vers la gauche (quand on appuie sur “flèche gauche” ou “A”),</li>
+<li>0 signifie aucune action,</li>
+<li>1 représente un mouvement vers la droite (quand on appuie sur “flèche droite” ou “D”).</li>
+</ul>
+<p>Cela permet de gérer facilement les mouvements dans le jeu sans devoir gérer directement les touches.</p>
+<p><img src="Cours/img/input.png" alt=""></p>
+<p>L’Input Manager d’Unity est un outil qui gère toutes les entrées du joueur (clavier, souris, manette, etc.) en les associant à des actions spécifiques dans le jeu. Il simplifie la gestion des commandes en utilisant des axes (comme “Horizontal” pour les mouvements gauche/droite) plutôt que de devoir coder chaque touche individuellement.</p>
+<h3 id="modifier-les-inputs-dans-linput-manager"><a class="header" href="#modifier-les-inputs-dans-linput-manager">Modifier les Inputs dans l’Input Manager</a></h3>
+<p>Pour modifier les touches associées à cet axe ou en créer de nouvelles :</p>
+<ol>
+<li>
+<p>Ouvre Edit &gt; Project Settings &gt; Input Manager.</p>
+</li>
+<li>
+<p>Dans la section Axes, tu verras une liste des axes existants, comme “Horizontal” et “Vertical”.</p>
+</li>
+<li>
+<p>Pour modifier l’axe “Horizontal”, clique dessus et ajuste les touches dans les champs Positive Button (ex. “d”) et Negative Button (ex. “a”).</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="animation-du-personnage"><a class="header" href="#animation-du-personnage">Animation du personnage</a></h1>
+<pre><code class="language-c#">void Move()
+{
+    if (!canMove)
+    {
+        return;
+    }
+
+    // Déplacement horizontal
+    float moveInput = Input.GetAxis("Horizontal");
+    rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+
+    // Flip du personnage (face à gauche/droite) avec SpriteRenderer
+    if (moveInput &gt; 0)
+    {
+        spriteRenderer.flipX = false; // Face à droite
+    }
+    else if (moveInput &lt; 0)
+    {
+        spriteRenderer.flipX = true; // Face à gauche
+    }
+
+    // Mettre à jour l'animation si tu as un Animator
+    if (animator != null)
+    {
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+    }
+}
+</code></pre>
+<p>Pour commencer la création de notre animation de personnage, voici les étapes détaillées.</p>
+<p>Ajout du composant Animator :</p>
+<ul>
+<li>
+<p>Dans le dossier où se trouve ton personnage (ici le dossier “hero”), clique sur le GameObject qui représente le héros. Nous allons ajouter un composant Animator à ce personnage.</p>
+</li>
+<li>
+<p>Sélectionne ton personnage et, dans l’inspecteur à droite, clique sur Add Component.</p>
+</li>
+<li>
+<p>Recherchez et ajoutez le composant Animator.</p>
+</li>
+<li>
+<p>Crée ensuite un Animator Controller que tu peux nommer HeroAnimator. Ce contrôleur va gérer toutes les animations de ton personnage. Glisse ce contrôleur dans le champ “Controller” du composant Animator.</p>
+</li>
+</ul>
+<h3 id="création-de-lanimation-idle-repos"><a class="header" href="#création-de-lanimation-idle-repos">Création de l’animation Idle (repos)</a></h3>
+<ul>
+<li>
+<p>Ouvre la fenêtre Animation en allant dans Window &gt; Animation &gt; Animation. Si elle n’est pas visible, elle apparaîtra en bas.</p>
+</li>
+<li>
+<p>Sélectionne ton personnage dans la hiérarchie, puis clique sur Create dans la fenêtre Animation pour créer une nouvelle animation que tu vas nommer hero-idle.</p>
+</li>
+<li>
+<p>Tu verras une timeline apparaître. Fais un drag &amp; drop des images que tu veux utiliser pour l’animation “idle” dans la timeline. Dans ce cas, les images 1, 2, 3, 4, 3, 2, 1 (pour créer un effet de boucle).</p>
+</li>
+<li>
+<p>Ajuste l’intervalle entre les images à 0.10 secondes pour une animation fluide. Si tu veux une animation plus lente, tu peux augmenter cet intervalle.</p>
+</li>
+</ul>
+<p><img src="Cours/img/animation.png" alt=""></p>
+<p>Une fois ton animation “idle” terminée, tu peux répéter le même processus pour les autres animations, comme celles de déplacement.</p>
+<ul>
+<li>
+<p>Crée une nouvelle animation dans la fenêtre Animation en cliquant sur Create New Clip.</p>
+</li>
+<li>
+<p>Comme pour l’animation idle, fais un drag &amp; drop des sprites de déplacement dans la timeline pour créer cette nouvelle animation.</p>
+</li>
+</ul>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+</thead>
+<tbody>
+<tr><td><img src="Cours/img/anim/1.png" alt=""></td><td><img src="Cours/img/anim/2.png" alt=""></td><td><img src="Cours/img/anim/3.png" alt=""></td><td><img src="Cours/img/anim/4.png" alt=""></td><td><img src="Cours/img/anim/5.png" alt=""></td><td><img src="Cours/img/anim/6.png" alt=""></td><td><img src="Cours/img/anim/7.png" alt=""></td></tr>
+</tbody>
+</table>
+</div>
+<p>Le principe derrière ces animations est similaire à celui d’un dessin animé : on affiche une série d’images (sprites) les unes à la suite des autres à un certain intervalle pour donner l’illusion du mouvement. Plus l’intervalle est court, plus l’animation sera fluide et rapide.</p>
+<p><img src="Cours/img/animator.png" alt=""></p>
+<p>Pour ajouter nos animations à l’Animator du personnage, commençons par l’animation idle-hero en tant qu’animation de base. Voici les étapes détaillées :</p>
+<ul>
+<li>
+<p>Définir l’animation idle comme animation de base</p>
+<ul>
+<li>Dans l’Animator (que tu as précédemment lié à ton personnage), tu remarqueras un état appelé Entry. C’est l’état initial où commence l’animation de ton personnage.</li>
+<li>Fais un drag &amp; drop de l’animation idle-hero dans l’Animator. Elle se connectera automatiquement à Entry, ce qui signifie que c’est l’animation qui sera jouée au démarrage du jeu.</li>
+</ul>
+</li>
+<li>
+<p>Ajouter et lier l’animation de course</p>
+<ul>
+<li>Ajoute également l’animation hero-run dans l’Animator en faisant un drag &amp; drop similaire.</li>
+<li>Pour que le personnage puisse passer de l’animation “idle” à l’animation de course, nous devons créer une transition entre ces deux états.
+<ul>
+<li>Clic droit sur l’animation idle-hero, puis sélectionne Make Transition. Une flèche apparaîtra ; clique ensuite sur hero-run pour créer la transition.</li>
+<li>Répète cette étape en faisant une transition de hero-run vers idle-hero, pour que le personnage revienne à son état de repos après avoir couru.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="Cours/img/animator2.png" alt=""></p>
+<h3 id="création-dun-paramètre-pour-déclencher-les-animations"><a class="header" href="#création-dun-paramètre-pour-déclencher-les-animations">Création d’un paramètre pour déclencher les animations</a></h3>
+<p>Pour que l’animation de course soit déclenchée par le déplacement du personnage, nous allons utiliser un paramètre dans l’Animator. Il existe quatre types de paramètres dans Unity :</p>
+<ul>
+<li>Float : une valeur décimale, utile pour mesurer des valeurs continues comme la vitesse du personnage.</li>
+<li>Int : un nombre entier, pratique pour compter des actions ou des états numériques.</li>
+<li>Bool : une valeur booléenne (true/false), utilisée pour des états comme “est en train de sauter” ou “attaque en cours”.</li>
+<li>Trigger : un booléen qui revient automatiquement à false après son activation, idéal pour des actions ponctuelles comme une attaque ou un saut.</li>
+</ul>
+<p>Dans ce cas, nous allons utiliser un paramètre de type Float pour la vitesse.</p>
+<h4 id="ajouter-le-paramètre-float-speed"><a class="header" href="#ajouter-le-paramètre-float-speed">Ajouter le paramètre Float “Speed”</a></h4>
+<ul>
+<li>
+<p>Ouvre l’onglet Parameters dans l’Animator, clique sur le +, puis sélectionne Float. Nomme ce paramètre Speed.</p>
+</li>
+<li>
+<p>Ensuite, retourne dans les transitions que tu as créées (idle vers run et run vers idle).</p>
+<ul>
+<li>Dans la transition idle → run, ajoute une condition : Speed &gt; 0.1. Cela signifie que dès que la vitesse du personnage dépasse 0.1, l’animation de course sera déclenchée.</li>
+<li>Dans la transition run → idle, mets la condition Speed &lt; 0.1 pour que le personnage revienne à l’état idle lorsqu’il arrête de se déplacer.</li>
+</ul>
+</li>
+</ul>
+<h4 id="supprimer-lexit-time"><a class="header" href="#supprimer-lexit-time">Supprimer l’exit time</a></h4>
+<p>Par défaut, Unity ajoute un exit time à chaque transition d’animation, ce qui signifie que l’animation doit se terminer avant de passer à la suivante. Dans notre cas, nous ne voulons pas que l’animation de course ou de repos s’arrête avant que le changement ait lieu. Pour cela, il suffit de :</p>
+<ul>
+<li>Sélectionner la transition (idle vers run et run vers idle).</li>
+<li>Désactiver l’option Has Exit Time.</li>
+</ul>
+<p>En suivant ces étapes, ton personnage pourra passer en douceur entre les animations de repos et de course en fonction de sa vitesse, tout en évitant les délais inutiles dus à l’exit time.</p>
+<p>Pour déclencher l’animation de course en fonction du déplacement de notre personnage, il est essentiel d’intégrer l’Animator dans notre script de contrôleur. Voici les étapes détaillées à suivre pour ajouter et utiliser l’Animator afin de déclencher l’animation de course.</p>
+<h4 id="ajout-dune-variable-animator"><a class="header" href="#ajout-dune-variable-animator">Ajout d’une variable Animator</a></h4>
+<p>Commence par déclarer une variable Animator dans ton script. Cette variable sera utilisée pour contrôler les animations du personnage. Cela permet au script de communiquer avec l’Animator attaché à l’objet du personnage.</p>
+<pre><code class="language-c#">private Animator animator;  // Pour gérer les animations
+</code></pre>
+<h4 id="récupérer-lanimator-avec-getcomponent"><a class="header" href="#récupérer-lanimator-avec-getcomponent">Récupérer l’Animator avec GetComponent</a></h4>
+<p>Dans la méthode Start(), tu dois récupérer l’instance de l’Animator attachée à l’objet. Le <code>GetComponent&lt;Animator&gt;()</code> permet de rechercher le composant Animator et de le lier à la variable que nous venons de déclarer. Cela permet de manipuler l’animation à partir du code.</p>
+<pre><code class="language-c#">void Start()
+{
+    animator = GetComponent&lt;Animator&gt;(); // Récupérer l'Animator pour gérer les animations
+}
+</code></pre>
+<h4 id="déclencher-lanimation-en-fonction-de-la-vitesse"><a class="header" href="#déclencher-lanimation-en-fonction-de-la-vitesse">Déclencher l’animation en fonction de la vitesse</a></h4>
+<p>L’animation de course sera déclenchée en fonction de la valeur d’entrée (Input) du joueur. Pour cela, nous allons définir la valeur du Float “Speed” dans l’Animator. La valeur sera basée sur l’entrée horizontale du joueur (le déplacement), qui peut être positive ou négative, selon qu’il avance ou recule.</p>
+<p>Nous utilisons la fonction Mathf.Abs() pour récupérer la valeur absolue de la vitesse de déplacement. Cela permet de s’assurer que la valeur de Speed est toujours positive, même si le joueur recule (ce qui donnerait une valeur négative sans cette précaution). L’Animator peut ainsi ajuster les animations en fonction de la rapidité du mouvement, indépendamment de la direction.</p>
+<pre><code class="language-c#">    void Move()
+    {
+        if( !canMove )
+        {
+            return ;
+        }
+
+        // Déplacement horizontal
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+
+        // Flip du personnage (face à gauche/droite)
+        if (moveInput &gt; 0)
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Face à droite
+        else if (moveInput &lt; 0)
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Face à gauche
+
+        // Mettre à jour l'animation si tu as un Animator
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        }
+    }
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="gestion-du-saut"><a class="header" href="#gestion-du-saut">Gestion du saut</a></h1>
+<pre><code class="language-c#">private bool isGrounded = true;  // Vérifie si le joueur est au sol
+
+private bool isJumping = true ;
+
+public float jumpForce = 10f;
+
+// Pour les couches avec lesquelles le joueur interagit
+public Transform groundCheck;
+public LayerMask groundLayer;
+</code></pre>
+<p>Explication des variables ajoutées</p>
+<ol>
+<li>
+<p>isGrounded :</p>
+<ul>
+<li>Cette variable booléenne vérifie si le personnage est au sol. Elle est utilisée pour s’assurer que le personnage ne peut sauter que lorsqu’il est en contact avec le sol (et pas en l’air). La détection se fait grâce à une méthode qui vérifie les collisions avec un objet défini comme “sol”.</li>
+</ul>
+</li>
+<li>
+<p>isJumping :</p>
+<ul>
+<li>Une autre variable booléenne qui indique si le personnage est en train de sauter. Elle peut être utilisée pour bloquer certaines actions ou animations tant que le saut n’est pas terminé. Ici, elle n’est pas activement utilisée dans la méthode Jump(), mais pourrait servir pour des animations plus complexes.</li>
+</ul>
+</li>
+<li>
+<p>jumpForce :</p>
+<ul>
+<li>C’est une variable float qui détermine la force appliquée lors du saut. Plus cette valeur est élevée, plus le personnage sautera haut. Elle est appliquée sur l’axe vertical (Y) dans la physique du personnage.</li>
+</ul>
+</li>
+<li>
+<p>groundCheck :</p>
+<ul>
+<li>Un Transform qui représente un point de contrôle situé sous le personnage pour vérifier s’il touche le sol. C’est la position qui est utilisée pour la détection dans la méthode Physics2D.OverlapCircle().</li>
+</ul>
+</li>
+<li>
+<p>groundLayer :</p>
+<ul>
+<li>Un LayerMask qui détermine quelles couches de la scène sont considérées comme sol pour la détection de collision. Seules les couches associées à ce LayerMask seront prises en compte lors de la vérification si le personnage est au sol.</li>
+</ul>
+</li>
+</ol>
+<h2 id="layer-dans-unity"><a class="header" href="#layer-dans-unity">“Layer” dans Unity</a></h2>
+<p>Dans Unity, un Layer est un système de classification permettant de regrouper différents objets. Chaque objet dans Unity peut être assigné à une ou plusieurs couches (Layers). Les couches sont souvent utilisées pour :</p>
+<ul>
+<li>
+<p>Gérer les collisions : En définissant des interactions spécifiques entre certaines couches (par exemple, définir une couche pour le “sol”, une autre pour les “joueurs”, etc.).</p>
+</li>
+<li>
+<p>Optimiser le rendu : Par exemple, vous pouvez définir que certaines couches ne sont pas visibles par certaines caméras.</p>
+</li>
+<li>
+<p>Détecter des objets spécifiques : Grâce à l’utilisation de LayerMasks, on peut demander à Unity d’ignorer certaines couches dans les calculs physiques, comme ici avec le groundLayer, qui est utilisé pour détecter uniquement les objets au sol.</p>
+</li>
+</ul>
+<pre><code class="language-c#">void Jump()
+{
+    // Vérifie si le joueur est au sol avant de sauter
+    isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+
+    // Sauter si le joueur appuie sur le bouton de saut et qu'il est au sol
+    if (Input.GetButtonDown("Jump") &amp;&amp; isGrounded)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        
+        // Animation de saut
+        if (animator != null)
+        {
+            animator.SetTrigger("Jump");
+        }
+    }
+}
+</code></pre>
+<h2 id="explication-de-la-méthode-jump"><a class="header" href="#explication-de-la-méthode-jump">Explication de la méthode Jump()</a></h2>
+<ol>
+<li>
+<p>Détection du sol avec Physics2D.OverlapCircle :</p>
+<ul>
+<li>Avant de permettre au personnage de sauter, la méthode vérifie s’il est bien au sol grâce à Physics2D.OverlapCircle. Cette fonction crée un petit cercle invisible à la position spécifiée par groundCheck (souvent placé sous les pieds du personnage). Le cercle vérifie s’il entre en collision avec quelque chose appartenant à la couche définie par groundLayer. Si c’est le cas, la variable isGrounded est mise à true.</li>
+</ul>
+</li>
+<li>
+<p>Sauter avec un appui sur “Jump” :</p>
+<ul>
+<li>Si le joueur appuie sur la touche définie pour le saut (via Input.GetButtonDown(“Jump”)) et que le personnage est bien au sol (vérifié par isGrounded), alors un saut est déclenché.</li>
+<li>Le saut est réalisé en modifiant la vélocité verticale du personnage, grâce à cette ligne :</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-c#">rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+// Cela applique une force verticale vers le haut égale à jumpForce.
+</code></pre>
+<ol start="3">
+<li>Déclenchement de l’animation de saut :
+<ul>
+<li>Si un Animator est assigné au personnage, cette partie du code permet de déclencher l’animation de saut en utilisant le paramètre Trigger de l’Animator :</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-c#">SetTrigger("Jump");
+// Cela lance l'animation de saut dès que le personnage quitte le sol.
+</code></pre>
+<p>En résumé, la méthode Jump() vérifie d’abord si le personnage est au sol avant de lui permettre de sauter, applique une force verticale pour le saut, et déclenche une animation de saut si elle est disponible.</p>
+<pre><code class="language-c#">void OnDrawGizmos()
+{
+    if (groundCheck != null)
+    {
+        // Définir la couleur des Gizmos à rouge
+        Gizmos.color = Color.red;
+
+        // Dessiner un cercle au point de vérification du sol
+        Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
+    }
+}
+</code></pre>
+<h2 id="gizmo"><a class="header" href="#gizmo">Gizmo</a></h2>
+<p>Les Gizmos sont des éléments visuels utilisés dans l’éditeur Unity pour aider à la visualisation des objets ou des composants sans influencer le jeu lui-même. Ils permettent de mieux comprendre comment les objets interagissent entre eux ou d’avoir un aperçu des propriétés invisibles, comme des zones de détection ou des trajectoires.</p>
+<p>Exemples courants de Gizmos dans Unity</p>
+<ol>
+<li>
+<p>Colliders : Comme tu l’as mentionné, les zones vertes visibles autour des objets qui ont des colliders (Box Collider, Capsule Collider, etc.) sont des Gizmos. Elles permettent de visualiser la taille et la forme des colliders qui régissent les interactions physiques des objets.</p>
+</li>
+<li>
+<p>Lumières : Quand tu ajoutes une lumière dans une scène, Unity dessine un Gizmo en forme de cône pour les lumières directionnelles ou un cercle pour les lumières ponctuelles, indiquant la portée et l’intensité de la lumière.</p>
+</li>
+<li>
+<p>Caméras : Les caméras ont leur propre Gizmo qui montre leur champ de vision (le frustum). Cela te permet de visualiser ce que la caméra capture.</p>
+</li>
+<li>
+<p>Points de Waypoint : Lorsque tu définis des trajectoires pour des objets en mouvement (par exemple des ennemis qui patrouillent), Unity peut utiliser des Gizmos pour afficher les points que ces objets doivent atteindre.</p>
+</li>
+<li>
+<p>Raycast : Si tu utilises des Raycasts pour détecter des objets ou des surfaces, tu peux dessiner les rayons en utilisant des Gizmos, ce qui permet de visualiser les trajectoires des rayons.</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="changement-de-niveau"><a class="header" href="#changement-de-niveau">Changement de niveau</a></h1>
+<p>Nous allons maintenant explorer une fonctionnalité essentielle dans tout jeu vidéo : le changement de niveau. Imaginez que vous jouez à un jeu de plateforme et, après avoir complété le premier niveau, vous devez passer au suivant. Pour cela, Unity propose des outils simples permettant de gérer la transition entre différentes scènes de jeu.</p>
+<p>Cela inclut la création de nouvelles scènes, la gestion des paramètres de scène via les Build Settings, et l’utilisation de triggers pour détecter des événements comme l’entrée du joueur dans une zone de sortie.</p>
+<p>Créer une nouvelle scène dans Unity et gestion du changement de niveaux</p>
+<ol>
+<li>Créer une nouvelle scène : Pour créer une nouvelle scène dans Unity :
+<ul>
+<li>Allez dans la barre de menu, puis cliquez sur File &gt; New Scene.</li>
+<li>Une nouvelle scène sera créée. Vous pouvez ensuite la sauvegarder en allant dans File &gt; Save As.</li>
+<li>Donnez-lui un nom, par exemple level_2, puis enregistrez-la dans votre dossier Scenes.</li>
+</ul>
+</li>
+</ol>
+<p>Votre nouvelle scène est prête à être modifiée et personnalisée pour votre jeu.</p>
+<ol start="2">
+<li>Ajouter une scène au Build Settings : Pour que Unity puisse charger cette scène dans le jeu, vous devez l’ajouter à vos Build Settings :
+<ul>
+<li>Cliquez sur File &gt; Build Settings.</li>
+<li>Une fenêtre s’ouvre, cliquez sur Add Open Scenes pour ajouter la scène que vous venez de créer (si elle est ouverte).</li>
+<li>Une fois ajoutée, la scène aura un index associé. Vous pouvez également la réorganiser ou la renommer ici.</li>
+</ul>
+</li>
+</ol>
+<p><img src="Cours/img/window.png" alt=""></p>
+<h2 id="changement-de-scène-avec-un-sceneloader"><a class="header" href="#changement-de-scène-avec-un-sceneloader">Changement de scène avec un SceneLoader</a></h2>
+<p>Unity propose deux façons principales de charger des scènes : par nom ou par index.</p>
+<ul>
+<li>Charger par nom :</li>
+</ul>
+<pre><code class="language-c#">using UnityEngine.SceneManagement;
+
+public class SceneLoader : MonoBehaviour
+{
+    public void LoadSceneByName(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName); // Change vers la scène nommée
+    }
+}
+</code></pre>
+<p>Pour appeler cette méthode, passez simplement le nom exact de la scène, comme “level_2”.</p>
+<ul>
+<li>Charger par index :</li>
+</ul>
+<pre><code class="language-c#">using UnityEngine.SceneManagement;
+
+public class SceneLoader : MonoBehaviour
+{
+    public void LoadSceneByIndex(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex); // Change vers la scène selon l'index dans le Build Settings
+    }
+}
+</code></pre>
+<p>Vous pouvez charger une scène en fonction de son index tel qu’il apparaît dans les Build Settings.</p>
+<h2 id="boîte-de-collision-trigger-pour-changement-de-scène"><a class="header" href="#boîte-de-collision-trigger-pour-changement-de-scène">Boîte de collision Trigger pour changement de scène</a></h2>
+<ol>
+<li>Créer un script de changement de scène avec un Trigger :</li>
+</ol>
+<ul>
+<li>Voici un exemple de script qui utilise une boîte de collision Trigger pour changer de scène :</li>
+</ul>
+<pre><code class="language-c#">using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SceneChangeTrigger : MonoBehaviour
+{
+    public string sceneToLoad;  // Nom de la scène à charger
+
+    // Méthode appelée quand un autre objet entre dans la zone de Trigger
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Vérifie si l'objet qui entre est le joueur
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(sceneToLoad);  // Change vers la scène spécifiée
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>OnTriggerEnter2D est déclenché lorsque quelque chose entre dans la zone du Trigger. Ici, on vérifie si l’objet qui entre est le joueur (souvent marqué par un tag).</li>
+</ul>
+<ol start="2">
+<li>
+<p>Types de méthodes de collision Trigger :</p>
+<ul>
+<li>
+<p>Il existe trois types principaux de méthodes associées aux collisions Trigger :</p>
+<ul>
+<li>OnTriggerEnter2D : Appelée lorsque le joueur (ou un autre objet) entre dans la zone de Trigger.</li>
+<li>OnTriggerExit2D : Appelée lorsque le joueur (ou un autre objet) sort de la zone de Trigger.</li>
+<li>OnTriggerStay2D : Appelée à chaque frame où le joueur (ou un autre objet) reste à l’intérieur de la zone de Trigger.
+Différence entre Trigger et Collider sans Trigger :</li>
+</ul>
+</li>
+<li>
+<p>Un collider non trigger (comme un BoxCollider2D sans l’option Is Trigger) fait que les objets interagissent physiquement (ex. : ils se bloquent, s’arrêtent, etc.). Il gère les collisions réelles entre objets.</p>
+</li>
+<li>
+<p>Un collider avec Trigger (où l’option Is Trigger est activée) ne bloque pas les objets mais détecte simplement leur entrée, sortie, ou présence dans une zone sans interaction physique directe.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>En résumé, les Triggers sont idéals pour détecter les entrées et sorties d’objets (comme pour changer de scène), tandis que les Colliders sans Trigger gèrent les interactions physiques comme les collisions dans le jeu.</p>
+<p><img src="Cours/img/collider.png" alt=""></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ajout-de-monstres"><a class="header" href="#ajout-de-monstres">Ajout de monstres</a></h1>
+<p>Dans la majorité des jeux vidéo, nous sommes confrontés à des ennemis, qui ajoutent des défis supplémentaires pour atteindre les objectifs. Ici, nous allons ajouter un squelette ennemi qui patrouille de gauche à droite, similaire aux ennemis dans des jeux comme Super Mario.</p>
+<p>Le concept est simple : l’ennemi doit se déplacer entre deux points définis, tout en infligeant des dégâts au joueur lorsqu’il entre en contact avec lui. Ce type d’ennemi est commun dans les jeux de plateforme et permet d’ajouter un obstacle dynamique que le joueur doit éviter ou combattre.</p>
+<p>Étapes à suivre :</p>
+<ol>
+<li>
+<p>Ajouter l’ennemi squelettique : Vous pouvez récupérer le squelette à partir des ressources fournies dans votre projet Unity.</p>
+</li>
+<li>
+<p>Créer une animation de marche : Comme pour un personnage joueur, l’ennemi aura besoin d’une animation de marche pour rendre ses mouvements réalistes et immersifs lorsqu’il patrouille.</p>
+</li>
+<li>
+<p>Définir un comportement de patrouille : Le squelette se déplacera entre deux points de repère (ou “waypoints”) définis dans la scène.</p>
+</li>
+<li>
+<p>Infliger des dégâts au contact : À l’instar des Goombas dans Mario, l’ennemi infligera des dégâts dès qu’il entre en collision avec le joueur.</p>
+</li>
+</ol>
+<p><img src="Cours/img/monstre.png" alt=""></p>
+<p><em>Cette partie du tutoriel est très similaire à ce que nous avons fait précédemment avec l’animation du personnage principal. Maintenant que vous avez déjà acquis une bonne compréhension des étapes, vous pouvez essayer de recréer le processus par vous-même pour voir si vous avez tout retenu.😉</em></p>
+<h3 id="ajouter-lennemi-squelettique"><a class="header" href="#ajouter-lennemi-squelettique">Ajouter l’ennemi squelettique</a></h3>
+<ul>
+<li>
+<p>Récupérez le sprite du squelette à partir des ressources du projet et faites-le glisser dans la scène pour qu’il devienne visible.</p>
+</li>
+<li>
+<p>Assurez-vous que l’ennemi est correctement positionné au sol ou à l’endroit souhaité pour commencer à patrouiller.</p>
+</li>
+</ul>
+<p>Créer une Animation de Marche</p>
+<ul>
+<li>
+<p>Ouvrez la fenêtre Animation dans Unity (Fenêtre &gt; Animation &gt; Animation).</p>
+</li>
+<li>
+<p>Sélectionnez le squelette dans la scène, puis cliquez sur le bouton Créer dans la fenêtre Animation.</p>
+</li>
+<li>
+<p>Nommez cette animation “Squelette-Marche”.</p>
+</li>
+<li>
+<p>Ensuite, dans la chronologie, faites glisser les différentes images clés (sprites) de l’animation de marche dans l’ordre souhaité. Le squelette se déplacera avec une boucle de ces images pour donner l’impression qu’il marche.</p>
+</li>
+<li>
+<p>Ajustez la vitesse de l’animation en définissant l’intervalle de temps entre les images à environ 0,1 seconde pour une animation fluide, ou plus si vous souhaitez un mouvement plus lent.</p>
+</li>
+</ul>
+<h3 id="créer-un-animator-pour-le-squelette"><a class="header" href="#créer-un-animator-pour-le-squelette">Créer un Animator pour le Squelette</a></h3>
+<ul>
+<li>
+<p>Une fois l’animation créée, Unity va automatiquement créer un composant Animator pour votre squelette.</p>
+</li>
+<li>
+<p>Vous pouvez renommer cet Animator en “SqueletteAnimator” pour garder une organisation claire dans vos fichiers.</p>
+</li>
+<li>
+<p>Ouvrez l’Animator pour voir la nouvelle animation “Squelette-Marche” comme l’état de base.</p>
+</li>
+</ul>
+<h2 id="script-monsterai"><a class="header" href="#script-monsterai">Script MonsterAI</a></h2>
+<p>Le script, intitulé MonsterAI, gère les déplacements d’un monstre entre deux points (ou waypoints) et inflige des dégâts au joueur lorsqu’il entre en collision avec lui.</p>
+<pre><code class="language-c#">public Transform waypoint1; // Premier waypoint
+public Transform waypoint2; // Deuxième waypoint
+public float speed = 2f;    // Vitesse de déplacement
+public int damage = 10;     // Dégâts infligés au joueur
+</code></pre>
+<p>Déclarations de variables public</p>
+<ul>
+<li>
+<p>waypoint1 et waypoint2 sont des objets de type Transform, c’est-à-dire des points de référence dans l’espace. Le monstre va alterner entre ces deux positions.</p>
+</li>
+<li>
+<p>speed détermine la vitesse à laquelle le monstre se déplace entre les waypoints.</p>
+</li>
+<li>
+<p>damage est le montant de dégâts que le monstre inflige au joueur s’il entre en collision avec lui.</p>
+</li>
+</ul>
+<pre><code class="language-c#">private Transform targetWaypoint;  // Waypoint cible actuel
+private SpriteRenderer spriteRenderer;  // Pour flipper le sprite
+</code></pre>
+<p>Variables privées</p>
+<ul>
+<li>
+<p>targetWaypoint est la cible actuelle du monstre. Il alterne entre waypoint1 et waypoint2.</p>
+</li>
+<li>
+<p>spriteRenderer est utilisé pour changer la direction dans laquelle le sprite du monstre fait face (gauche ou droite) en utilisant la fonction flipX.</p>
+</li>
+</ul>
+<pre><code class="language-c#">    void Start()
+    {
+        // Initialement, le monstre se déplace vers le premier waypoint
+        targetWaypoint = waypoint1;
+
+        // Récupérer le SpriteRenderer pour pouvoir flip le sprite
+        spriteRenderer = GetComponent&lt;SpriteRenderer&gt;();
+    }
+</code></pre>
+<h2 id="start-1"><a class="header" href="#start-1">Start()</a></h2>
+<ul>
+<li>
+<p>Le targetWaypoint est initialisé à waypoint1, ce qui signifie que le monstre commencera son déplacement vers ce premier point.</p>
+</li>
+<li>
+<p>Le SpriteRenderer du monstre est récupéré via <code>GetComponent&lt;SpriteRenderer&gt;()</code>, ce qui permet de modifier visuellement le sprite (comme le flip horizontal).</p>
+</li>
+</ul>
+<pre><code class="language-c#">    void MoveTowardsWaypoint()
+    {
+        // Déplacer le monstre vers le waypoint cible
+        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
+
+        // Flip du sprite selon la direction
+        if (targetWaypoint.position.x &lt; transform.position.x)
+        {
+            spriteRenderer.flipX = flipInversi ? false : true;
+        }
+        else
+        {
+            spriteRenderer.flipX = flipInversi ? true : false;
+        }
+
+        // Si le monstre atteint le waypoint cible
+        if (Vector2.Distance(transform.position, targetWaypoint.position) &lt; 0.1f)
+        {
+            targetWaypoint = (targetWaypoint == waypoint1) ? waypoint2 : waypoint1;
+        }
+    }
+</code></pre>
+<h2 id="movetowardswaypoint"><a class="header" href="#movetowardswaypoint">MoveTowardsWaypoint()</a></h2>
+<p>C’est ici que se passe toute la logique de déplacement et de gestion du sprite.</p>
+<ul>
+<li>
+<p>Déplacement vers le waypoint : Le monstre se déplace vers la position du waypoint cible (soit waypoint1, soit waypoint2) à une vitesse déterminée par speed. Le déplacement utilise la fonction Vector2.MoveTowards, qui déplace progressivement un objet d’un point A à un point B à une vitesse donnée.</p>
+</li>
+<li>
+<p>Flip du sprite : Selon la position actuelle du waypoint cible par rapport à celle du monstre, le sprite sera “flippé” horizontalement. Si le monstre se déplace vers la gauche (le x du waypoint est inférieur à celui du monstre), il sera retourné, et inversement s’il se déplace vers la droite.</p>
+</li>
+<li>
+<p>Changement de waypoint : Une fois que le monstre est suffisamment proche (moins de 0.1f de distance) du waypoint actuel, il change de direction en assignant la nouvelle cible à l’autre waypoint (ceci se fait via une comparaison ternaire, sans booléen supplémentaire).</p>
+</li>
+</ul>
+<p>Voici une version plus simple et lisible du changement de cible pour les waypoints.</p>
+<pre><code class="language-c#">// Si le monstre est actuellement en train de se déplacer vers le premier waypoint (waypoint1)
+if (targetWaypoint == waypoint1)
+{
+    // Alors, change la cible vers le deuxième waypoint (waypoint2)
+    targetWaypoint = waypoint2;
+}
+else
+{
+    // Sinon, revient au premier waypoint (waypoint1)
+    targetWaypoint = waypoint1;
+}
+</code></pre>
+<h2 id="update-1"><a class="header" href="#update-1">Update()</a></h2>
+<p>Elle est appelée à chaque frame, c’est la méthode principale qui fait évoluer le comportement du monstre en temps réel.</p>
+<ul>
+<li>La méthode MoveTowardsWaypoint() est appelée ici pour gérer le déplacement du monstre en continu.</li>
+</ul>
+<pre><code class="language-c#">    void Update()
+    {
+        // Déplacement vers le waypoint cible
+        MoveTowardsWaypoint();
+    }
+</code></pre>
+<p>Une fois les variables correctement initialisées et les waypoints créés dans votre scène, votre squelette devrait désormais se déplacer automatiquement entre les deux points, soit de gauche à droite, soit de droite à gauche, en fonction du premier waypoint que vous avez défini.</p>
+<pre><code class="language-c#">    // Détection de collision avec le joueur
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent&lt;PlayerController&gt;() != null )
+        {
+            // Log les dégâts infligés au joueur
+            Debug.Log("Le joueur subit " + damage + " points de dégâts.");
+        }
+    }
+</code></pre>
+<h2 id="ontriggerenter2d"><a class="header" href="#ontriggerenter2d">OnTriggerEnter2D()</a></h2>
+<p>Cette méthode est déclenchée lorsqu’une collision 2D se produit entre le monstre et un autre objet, en l’occurrence le joueur.</p>
+<ul>
+<li>Vérification du joueur : Lorsque le monstre entre en collision avec un objet ayant un composant PlayerController (supposé être le joueur), il inflige des dégâts (définis par la variable damage), qui sont simplement affichés dans la console via Debug.Log.</li>
+</ul>
+<p>Une fois que votre squelette entre en collision avec le personnage, vous remarquerez un message s’afficher dans la console. Cela indique que la détection de collision fonctionne comme prévu. À ce stade, nous reviendrons sur ce script plus en détail lorsque nous aurons défini le système de points de vie pour le joueur.</p>
+<p>Pour éviter de recréer un squelette de zéro, nous allons créer un prefab. Pour ce faire, faites simplement glisser le squelette depuis la scène vers le dossier de projet dans l’inspecteur. Cela sauvegardera le squelette en tant que prefab.</p>
+<h2 id="quest-ce-quun-prefab-dans-unity-"><a class="header" href="#quest-ce-quun-prefab-dans-unity-">Qu’est-ce qu’un prefab dans Unity ?</a></h2>
+<p>Un prefab est un modèle de GameObject qui peut être facilement réutilisé dans votre projet. Cela vous permet de créer des instances de ce modèle sans avoir à le configurer à chaque fois. Les prefabs sont très utiles pour la gestion d’objets dans un jeu, car ils vous permettent de :</p>
+<ul>
+<li>
+<p>Standardiser les objets : Un prefab garantit que chaque instance d’un objet a les mêmes composants et paramètres.</p>
+</li>
+<li>
+<p>Faciliter les modifications : Si vous modifiez le prefab d’origine, toutes les instances déjà placées dans la scène peuvent être mises à jour automatiquement.</p>
+</li>
+<li>
+<p>Économiser du temps : Vous pouvez rapidement ajouter de nouveaux objets à votre scène en créant simplement une instance du prefab.</p>
+</li>
+</ul>
+<p>En utilisant les prefabs, vous rendrez votre flux de travail beaucoup plus efficace, surtout lorsqu’il s’agit de gérer de nombreux objets similaires dans un jeu.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="gestion-des-points-de-vie-et-game-over"><a class="header" href="#gestion-des-points-de-vie-et-game-over">Gestion des points de vie et game over</a></h1>
+<p>Dans la continuité, nous allons maintenant explorer un script essentiel pour tout jeu : la gestion des points de vie (HP) du héros ainsi que la réapparition (spawn) en cas de mort. Ce script, que nous nommerons HeroStats, nous permettra de mieux comprendre comment gérer les dégâts reçus par un personnage et comment le réinitialiser lorsqu’il perd tous ses points de vie.</p>
+<pre><code class="language-c#">public int maxHealth = 5;  // Points de vie maximum
+[SerializeField]
+private int currentHealth; // Points de vie actuels
+public Transform spawnPoint; // Point de réapparition en cas de mort
+</code></pre>
+<h2 id="variables-du-script-herostats"><a class="header" href="#variables-du-script-herostats">Variables du script HeroStats</a></h2>
+<p>Dans ce script, nous utilisons plusieurs variables pour stocker et manipuler les données de notre personnage :</p>
+<ul>
+<li>
+<p>maxHealth : Le nombre maximum de points de vie que le personnage peut avoir. Ici, on lui donne une valeur par défaut de 5, mais elle est modifiable dans l’éditeur Unity.</p>
+</li>
+<li>
+<p>currentHealth : Les points de vie actuels du personnage, initialisés à leur valeur maximale au démarrage. C’est une variable serialisée afin de pouvoir l’afficher dans l’éditeur Unity tout en étant privée.</p>
+</li>
+<li>
+<p>spawnPoint : Un point de réapparition sous forme de Transform. Ce sera l’endroit où le héros sera téléporté après sa mort.</p>
+</li>
+</ul>
+<h2 id="méthode-start"><a class="header" href="#méthode-start">Méthode Start()</a></h2>
+<pre><code class="language-c#">void Start()
+{
+    // Initialiser les points de vie au maximum au démarrage
+    currentHealth = maxHealth;
+
+    // Vérifier si le spawnPoint est null
+    if (spawnPoint == null)
+    {
+        Debug.LogError("Le spawnPoint est null. Veuillez définir un point de réapparition pour le joueur.");
+    }
+}
+</code></pre>
+<ul>
+<li>
+<p>Initialisation des points de vie : Au démarrage du jeu, les points de vie sont initialisés à leur maximum, c’est-à-dire que le héros commence l’aventure en pleine forme.</p>
+</li>
+<li>
+<p>Vérification du spawnPoint : On vérifie si le spawnPoint est bien défini. Si ce n’est pas le cas, un message d’erreur est affiché dans la console pour que vous puissiez corriger cela dans l’éditeur Unity.</p>
+</li>
+</ul>
+<h2 id="méthode-takedamage"><a class="header" href="#méthode-takedamage">Méthode TakeDamage()</a></h2>
+<pre><code class="language-c#">public void TakeDamage(int damage)
+{
+    // Réduire les points de vie en fonction des dégâts reçus
+    currentHealth -= damage;
+    Debug.Log("Le héros subit " + damage + " points de dégâts. Points de vie restants: " + currentHealth);
+
+    // Si les points de vie tombent à 0 ou moins, le héros meurt
+    if (currentHealth &lt;= 0)
+    {
+        Die(); // Appel de la méthode Die si le joueur n'a plus de points de vie
+    }
+}
+</code></pre>
+<ul>
+<li>
+<p>Réduction des points de vie : À chaque fois que le héros subit des dégâts (lorsqu’il touche un ennemi, par exemple), la valeur des points de vie est réduite du montant indiqué par damage.</p>
+</li>
+<li>
+<p>Vérification des points de vie : Si les points de vie tombent à zéro ou en dessous, la méthode Die() est appelée.</p>
+</li>
+</ul>
+<h2 id="méthode-die"><a class="header" href="#méthode-die">Méthode Die()</a></h2>
+<pre><code class="language-c#">private void Die()
+{
+    Debug.Log("Le héros est mort.");
+    
+    // Réinitialiser les points de vie au maximum
+    currentHealth = maxHealth;
+
+    // Téléporter le héros au point de réapparition (spawn)
+    transform.position = spawnPoint.position;
+    Debug.Log("Le héros a été réinitialisé au point de spawn.");
+}
+</code></pre>
+<p>Lorsque les points de vie atteignent zéro, il est temps de gérer la “mort” du personnage avec la méthode Die() :</p>
+<ul>
+<li>
+<p>Réinitialisation des points de vie : Le héros récupère tous ses points de vie, simulant une “réapparition” après sa mort.</p>
+</li>
+<li>
+<p>Téléportation au spawnPoint : Le héros est téléporté à un point de réapparition prédéfini, simulant une seconde chance ou un retour à un point de sauvegarde.</p>
+</li>
+</ul>
+<p>Avec ce script, vous pouvez maintenant gérer les points de vie et la réapparition d’un personnage dans un jeu Unity. À chaque fois que le héros subit des dégâts, ses points de vie sont réduits, et si ses points de vie atteignent zéro, il meurt, puis réapparaît à un point de spawn prédéfini.</p>
+<p>Pour le moment, créez un objet Empty à la position de départ de notre héros. Cela servira de repère pour le point de spawn du joueur.</p>
+<ol>
+<li>
+<p>Cliquez droit dans la Hiérarchie et sélectionnez Create Empty pour générer un objet vide.</p>
+</li>
+<li>
+<p>Placez cet objet à l’endroit souhaité en ajustant ses coordonnées dans l’inspecteur sous Transform.</p>
+</li>
+<li>
+<p>Nommez-le “HeroSpawnPoint” pour faciliter son identification.</p>
+</li>
+</ol>
+<p>Ce sera le point de réapparition du joueur après la mort ou lors d’événements spécifiques.</p>
+<p>Revenons à notre squelette et modifions sa méthode OnTriggerEnter2D pour que le joueur subisse des dégâts lors de la collision.</p>
+<p><img src="Cours/img/monste2.png" alt=""></p>
+<pre><code class="language-c#">// Détection de collision avec le joueur
+private void OnTriggerEnter2D(Collider2D collision)
+{
+    // Vérifie si l'objet en collision a un script HeroStats
+    HeroStats heroStats = collision.gameObject.GetComponent&lt;HeroStats&gt;();
+
+    if (heroStats != null)
+    {
+        // Appelle la méthode TakeDamage pour infliger des dégâts
+        heroStats.TakeDamage(damage);
+        Debug.Log("Le joueur a subi " + damage + " points de dégâts.");
+    }
+}
+</code></pre>
+<p>Vérification de la présence du script HeroStats : La première étape consiste à vérifier si l’objet avec lequel le squelette entre en collision est bien le joueur. Pour ce faire, on utilise la méthode <code>GetComponent&lt;HeroStats&gt;()</code>. Cela permet de récupérer le script HeroStats qui gère la vie du joueur. Si l’objet en collision n’est pas le joueur (par exemple, une autre entité), heroStats sera null et aucune action ne sera effectuée.</p>
+<p>Infliger des dégâts : Si l’objet en collision possède un script HeroStats, cela signifie que c’est bien le joueur. On appelle alors la méthode TakeDamage(damage) pour réduire ses points de vie. La variable damage est définie dans le script du squelette et représente la quantité de dégâts que le joueur subit à chaque collision.</p>
+<h2 id="spawnpointchanger"><a class="header" href="#spawnpointchanger">SpawnPointChanger</a></h2>
+<p>Nous allons maintenant introduire une nouvelle fonctionnalité dans notre jeu : les points de spawn dynamiques. Ces points permettent au joueur de changer son lieu de réapparition au fur et à mesure qu’il progresse dans les niveaux.</p>
+<p>Le script SpawnPointChanger a été conçu pour gérer cette mécanique. À chaque fois que le joueur entre en collision avec un certain objet (comme un checkpoint), ce dernier change automatiquement son point de réapparition à un nouvel endroit prédéfini.</p>
+<pre><code class="language-c#">using UnityEngine;
+
+public class SpawnPointChanger : MonoBehaviour
+{
+    public Transform newSpawnPoint;  // Nouveau point de spawn à définir pour le joueur
+
+    // Méthode déclenchée lors de la collision avec un objet (trigger)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Récupérer le script HeroStats du joueur en collision
+        HeroStats heroStats = collision.GetComponent&lt;HeroStats&gt;();
+
+        if (heroStats != null)  // Si le joueur possède un script HeroStats
+        {
+            ChangeSpawnPoint(heroStats);  // Changer le point de spawn du joueur
+        }
+    }
+
+    // Méthode pour changer le point de spawn du joueur
+    private void ChangeSpawnPoint(HeroStats heroStats)
+    {
+        if (newSpawnPoint != null)  // Vérifie si le nouveau point de spawn est défini
+        {
+            heroStats.spawnPoint = newSpawnPoint;  // Met à jour le point de spawn du joueur
+            Debug.Log("Nouveau spawn point défini pour le joueur : " + newSpawnPoint.position);
+        }
+        else
+        {
+            Debug.LogWarning("Aucun nouveau point de spawn défini !");
+        }
+    }
+}
+</code></pre>
+<h3 id="variables"><a class="header" href="#variables">Variables</a></h3>
+<ul>
+<li>public Transform newSpawnPoint;
+<ul>
+<li>Cette variable stocke le nouveau point de réapparition pour le joueur. Elle est paramétrée depuis l’éditeur Unity et représente l’endroit où le joueur réapparaîtra après avoir été téléporté.</li>
+</ul>
+</li>
+</ul>
+<h3 id="méthode-ontriggerenter2d"><a class="header" href="#méthode-ontriggerenter2d">Méthode OnTriggerEnter2D</a></h3>
+<ul>
+<li>
+<p>Cette méthode est automatiquement déclenchée lorsque l’objet auquel ce script est attaché entre en collision avec un autre objet dans le jeu. Ici, on détecte spécifiquement la collision avec le joueur.</p>
+</li>
+<li>
+<p>HeroStats heroStats = <code>collision.GetComponent&lt;HeroStats&gt;()</code>;</p>
+<ul>
+<li>
+<p>On utilise cette ligne pour vérifier si l’objet avec lequel il y a eu collision possède le script HeroStats. Si c’est le cas, cela signifie que l’objet est bien le joueur (car le joueur a ce script attaché).</p>
+</li>
+<li>
+<p>ChangeSpawnPoint(heroStats);</p>
+<ul>
+<li>Si le joueur est détecté, la méthode ChangeSpawnPoint est appelée pour changer le point de réapparition du joueur.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="méthode-changespawnpoint"><a class="header" href="#méthode-changespawnpoint">Méthode ChangeSpawnPoint</a></h3>
+<ul>
+<li>
+<p>if (newSpawnPoint != null)</p>
+<ul>
+<li>Avant de procéder, le script vérifie si la nouvelle position de réapparition est bien définie. Cela permet d’éviter des erreurs en cas d’oubli.</li>
+</ul>
+</li>
+<li>
+<p>heroStats.spawnPoint = newSpawnPoint;</p>
+<ul>
+<li>
+<p>Cette ligne met à jour le point de réapparition du joueur avec la nouvelle position définie dans newSpawnPoint.</p>
+</li>
+<li>
+<p>Debug.Log(“Nouveau spawn point défini pour le joueur : “ + newSpawnPoint.position);</p>
+<ul>
+<li>Un message est affiché dans la console pour confirmer que le point de réapparition a bien été mis à jour.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="résumé-du-fonctionnement"><a class="header" href="#résumé-du-fonctionnement">Résumé du fonctionnement</a></h3>
+<p>Ce script est utilisé dans les situations où vous souhaitez permettre au joueur de modifier son point de réapparition en atteignant certains points dans le niveau, comme des checkpoints.</p>
+<p>Lorsqu’il entre en collision avec un objet spécifique (comme un checkpoint), son point de réapparition est mis à jour pour correspondre à une nouvelle position, permettant ainsi au joueur de réapparaître à cet endroit en cas de mort.</p>
+<h2 id="teleporttrigger"><a class="header" href="#teleporttrigger">TeleportTrigger</a></h2>
+<p>Dans de nombreux jeux vidéo, surtout dans les genres de plateforme, il est courant que le joueur puisse tomber dans le vide. Pour éviter des frustrations dues à une mort injuste ou à un retour en arrière excessif, un système de téléportation est souvent mis en place. Ce script permet au joueur de réapparaître à un point de spawn prédéfini lorsqu’il entre en collision avec un trigger.</p>
+<pre><code class="language-c#">using UnityEngine;
+
+public class TeleportTrigger : MonoBehaviour
+{
+    // Détection du trigger lorsque le joueur entre dans la zone
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Vérifie si l'objet qui entre en collision possède le script HeroStats
+        HeroStats heroStats = collision.GetComponent&lt;HeroStats&gt;();
+        
+        if (heroStats != null)  // Vérifie si le joueur a un script HeroStats attaché
+        {
+            TeleportPlayer(heroStats);  // Téléporte le joueur à son spawnPoint
+        }
+    }
+
+    // Méthode pour téléporter le joueur à la position de son spawnPoint
+    private void TeleportPlayer(HeroStats heroStats)
+    {
+        if (heroStats.spawnPoint != null)  // Vérifie que le spawnPoint est défini
+        {
+            heroStats.transform.position = heroStats.spawnPoint.position;  // Téléporte le joueur au spawn
+            Debug.Log("Joueur téléporté au spawn point : " + heroStats.spawnPoint.position);
+        }
+        else
+        {
+            Debug.LogWarning("Aucun spawnPoint défini pour le joueur !");
+        }
+    }
+}
+</code></pre>
+<p>Dans ce script, nous travaillons avec une zone de trigger, qui est une zone spéciale dans le jeu qui détecte les collisions avec d’autres objets. Lorsque le joueur entre dans cette zone, la méthode OnTriggerEnter2D est activée. Cette méthode vérifie si l’objet entrant a un script HeroStats attaché, ce qui nous permet de déterminer s’il s’agit bien du joueur.</p>
+<p>Une fois que nous avons confirmé que c’est le joueur, nous appelons la méthode TeleportPlayer. Cette méthode change la position du joueur pour le téléporter à son point de spawn défini. Cela est particulièrement utile dans des situations comme la chute dans un vide, où nous voulons que le joueur réapparaisse à un endroit sûr sans avoir à redémarrer le niveau.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="introduction-au-canvas-dans-unity"><a class="header" href="#introduction-au-canvas-dans-unity">Introduction au Canvas dans Unity</a></h1>
+<p>Le Canvas est un élément fondamental dans Unity pour gérer les interfaces utilisateur (UI). Il agit comme un conteneur qui peut contenir tous les éléments UI, tels que les boutons, les textes, et bien sûr, les barres de vie. Le Canvas gère le rendu de ces éléments à l’écran, leur permettant d’interagir avec le joueur en fonction des événements du jeu.</p>
+<ul>
+<li>
+<p>Les types de Canvas</p>
+<ul>
+<li>
+<p>Screen Space - Overlay : C’est le mode par défaut. Les éléments UI sont affichés directement au-dessus de la scène et s’ajustent automatiquement à la taille de l’écran.</p>
+</li>
+<li>
+<p>Screen Space - Camera : Dans ce mode, le Canvas est lié à une caméra spécifique. Les éléments UI apparaissent dans l’espace de la caméra, ce qui permet une perspective différente, notamment pour les jeux 3D.</p>
+</li>
+<li>
+<p>World Space : Ce mode permet d’intégrer les éléments UI dans l’environnement 3D. Cela signifie que les éléments UI se comportent comme des objets 3D dans le monde du jeu, pouvant être déplacés et interagir avec d’autres objets.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="Cours/img/canvas.png" alt=""></p>
+<p>Le Canvas dans Unity est un outil polyvalent utilisé pour créer une variété d’interfaces utilisateur (UI) dans les jeux. Voici quelques exemples d’utilisation courante du Canvas :</p>
+<ol>
+<li>
+<p>Menus de Jeu : Les menus principaux, les options, et les écrans de pause sont souvent créés avec le Canvas. Cela inclut des éléments comme des boutons pour démarrer le jeu, charger une partie, ou ajuster les paramètres audio et visuels. Les menus peuvent également contenir des animations pour une expérience utilisateur plus fluide et engageante.</p>
+</li>
+<li>
+<p>Barres de Vie et Statistiques : Comme mentionné précédemment, les barres de vie pour les personnages ou les ennemis sont couramment affichées sur le Canvas. De plus, les informations telles que l’énergie, le mana, ou d’autres statistiques peuvent être affichées à l’aide de sliders ou d’autres éléments graphiques.</p>
+</li>
+<li>
+<p>HUD (Heads-Up Display) : Un HUD est souvent intégré dans le Canvas pour afficher des informations critiques pendant le jeu. Cela peut inclure la santé du joueur, le score, les munitions restantes, ou des notifications de missions en cours.</p>
+</li>
+<li>
+<p>Notifications et Indicateurs : Les notifications contextuelles, comme des alertes ou des conseils pour le joueur, peuvent être affichées à l’aide d’éléments UI sur le Canvas. Cela permet de guider le joueur sans interrompre le flux de jeu.</p>
+</li>
+<li>
+<p>Écrans de Chargement : Lorsqu’un jeu passe d’une scène à une autre, un écran de chargement peut être affiché via le Canvas. Cela peut inclure des animations, des pourcentages de progression, ou des conseils sur le jeu.</p>
+</li>
+<li>
+<p>Systèmes de Dialogue : Dans les jeux d’aventure ou de rôle, le Canvas est souvent utilisé pour afficher les dialogues entre personnages, permettant au joueur d’interagir et de choisir des réponses.</p>
+</li>
+<li>
+<p>Inventaires et Écrans de Gestion : Les systèmes d’inventaire, où les joueurs peuvent voir, utiliser ou échanger des objets, sont généralement créés à l’aide du Canvas. Cela peut inclure des grilles, des boutons d’utilisation, et des descriptions d’objets.</p>
+</li>
+</ol>
+<p>Ces exemples montrent la flexibilité et l’importance du Canvas dans la conception d’interfaces utilisateur interactives et attrayantes dans Unity. Pour plus de détails sur les éléments UI et le Canvas dans Unity, consultez la documentation officielle d’Unity.</p>
+<h2 id="création-dune-barre-de-vie"><a class="header" href="#création-dune-barre-de-vie">Création d’une Barre de Vie</a></h2>
+<p>Pour créer une barre de vie, nous allons utiliser le Canvas dans le mode Screen Space - Overlay. Voici les étapes de base :</p>
+<ol>
+<li>
+<p>Créer un Canvas : Dans Unity, faites un clic droit dans la hiérarchie, puis sélectionnez UI &gt; Canvas. Cela créera un nouvel objet Canvas dans votre scène.</p>
+</li>
+<li>
+<p>Ajouter une Barre de Vie : Faites un clic droit sur le Canvas et sélectionnez UI &gt; Slider pour créer une barre de vie. Le Slider agira comme la barre de vie où nous pourrons ajuster la valeur en fonction des points de vie du personnage.</p>
+</li>
+<li>
+<p>Personnaliser le Slider : Dans l’inspecteur, vous pouvez modifier les propriétés du Slider, telles que le minimum et le maximum. Pour une barre de vie, vous pouvez définir le minimum à 0 et le maximum à la santé maximale du joueur.</p>
+</li>
+<li>
+<p>Ajouter du Texte : Pour afficher les points de vie actuels et max, vous pouvez ajouter un élément Text (ou TextMeshPro pour une meilleure qualité de texte) en tant qu’enfant du Canvas.</p>
+</li>
+</ol>
+<p>Cette configuration vous permettra de visualiser les points de vie du joueur en temps réel, créant ainsi une expérience plus immersive pour le joueur.</p>
+<p><img src="Cours/img/canvas2.png" alt=""></p>
+<pre><code class="language-c#">using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class HpBarUi : MonoBehaviour
+{
+    #region Singleton
+    public static HpBarUi instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("Il y a déjà un HpBarUi dans la scène !");
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+    #endregion 
+
+    // Référence au slider de la barre de vie
+    public Slider hpSlider;
+
+    // Référence au texte affichant les points de vie (avec TextMeshPro)
+    public TextMeshProUGUI hpText;
+
+    // Méthode pour mettre à jour la barre de vie et le texte
+    public void SetHpBarValue(int hp, int hpMax)
+    {
+        // Met à jour la valeur du slider
+        hpSlider.value = (float)hp / hpMax;
+
+        // Met à jour le texte avec le format "hp/hpMax"
+        hpText.text = hp + " / " + hpMax;
+    }
+}
+</code></pre>
+<p>Le script HpBarUi gère l’affichage de la barre de vie du joueur dans l’interface utilisateur. Il utilise un modèle singleton pour garantir une seule instance dans la scène. Il possède des références à un Slider pour la barre de vie et un texte affichant les points de vie. La méthode SetHpBarValue met à jour le slider et le texte en fonction des points de vie actuels et maximaux, offrant ainsi une visualisation en temps réel de la santé du personnage.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="création-du-menu-principal"><a class="header" href="#création-du-menu-principal">Création du menu principal</a></h1>
+<p>Il est maintenant temps de passer à la création d’un menu principal pour notre jeu. Nous allons créer un menu simple avec deux boutons : “Play” pour démarrer le jeu et “Exit” pour quitter.</p>
+<p><img src="Cours/img/menu.png" alt=""></p>
+<p>Voici les étapes détaillées :</p>
+<ol>
+<li>
+<p>Créer une nouvelle scène : Dans Unity, allez dans le menu File &gt; New Scene et enregistrez-la sous le nom MainMenu. Cette scène sera dédiée à l’interface de menu principal.</p>
+</li>
+<li>
+<p>Ajouter la scène au Build Settings : Pour que cette scène soit lancée en premier lorsque le jeu démarre, ouvrez le Build Settings (menu File &gt; Build Settings) et ajoutez votre nouvelle scène MainMenu en cliquant sur Add Open Scenes. Assurez-vous qu’elle soit en première position dans la liste.</p>
+</li>
+<li>
+<p>Créer le Canvas pour le Menu Principal : Faites un clic droit dans la hiérarchie et choisissez UI &gt; Canvas. Renommez ce canvas en MainMenuCanvas. Ce canvas contiendra tous les éléments du menu.</p>
+</li>
+<li>
+<p>Ajouter une Image de Fond : Faites un clic droit sur le Canvas et choisissez UI &gt; Image. Étirez cette image pour qu’elle prenne toute la place sur le Canvas en cliquant sur l’option Stretch dans l’inspecteur. Cette image pourra servir de fond pour le menu.</p>
+</li>
+<li>
+<p>Ajouter un Layout Vertical : Sélectionnez l’image de fond dans la hiérarchie et, dans l’inspecteur, ajoutez un composant Vertical Layout Group. Ce composant permet d’organiser facilement les éléments enfants verticalement.</p>
+</li>
+<li>
+<p>Ajouter le Titre et les Boutons :</p>
+<ul>
+<li>
+<p>Titre : Faites un clic droit sur l’image de fond et choisissez UI &gt; Text. Ce texte représentera le titre de votre jeu. Modifiez le texte et la police selon vos préférences (par exemple : “Titre du Jeu”).</p>
+</li>
+<li>
+<p>Boutons : Faites un clic droit sur l’image de fond et ajoutez deux boutons (UI &gt; Button). Renommez le texte des boutons en “Play” pour démarrer le jeu et “Exit” pour quitter l’application.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="mainmenu"><a class="header" href="#mainmenu">MainMenu</a></h2>
+<p>Nous allons créer un script appelé MainMenu, qui aura pour fonction principale de gérer les interactions de base du menu principal de notre jeu. Ce script comportera deux méthodes essentielles : l’une pour quitter le jeu et l’autre pour charger la première scène du jeu.</p>
+<pre><code class="language-c#">private bool isLoading = false;  // Empêche de lancer plusieurs chargements en même temps
+public string levelToLoad;       // Le nom du niveau à charger, paramétré dans l'Inspector
+</code></pre>
+<p>Dans notre script MainMenu, nous avons deux variables essentielles :</p>
+<ol>
+<li>
+<p>private bool isLoading = false;</p>
+<ul>
+<li>Cette variable sert à indiquer si un chargement de scène est en cours. En la définissant sur true lorsqu’un chargement commence, nous empêchons les utilisateurs de déclencher plusieurs chargements simultanément. Cela évite les conflits qui pourraient survenir si l’utilisateur tente de charger un niveau pendant qu’un autre est déjà en cours.</li>
+</ul>
+</li>
+<li>
+<p>public string levelToLoad;</p>
+<ul>
+<li>Cette variable stocke le nom du niveau à charger, qui peut être configuré directement dans l’Inspector de Unity. En rendant cette variable publique, nous permettons aux développeurs de spécifier facilement quel niveau doit être chargé lorsque l’utilisateur clique sur le bouton “Jouer”. Cela simplifie la gestion des différentes scènes du jeu et rend le script plus flexible.</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-c#">    // Méthode pour quitter l'application
+    public void Exit()
+    {
+        if (!isLoading)  // Si le chargement n'est pas en cours, on peut quitter
+        {
+            Debug.Log("Quitter l'application.");
+            Application.Quit();  // Quitte l'application (fonctionne dans une build, pas dans l'éditeur)
+        }
+    }
+</code></pre>
+<p>La méthode Exit dans ce script est utilisée pour quitter l’application lorsque le joueur clique sur le bouton correspondant dans le menu principal. Elle vérifie d’abord que le chargement d’une scène n’est pas déjà en cours (!isLoading), pour éviter des conflits.</p>
+<p>Si la condition est respectée, le message “Quitter l’application.” est affiché dans la console avec Debug.Log, puis Application.Quit() est appelé pour fermer l’application. Il est important de noter que Application.Quit() ne fonctionne que dans une version buildée du jeu, pas dans l’éditeur Unity. Cela permet d’assurer un comportement propre lors de la fermeture du jeu.</p>
+<pre><code class="language-c#">     // Méthode pour lancer le niveau spécifié de manière asynchrone
+    public void Play()
+    {
+        if (!isLoading &amp;&amp; !string.IsNullOrEmpty(levelToLoad))  // Si le chargement n'est pas déjà en cours et que le nom de la scène est spécifié
+        {
+            Debug.Log("Lancement du niveau : " + levelToLoad);
+            StartCoroutine(LoadLevelAsync(levelToLoad));  // Charge le niveau spécifié
+        }
+        else if (string.IsNullOrEmpty(levelToLoad))
+        {
+            Debug.LogWarning("Aucun niveau à charger n'a été spécifié !");
+        }
+    }
+    // Coroutine pour charger la scène de manière asynchrone avec une string
+    IEnumerator LoadLevelAsync(string sceneName)
+    {
+        isLoading = true;  // Bloque l'accès aux méthodes pendant le chargement
+
+        // Commence à charger la scène asynchrone
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        // Tant que la scène n'est pas complètement chargée, affiche la progression dans la console
+        while (!asyncLoad.isDone)
+        {
+            float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);  // Normalise la progression entre 0 et 1
+            Debug.Log("Chargement en cours : " + (progress * 100f) + "%");
+
+            yield return null;  // Attend la prochaine frame avant de continuer
+        }
+
+        Debug.Log("Niveau " + sceneName + " chargé !");
+        isLoading = false;  // Réactive les méthodes une fois le chargement terminé
+    }
+</code></pre>
+<p>La méthode Play sert à lancer le jeu en chargeant un nouveau niveau, spécifié dans l’Inspector via la variable levelToLoad. Comme pour Exit, elle commence par vérifier que le chargement d’une scène n’est pas déjà en cours et que le nom de la scène à charger n’est pas vide.</p>
+<p>Si toutes les conditions sont réunies, elle démarre une coroutine (StartCoroutine(LoadLevelAsync(levelToLoad))) pour charger le niveau de manière asynchrone, ce qui permet de continuer à exécuter d’autres tâches pendant le chargement de la scène. Si levelToLoad n’a pas été défini, un avertissement est affiché dans la console avec Debug.LogWarning.</p>
+<p>La méthode LoadLevelAsync se charge ensuite du processus de chargement lui-même, en suivant l’avancement avec une barre de progression virtuelle qui affiche les pourcentages dans la console jusqu’à ce que le niveau soit complètement chargé.</p>
+<h2 id="coroutines"><a class="header" href="#coroutines">Coroutines</a></h2>
+<p>Les coroutines en Unity sont des méthodes spéciales qui permettent d’exécuter des actions sur plusieurs frames, ce qui est particulièrement utile pour gérer des opérations asynchrones ou des animations sans bloquer le fil d’exécution principal du jeu.</p>
+<p>Contrairement aux méthodes classiques qui s’exécutent jusqu’à leur fin, les coroutines peuvent être suspendues à des moments spécifiques et reprises plus tard, ce qui permet de créer des comportements fluides.</p>
+<pre><code class="language-c#">using UnityEngine;
+using System.Collections;
+
+public class BlinkingObject : MonoBehaviour
+{
+    public float blinkDuration = 1f; // Durée entre chaque clignotement
+    private Renderer objectRenderer;
+
+    void Start()
+    {
+        objectRenderer = GetComponent&lt;Renderer&gt;();
+        StartCoroutine(Blink());
+    }
+
+    private IEnumerator Blink()
+    {
+        while (true) // Boucle infinie pour le clignotement
+        {
+            objectRenderer.enabled = !objectRenderer.enabled; // Alterne l'état de visibilité
+            yield return new WaitForSeconds(blinkDuration); // Attend avant de clignoter à nouveau
+        }
+    }
+}
+</code></pre>
+<h2 id="création-dun-menu-de-pause"><a class="header" href="#création-dun-menu-de-pause">Création d’un Menu de Pause</a></h2>
+<p>Bien maintenant, nous voulons créer un moyen de passer du jeu au menu principal afin de quitter le jeu. Pour cela, débutons par ajouter au canvas un menu de pause avec marqué “Pause” et un bouton “Exit”.</p>
+<p><img src="Cours/img/menu3.png" alt=""></p>
+<p>Procédure d’Ajout au Canvas</p>
+<ol>
+<li>
+<p>Ajouter une Image d’Arrière-Plan :</p>
+<ul>
+<li>Faites un clic droit sur le Canvas, puis sélectionnez UI &gt; Image.</li>
+<li>Renommez l’image en BackgroundImage. Modifiez ses propriétés pour qu’elle couvre tout le canvas (Position à 0,0 et Width/Height à 0 pour l’étirer). Changez la couleur à noir et l’opacité à 0.5 pour un effet transparent.</li>
+</ul>
+</li>
+<li>
+<p>Ajouter le Texte “Pause” :</p>
+<ul>
+<li>Faites un clic droit sur l’image d’arrière-plan et sélectionnez UI &gt; Text (ou TextMeshPro).</li>
+<li>Renommez le texte en PauseText, et dans l’inspecteur, modifiez-le pour afficher “Pause”. Ajustez la taille de police et la couleur pour qu’il soit bien visible.</li>
+</ul>
+</li>
+<li>
+<p>Ajouter un Bouton “Exit” :</p>
+<ul>
+<li>Faites un clic droit sur l’image d’arrière-plan et sélectionnez UI &gt; Button.</li>
+<li>Renommez ce bouton en ExitButton. Changez le texte en “Exit” et positionnez-le sous le texte “Pause”.</li>
+</ul>
+</li>
+</ol>
+<h3 id="création-dun-script-menupause"><a class="header" href="#création-dun-script-menupause">Création d’un script MenuPause</a></h3>
+<p>Dans ce script MenuPause, nous allons implémenter un système de pause pour notre jeu. Ce système permettra au joueur de mettre le jeu en pause en appuyant sur la touche Échap, d’afficher un menu de pause, et de retourner au menu principal. Le script gère également la mise à jour du temps du jeu, arrêtant et reprenant le temps selon l’état de pause.</p>
+<h3 id="loadmainmenu"><a class="header" href="#loadmainmenu">LoadMainMenu()</a></h3>
+<pre><code class="language-c#">    // Méthode pour retourner au menu principal
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1f;          // S'assure que le temps n'est plus en pause
+        SceneManager.LoadScene("MainMenu");  // Charge la scène du menu principal
+    }
+</code></pre>
+<p>Cette méthode permet de retourner au menu principal en s’assurant que le temps du jeu est repris avant de charger la scène correspondante. Elle utilise SceneManager.LoadScene(“MainMenu”) pour changer de scène.</p>
+<pre><code class="language-c#">public GameObject pauseMenuUI;  // Référence à l'UI du menu de pause
+private bool isPaused = false;  // État du jeu (en pause ou non)
+</code></pre>
+<h3 id="variables-1"><a class="header" href="#variables-1">Variables</a></h3>
+<ul>
+<li>
+<p>public GameObject pauseMenuUI: Cette variable référence l’interface utilisateur du menu de pause que nous avons créée précédemment. Elle sera activée ou désactivée selon que le jeu est en pause ou non.</p>
+</li>
+<li>
+<p>private bool isPaused: Un booléen qui détermine si le jeu est en pause (true) ou non (false).</p>
+</li>
+</ul>
+<h3 id="pausegame"><a class="header" href="#pausegame">PauseGame()</a></h3>
+<pre><code class="language-c#">// Méthode pour mettre en pause le jeu
+public void PauseGame()
+{
+    pauseMenuUI.SetActive(true);  // Affiche le menu de pause
+    Time.timeScale = 0f;          // Arrête le temps dans le jeu
+    isPaused = true;              // Met à jour l'état de pause
+}
+</code></pre>
+<p>La méthode PauseGame() est responsable de mettre le jeu en pause et d’afficher le menu de pause. Voici les étapes détaillées :</p>
+<ul>
+<li>
+<p>Affichage du menu de pause :</p>
+<ul>
+<li>Cette ligne active le menu de pause en modifiant la propriété SetActive de l’objet pauseMenuUI. Cela rend l’interface utilisateur visible à l’écran, permettant au joueur de voir qu’il est en pause.</li>
+</ul>
+</li>
+<li>
+<p>Arrêt du temps :</p>
+<ul>
+<li>En définissant Time.timeScale à 0, tous les éléments du jeu qui dépendent du temps (comme les mouvements, les animations et les effets de physique) sont suspendus. Cela crée l’effet de pause, permettant au joueur de réfléchir ou de faire des choix sans pression.</li>
+</ul>
+</li>
+<li>
+<p>Mise à jour de l’état de pause :</p>
+<ul>
+<li>Cette ligne met à jour la variable isPaused pour indiquer que le jeu est maintenant en pause. Cela peut être utile pour d’autres méthodes ou logiques de jeu qui doivent connaître l’état actuel du jeu.</li>
+</ul>
+</li>
+</ul>
+<p>Par défaut, notre image dans le Canvas est désactivée. Vous pouvez la désactiver en décochant la case correspondante dans l’inspecteur. Cependant, il est important de noter qu’une fois désactivée, la méthode Update() de cet objet ou de ses enfants ne s’exécute plus.</p>
+<p>Pour garantir que le script continue à fonctionner, placez-le en dehors du panel qui sera activé et désactivé. Cela permet de maintenir le contrôle du jeu, même lorsque le menu de pause est masqué.</p>
+<p><img src="Cours/img/inspector.png" alt=""></p>
+<h2 id="resumegame"><a class="header" href="#resumegame">ResumeGame()</a></h2>
+<pre><code class="language-c#">    // Méthode pour reprendre le jeu
+    public void ResumeGame()
+    {
+        pauseMenuUI.SetActive(false); // Cache le menu de pause
+        Time.timeScale = 1f;          // Reprend le temps dans le jeu
+        isPaused = false;             // Met à jour l'état de pause
+    }
+</code></pre>
+<p>La méthode ResumeGame() est utilisée pour reprendre le jeu après une pause.</p>
+<p>Voici les détails :</p>
+<ul>
+<li>
+<p>Masquage du menu de pause :</p>
+<ul>
+<li>Cette ligne désactive le menu de pause, rendant l’interface utilisateur invisible à l’écran. Cela indique au joueur qu’il reprend le jeu.</li>
+</ul>
+</li>
+<li>
+<p>Reprise du temps :</p>
+<ul>
+<li>En définissant Time.timeScale à 1, le jeu reprend son rythme normal. Tous les éléments du jeu recommencent à fonctionner comme prévu, permettant au joueur de continuer à jouer.</li>
+</ul>
+</li>
+<li>
+<p>Mise à jour de l’état de pause :</p>
+<ul>
+<li>Cette ligne met à jour isPaused pour indiquer que le jeu n’est plus en pause. Cela peut être important pour d’autres parties du code qui doivent savoir si le jeu est actif ou non.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-c#">    void Update()
+    {
+        // Vérifie si la touche Échap est pressée
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                ResumeGame();  // Si le jeu est en pause, on reprend le jeu
+            }
+            else
+            {
+                PauseGame();  // Sinon, on met en pause
+            }
+        }
+    }
+</code></pre>
+<p>La méthode Update() vérifie chaque image si la touche Échap est pressée. Si le jeu est en pause, elle appelle ResumeGame() pour reprendre le jeu, sinon, elle appelle PauseGame() pour mettre le jeu en pause.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="exportation-et-publication"><a class="header" href="#exportation-et-publication">Exportation et publication</a></h1>
+<p><img src="Cours/img/export.png" alt=""></p>
+<p>Bien, il est temps maintenant de créer un exécutable que vous pourrez partager. Pour cela, ouvrez le Build Settings et sélectionnez Windows comme plateforme. Ensuite, cliquez sur Build et choisissez un dossier où vous souhaitez enregistrer votre jeu, en lui donnant un nom représentatif, par exemple, le nom de votre jeu.</p>
+<p>Une fois la compilation terminée, n’oubliez pas de lancer l’exécutable pour tester votre jeu. Félicitations, vous venez de créer votre premier jeu avec Unity ! Si vous avez déjà utilisé le moteur, vous savez à quel point cette étape est gratifiante. Maintenant, c’est à vous de jouer et de créer ce que vous désirez.</p>
+<p>Merci d’avoir suivi mon premier cours sur Unity, et à bientôt pour d’autres explorations et découvertes dans le monde du développement de jeux !</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="documentation"><a class="header" href="#documentation">Documentation</a></h1>
+<p>La documentation Unity est une ressource essentielle pour les développeurs souhaitant explorer et maîtriser l’éditeur Unity, ainsi que ses diverses fonctionnalités. Elle offre des guides et des manuels sur la création de jeux 2D et 3D, la gestion des assets, le scripting, et bien plus encore. Les utilisateurs peuvent accéder à des références API pour le développement de scripts et des tutoriels sur l’utilisation des services de jeu intégrés.</p>
+<p>https://docs.unity.com/</p>
+<p>La chaîne YouTube TUTO UNITY FR propose des tutoriels en français sur Unity, adaptés aux débutants et aux développeurs plus avancés. Les vidéos couvrent divers aspects du développement de jeux, comme la programmation, la création d’environnements, et l’animation. Les utilisateurs peuvent y trouver des explications claires et des démonstrations pratiques pour améliorer leurs compétences sur Unity.</p>
+<p>https://www.youtube.com/@TUTOUNITYFR</p>
+<p>OpenGameArt est une plateforme qui fournit des ressources artistiques gratuites pour les développeurs de jeux. Elle propose une vaste collection d’assets, tels que des sprites, des modèles 3D, des sons et de la musique, le tout sous différentes licences. Les utilisateurs peuvent télécharger des ressources et même contribuer en partageant leurs propres créations. Cela permet de favoriser la collaboration et d’aider les développeurs à enrichir leurs projets sans frais.</p>
+<p>https://opengameart.org/</p>
+<p>Mixamo, une plateforme d’Adobe, offre des animations et des modèles 3D pour les développeurs de jeux. Elle permet aux utilisateurs de personnaliser des personnages animés, d’ajouter des mouvements, et de les exporter dans divers formats compatibles avec des moteurs de jeu comme Unity et Unreal Engine. Avec une interface conviviale, Mixamo facilite le processus d’animation sans nécessiter de compétences techniques avancées.</p>
+<p>https://www.mixamo.com/</p>
+<p>Meshy.ai est une plateforme qui permet de créer et de personnaliser facilement des modèles 3D. Elle offre une variété d’actifs et de modèles prédéfinis, ce qui facilite la conception unique pour les utilisateurs débutants et expérimentés. L’interface intuitive et les outils puissants encouragent la créativité sans nécessiter de compétences techniques avancées.</p>
+<p>https://www.meshy.ai/discover</p>
+<p>Suno.com propose des outils d’IA pour générer des modèles audio personnalisés. Sa plateforme permet aux utilisateurs de créer des compositions musicales uniques, d’expérimenter avec différents styles et d’intégrer des voix synthétiques. L’interface est conçue pour être accessible aux créateurs de tous niveaux, favorisant ainsi la créativité dans la production audio.</p>
+<p>https://suno.com/</p>
+<p>L’Asset Store de Unity propose une vaste bibliothèque de ressources pour les développeurs, comprenant des modèles 3D, des textures, des scripts, et des outils pour améliorer le développement de jeux. Les utilisateurs peuvent acheter ou télécharger gratuitement des actifs pour accélérer leur projet. La plateforme facilite la recherche et l’intégration d’éléments variés pour enrichir l’expérience de jeu.</p>
+<p>https://assetstore.unity.com/</p>
+<p>Bing Image Creator permet de générer des images basées sur des descriptions textuelles grâce à une IA. En entrant une description, l’outil transforme cette dernière en image visuelle unique. C’est un outil pratique pour les créateurs souhaitant illustrer rapidement leurs idées sans avoir à les dessiner eux-mêmes.</p>
+<p>https://www.bing.com/images/create</p>
+<p>Stable Diffusion est un modèle d’intelligence artificielle conçu pour générer des images à partir de descriptions textuelles. Il fonctionne en utilisant une technique de “diffusion” qui permet de créer des images réalistes ou artistiques à partir de textes simples. Stable Diffusion est très populaire dans le domaine de l’art généré par l’IA, et il offre de nombreuses options pour contrôler le style, le contenu et la qualité des images créées. Il est également largement utilisé dans des interfaces utilisateur comme celles hébergées sur GitHub ou d’autres outils en ligne.</p>
+<p>https://github.com/AUTOMATIC1111/stable-diffusion-webui</p>
+<p>La chaîne YouTube Gabriel Aguiar Prod. propose des tutoriels et des ressources pour les développeurs de jeux vidéo utilisant Unity. Gabriel Aguiar partage des guides détaillés sur la création d’effets visuels (VFX), des animations et des shaders, ainsi que des astuces pour améliorer la performance et l’apparence des jeux. Ses vidéos sont adaptées aux débutants comme aux utilisateurs avancés souhaitant approfondir leurs compétences dans le développement de jeux, en particulier dans le domaine des effets visuels en temps réel.</p>
+<p>https://www.youtube.com/@GabrielAguiarProd</p>
+<p>La page de ChatGPT sur OpenAI présente les capacités de ce modèle d’IA, conçu pour générer des réponses textuelles similaires à celles d’un humain. Il est utilisé pour une large gamme d’applications, telles que les conversations, l’aide à la programmation, la création de contenu, et plus encore.</p>
+<p>https://openai.com/chatgpt/</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="les-bases-de-unity--lexique"><a class="header" href="#les-bases-de-unity--lexique">Les bases de Unity – Lexique</a></h1>
+<h2 id="unity-1"><a class="header" href="#unity-1">Unity</a></h2>
+<p>Unity est un moteur de jeux vidéo très populaire, utilisé pour créer des jeux en 2D, 3D, réalité augmentée (AR) ou réalité virtuelle (VR). Il offre des outils et des services permettant de développer rapidement des jeux pour de nombreuses plateformes (PC, mobile, console, etc.), avec un environnement simple à prendre en main pour les débutants comme pour les professionnels.</p>
+<h2 id="moteur-de-jeux"><a class="header" href="#moteur-de-jeux">Moteur de Jeux</a></h2>
+<p>Un moteur de jeux est un ensemble d’outils et de technologies qui facilitent la création de jeux vidéo. Dans Unity, le moteur gère la physique, les graphiques, l’intelligence artificielle et d’autres aspects essentiels du gameplay, permettant aux développeurs de se concentrer sur les éléments créatifs sans avoir à tout coder depuis zéro.</p>
+<h2 id="unity-hub-1"><a class="header" href="#unity-hub-1">Unity Hub</a></h2>
+<p>Unity Hub est une application qui centralise la gestion des différentes versions de Unity et des projets que vous développez. Il permet de créer, ouvrir, et gérer vos projets, de télécharger différentes versions du moteur Unity, et d’accéder à des ressources et didacticiels. C’est l’interface de départ pour tout utilisateur de Unity.</p>
+<h2 id="éditeur"><a class="header" href="#éditeur">Éditeur</a></h2>
+<p>L’éditeur Unity est l’environnement principal où le développement de jeux a lieu. Il inclut différents panneaux comme la scène, la hiérarchie et l’inspecteur, qui permettent de manipuler les objets du jeu, de créer des scripts, d’ajouter des effets, de tester le jeu en temps réel, et d’exporter le jeu une fois terminé.</p>
+<h2 id="scène"><a class="header" href="#scène">Scène</a></h2>
+<p>Une scène dans Unity est comme une “page” dans un livre de jeu. C’est là où tout le contenu du jeu est placé : les personnages, les objets, la caméra, la lumière, etc. Un jeu peut être composé de plusieurs scènes, comme un niveau de jeu, un menu ou une cinématique.</p>
+<h2 id="hiérarchie"><a class="header" href="#hiérarchie">Hiérarchie</a></h2>
+<p>Le panneau de hiérarchie affiche une vue organisée de tous les objets présents dans une scène. Les objets sont représentés sous forme d’arborescence, et chaque élément de la hiérarchie peut être un parent ou un enfant d’un autre objet, ce qui est utile pour organiser les éléments du jeu en groupes logiques.</p>
+<h2 id="gameobject"><a class="header" href="#gameobject">GameObject</a></h2>
+<p>Un GameObject est l’entité de base dans Unity. C’est un conteneur qui peut représenter n’importe quoi dans une scène, comme un personnage, une caméra, une lumière ou un simple cube. Chaque GameObject peut contenir différents composants qui ajoutent des fonctionnalités, comme des scripts pour définir son comportement ou des rendus pour afficher des images.</p>
+<h2 id="inspector"><a class="header" href="#inspector">Inspector</a></h2>
+<p>Le panneau Inspector montre les propriétés et paramètres du GameObject sélectionné. Il permet de modifier les composants attachés à l’objet, comme les scripts, la physique, ou l’apparence visuelle. C’est l’endroit où vous ajustez les détails de chaque GameObject pour influencer leur comportement dans le jeu.</p>
+<h2 id="componentscript"><a class="header" href="#componentscript">Component/Script</a></h2>
+<p>Un composant dans Unity est un module qui ajoute des fonctionnalités à un GameObject. Un script est un type particulier de composant, qui est un bout de code écrit en C# et qui définit le comportement spécifique d’un GameObject. Par exemple, un script peut indiquer à un objet de bouger, de détecter des collisions, ou d’interagir avec le joueur.</p>
+<h2 id="assets"><a class="header" href="#assets">Assets</a></h2>
+<p>Les assets sont les ressources utilisées dans le jeu, comme les modèles 3D, les textures, les sons, les animations, ou les scripts. Unity les stocke dans un dossier spécial du projet, et ils peuvent être importés ou créés directement dans l’éditeur. Les assets sont ensuite assignés à des GameObjects pour créer les éléments visuels et interactifs du jeu.</p>
+<h2 id="monobehaviour"><a class="header" href="#monobehaviour">MonoBehaviour</a></h2>
+<p>MonoBehaviour est la classe de base à partir de laquelle tous les scripts Unity dérivent. Lorsqu’un script hérite de MonoBehaviour, il peut être attaché à un GameObject dans Unity et répondre à des événements de jeu comme le démarrage d’un niveau, les mises à jour à chaque image, ou les interactions avec d’autres objets.</p>
+<h2 id="c"><a class="header" href="#c">C#</a></h2>
+<p>C# (prononcé “C-sharp”) est le langage de programmation utilisé dans Unity pour écrire des scripts. C’est un langage moderne, orienté objet, qui permet de définir le comportement des objets dans un jeu, d’interagir avec les composants Unity et de contrôler la logique du jeu.</p>
+<h2 id="variables-2"><a class="header" href="#variables-2">Variables</a></h2>
+<p>Les variables sont des conteneurs de données dans un script qui stockent des informations comme les scores, la position d’un joueur, la santé, ou les paramètres d’un objet. Dans Unity, les variables peuvent être définies et modifiées pour ajuster le comportement d’un GameObject.</p>
+<h2 id="méthodes"><a class="header" href="#méthodes">Méthodes</a></h2>
+<p>Les méthodes sont des blocs de code qui effectuent des actions spécifiques. En C#, les méthodes peuvent être appelées pour exécuter une série d’instructions, comme déplacer un objet, jouer un son, ou détecter une collision. Elles permettent de structurer et d’organiser le code.</p>
+<h2 id="start-2"><a class="header" href="#start-2">Start()</a></h2>
+<p>Start() est une méthode spéciale dans Unity, appelée une seule fois au début de la vie d’un script ou d’un objet dans une scène. C’est souvent utilisé pour initialiser les variables ou définir l’état de départ d’un GameObject.</p>
+<h2 id="update-2"><a class="header" href="#update-2">Update()</a></h2>
+<p>Update() est une méthode appelée à chaque frame (image) du jeu, tant que le script est actif. Elle est utilisée pour gérer des actions qui doivent être mises à jour régulièrement, comme le déplacement d’un personnage ou la détection des entrées de l’utilisateur.</p>
+<h2 id="input"><a class="header" href="#input">Input</a></h2>
+<p>Input fait référence aux interactions de l’utilisateur avec le jeu, comme l’appui sur une touche, le mouvement de la souris, ou l’utilisation d’une manette. Unity fournit des classes spéciales pour capturer ces interactions et permettre au jeu de réagir aux actions des joueurs.</p>
+<h2 id="sprites"><a class="header" href="#sprites">Sprites</a></h2>
+<p>Les sprites sont des images 2D utilisées pour représenter des objets dans les jeux 2D. Ils peuvent être des personnages, des objets, ou des éléments de décor. Unity dispose d’outils pour gérer les sprites, comme les animer ou les modifier directement dans l’éditeur.</p>
+<h2 id="tilemap-1"><a class="header" href="#tilemap-1">Tilemap</a></h2>
+<p>Tilemap est un système dans Unity qui permet de créer des mondes en 2D en disposant des tuiles (ou blocs) sur une grille. Il est couramment utilisé pour les jeux de plateformes ou les RPG, où les niveaux peuvent être construits rapidement à partir de petites images répétitives.</p>
+<h2 id="animator"><a class="header" href="#animator">Animator</a></h2>
+<p>L’Animator est un composant qui contrôle les animations dans Unity. Il permet de définir des transitions entre différentes animations (par exemple, marcher, sauter, courir), et de les relier à des événements ou des conditions spécifiques dans le jeu.</p>
+<h2 id="collider"><a class="header" href="#collider">Collider</a></h2>
+<p>Un Collider est un composant ajouté à un GameObject pour gérer les collisions physiques dans Unity. Il définit la forme de l’objet pour que le moteur de physique sache quand cet objet entre en contact avec un autre, mais n’ajoute pas de mouvement à lui seul.</p>
+<h2 id="collider-trigger"><a class="header" href="#collider-trigger">Collider trigger</a></h2>
+<p>Un Collider Trigger est un type spécial de Collider qui ne bloque pas les objets, mais détecte simplement quand un autre objet entre dans sa zone. Il est souvent utilisé pour déclencher des événements dans un jeu, comme ouvrir une porte ou démarrer une cinématique.</p>
+<h2 id="ontriggerenter"><a class="header" href="#ontriggerenter">OnTriggerEnter()</a></h2>
+<p>OnTriggerEnter() est une méthode qui est appelée lorsqu’un Collider avec le paramètre “Is Trigger” activé entre en contact avec un autre Collider. Cela permet aux développeurs de déclencher des événements lorsqu’un objet entre dans une zone définie, comme activer un événement ou lancer une animation.</p>
+<h2 id="rigidbody"><a class="header" href="#rigidbody">Rigidbody</a></h2>
+<p>Le Rigidbody est un composant utilisé pour donner à un GameObject un comportement physique réaliste dans Unity. Il permet à l’objet d’être affecté par des forces comme la gravité et les collisions. Les objets avec un Rigidbody peuvent être déplacés de manière plus naturelle grâce à la simulation de la physique.</p>
+<h2 id="spriterenderer"><a class="header" href="#spriterenderer">SpriteRenderer</a></h2>
+<p>Le SpriteRenderer est un composant qui permet d’afficher des sprites 2D dans Unity. Il définit comment un sprite est rendu à l’écran, y compris ses propriétés comme la couleur, le tri par ordre de rendu, et les effets de transparence. Grâce à ce composant, les développeurs peuvent facilement gérer l’affichage des graphiques 2D dans leurs jeux.</p>
+<h2 id="inputmanager"><a class="header" href="#inputmanager">InputManager</a></h2>
+<p>L’InputManager est un système de gestion des entrées dans Unity, permettant de définir les actions que les joueurs peuvent effectuer via le clavier, la souris ou une manette. Il permet de créer des mappages d’entrée personnalisés pour gérer les différentes commandes et de centraliser la gestion des interactions utilisateur.</p>
+<h2 id="getcomponent"><a class="header" href="#getcomponent">GetComponent()</a></h2>
+<p>GetComponent() est une méthode utilisée dans les scripts Unity pour accéder à un autre composant attaché à un GameObject. Par exemple, si un script a besoin d’accéder aux propriétés d’un Rigidbody ou d’un SpriteRenderer, il peut appeler <code>GetComponent&lt;Rigidbody&gt;()</code> pour obtenir ce composant. Cela permet une meilleure organisation et modularité dans le code.</p>
+<h2 id="timedeltatime"><a class="header" href="#timedeltatime">Time.deltaTime</a></h2>
+<p>Time.deltaTime est une propriété qui renvoie le temps écoulé depuis la dernière frame, en secondes.En utilisant Time.deltaTime, les développeurs peuvent rendre les mouvements et les animations indépendants de la fréquence d’images, assurant ainsi que le gameplay reste fluide et cohérent sur toutes les plateformes, peu importe le matériel.</p>
+<h2 id="tag-gameobject"><a class="header" href="#tag-gameobject">Tag (gameObject)</a></h2>
+<p>Les Tags sont des étiquettes attribuées aux GameObjects dans Unity, permettant de les identifier facilement dans le code. Par exemple, un GameObject peut être étiqueté comme “Player” ou “Enemy”. Les développeurs peuvent utiliser ces tags pour effectuer des opérations spécifiques, comme détecter des collisions ou interagir avec d’autres objets basés sur leur étiquette.</p>
+<h2 id="layer-gameobject"><a class="header" href="#layer-gameobject">Layer (gameObject)</a></h2>
+<p>Les Layers sont des catégories utilisées pour organiser les GameObjects dans Unity. Chaque GameObject peut être assigné à une Layer, permettant ainsi de contrôler la manière dont les objets interagissent avec d’autres objets dans le jeu, en particulier pour les systèmes de collision et le rendu. Par exemple, on peut créer des Layers spécifiques pour les objets qui doivent être ignorés par
+certaines caméras.</p>
+<h2 id="gizmos"><a class="header" href="#gizmos">Gizmos</a></h2>
+<p>Les Gizmos sont des outils visuels qui aident les développeurs à visualiser des éléments dans l’éditeur Unity. Ils ne sont pas visibles lors de l’exécution du jeu, mais permettent de dessiner des formes ou des lignes pour représenter des objets, des trajectoires, ou des zones de détection. Les Gizmos facilitent la conception et le débogage des scènes.</p>
+<h2 id="waypoint"><a class="header" href="#waypoint">Waypoint</a></h2>
+<p>Les Waypoints sont des points prédéfinis dans un espace de jeu que les objets, comme les ennemis ou les véhicules, peuvent utiliser pour naviguer. En programmant un GameObject pour se déplacer d’un waypoint à un autre, les développeurs peuvent créer des chemins de mouvement intelligents, comme des patrouilles d’ennemis.</p>
+<h2 id="prefab"><a class="header" href="#prefab">PreFab</a></h2>
+<p>Un Prefab est un modèle de GameObject sauvegardé dans Unity, permettant de créer des instances de cet objet facilement. Les Prefabs peuvent contenir des composants, des propriétés et des comportements, ce qui permet aux développeurs de réutiliser des objets sans avoir à les recréer à chaque fois. Cela simplifie la gestion et l’organisation des assets dans un projet.</p>
+<h2 id="build-settings"><a class="header" href="#build-settings">Build Settings</a></h2>
+<p>Build Settings est une fenêtre dans Unity qui permet de configurer les paramètres de construction pour un projet. Les développeurs peuvent choisir la plateforme cible (comme Windows, macOS, Android, etc.), ajouter des scènes à inclure dans la construction, et configurer d’autres options pour personnaliser le comportement du jeu lors de son déploiement.</p>
+<h2 id="spawnpoint"><a class="header" href="#spawnpoint">SpawnPoint</a></h2>
+<p>Un SpawnPoint est un emplacement spécifique dans le jeu où un nouvel objet ou un personnage peut apparaître (ou “spawner”). Les SpawnPoints sont souvent utilisés pour faire réapparaître des ennemis, générer des items, ou introduire des personnages au début d’un niveau.</p>
+<h2 id="debuglog"><a class="header" href="#debuglog">Debug.Log()</a></h2>
+<p>Debug.Log() est une méthode utilisée pour afficher des messages dans la console d’Unity. Cela aide les développeurs à déboguer leurs scripts en leur permettant de suivre l’exécution du code, de vérifier les valeurs des variables ou de comprendre le flux logique de leur programme. Les messages apparaissent pendant le mode de jeu et peuvent être très utiles pour le diagnostic.</p>
+<h2 id="canvas"><a class="header" href="#canvas">Canvas</a></h2>
+<p>Le Canvas est un composant essentiel dans Unity pour le développement d’interfaces utilisateur (UI). Il sert de conteneur pour tous les éléments UI, tels que les boutons, les images, et les textes. Le Canvas gère le rendu et l’organisation de ces éléments dans l’espace de jeu, et il permet aux développeurs de concevoir des interfaces réactives et adaptatives.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
